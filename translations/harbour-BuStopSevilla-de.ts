@@ -15,10 +15,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ask!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Bus stop code</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26,16 +22,27 @@
         <source>Ask for a bus stop code</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Pick stop!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LinesPage</name>
+    <message>
+        <source>Lines</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SecondPage</name>
     <message>
-        <source>Nested Page</source>
-        <translation>Unterseite</translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <translation>Element</translation>
+        <source>Select a line</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

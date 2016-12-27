@@ -63,6 +63,7 @@ Page {
 //                font.pixelSize: Theme.fontSizeSmall
 //            }
             Repeater{
+                id:timesList
                 model: var_tiempos_llegada.length
                 Column{
                     width: column.width
@@ -101,15 +102,31 @@ Page {
                 id:busStopCode
                 width: parent.width*0.5
                 anchors.horizontalCenter: parent.horizontalCenter
+//                anchors.top: timesList.bottom
                 placeholderText: qsTr("Ask for a bus stop code")
                 label:qsTr("Bus stop code")
             }
-            Button{
+            Item{
+                width: parent.width*0.9
+                height: Theme.itemSizeMedium
+//                anchors.top: busStopCode.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Ask!")
-                onClicked: {
-                    pythonMain.ask();
-                    var_tiempos_llegada = [];
+                Button{
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    text: qsTr("Pick stop!")
+                    onClicked: {
+                        pageStack.push("LinesPage.qml")
+                    }
+                }
+                Button{
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    text: qsTr("Ask!")
+                    onClicked: {
+                        pythonMain.ask();
+                        var_tiempos_llegada = [];
+                    }
                 }
             }
         }

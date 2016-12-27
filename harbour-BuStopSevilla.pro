@@ -210,4 +210,5 @@ DISTFILES += \
     qml/pages/suds/sudsobject.py \
     qml/pages/suds/version.py \
     qml/pages/suds/wsdl.py \
-    qml/pages/suds/wsse.py
+    qml/pages/suds/wsse.py \
+    qml/pages/LinesPage.qml

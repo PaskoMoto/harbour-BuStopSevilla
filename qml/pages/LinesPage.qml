@@ -32,52 +32,55 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 Page{
-    id: page
-    anchors.fill: parent
-    PageHeader{
-        title: qsTr("Select a line")
-    }
-    SilicaGridView {
-        width: parent.width
-        height: parent.height*0.9
-        id:viewGrid
-        Rectangle{
-            anchors.fill: parent
-            color: 'white'
-            z: -1
+    SilicaListView{
+        anchors.fill: parent
+        header: PageHeader{
+            title: qsTr("Lines")
         }
-
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
         model: ListModel {
-            ListElement { line: "01" }
-            ListElement { line: "02" }
-            ListElement { line: "03" }
-            ListElement { line: "34" }
-            ListElement { line: "06" }
-            ListElement { line: "C1" }
-            ListElement { line: "C2" }
-            ListElement { line: "C3" }
-            ListElement { line: "C4" }
-            ListElement { line: "37" }
+            id: linesModel
+            ListElement { lineNumber: "01"; lineName: "la uno"; lineType: "Normal" }
+            ListElement { lineNumber: "02"; lineName: "la dos"; lineType: "Normal" }
+            ListElement { lineNumber: "03"; lineName: "la tres"; lineType: "Normal" }
+            ListElement { lineNumber: "06"; lineName: "la seis"; lineType: "Normal" }
+            ListElement { lineNumber: "C1"; lineName: "la c1"; lineType: "Circular" }
+            ListElement { lineNumber: "C2"; lineName: "la c2"; lineType: "Circular" }
+            ListElement { lineNumber: "C4"; lineName: "la c4"; lineType: "Circular" }
+            ListElement { lineNumber: "C3"; lineName: "la c3"; lineType: "Circular" }
         }
-        cellWidth: viewGrid.width/5
-        cellHeight: cellWidth
-        delegate: ListItem {
-            contentHeight: viewGrid.cellHeight*0.8
-            contentWidth: contentHeight
-            Rectangle{
-                anchors.fill: parent
-                radius: width
-                color: 'red'
-                Label {
-                    anchors.centerIn: parent
-                    text: line
-                    fontSizeMode: Theme.fontSizeHuge
+        section{
+            property: "lineType"
+            criteria: ViewSection.FullString
+            delegate: Column{
+                width: parent.width
+                Label{
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: section
                 }
             }
-            onClicked: {
-                console.log("Pushed "+line)
+        }
+        delegate: ListItem {
+            width: ListView.view.width
+            height: Theme.itemSizeMedium
+            Rectangle{
+                id: lineIcon
+                anchors.left: parent.left
+                anchors.leftMargin: Theme.itemSizeExtraSmall/4
+                color:'red'
+                height: parent.height*0.8
+                width: height
+                radius: width*0.5
+                Label {
+                    anchors.centerIn: parent
+                    text: lineNumber
+                    font.pixelSize: Theme.fontSizeMedium
+                }
+            }
+            Label{
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: lineIcon.right
+                anchors.leftMargin: Theme.itemSizeExtraSmall/3
+                text: lineName
             }
         }
     }
