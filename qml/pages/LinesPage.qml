@@ -30,24 +30,17 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import "../data"
 
 Page{
+
     SilicaListView{
         anchors.fill: parent
+        spacing: 0
         header: PageHeader{
             title: qsTr("Lines")
         }
-        model: ListModel {
-            id: linesModel
-            ListElement { lineNumber: "01"; lineName: "la uno"; lineType: "Normal" }
-            ListElement { lineNumber: "02"; lineName: "la dos"; lineType: "Normal" }
-            ListElement { lineNumber: "03"; lineName: "la tres"; lineType: "Normal" }
-            ListElement { lineNumber: "06"; lineName: "la seis"; lineType: "Normal" }
-            ListElement { lineNumber: "C1"; lineName: "la c1"; lineType: "Circular" }
-            ListElement { lineNumber: "C2"; lineName: "la c2"; lineType: "Circular" }
-            ListElement { lineNumber: "C4"; lineName: "la c4"; lineType: "Circular" }
-            ListElement { lineNumber: "C3"; lineName: "la c3"; lineType: "Circular" }
-        }
+        model: Lines {}
         section{
             property: "lineType"
             criteria: ViewSection.FullString
@@ -61,25 +54,27 @@ Page{
         }
         delegate: ListItem {
             width: ListView.view.width
-            height: Theme.itemSizeMedium
+            height: Theme.itemSizeSmall
             Rectangle{
                 id: lineIcon
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.itemSizeExtraSmall/4
-                color:'red'
-                height: parent.height*0.8
+                anchors.verticalCenter: parent.verticalCenter
+                color: lineColor
+                height: parent.height*0.9
                 width: height
                 radius: width*0.5
                 Label {
                     anchors.centerIn: parent
                     text: lineNumber
-                    font.pixelSize: Theme.fontSizeMedium
+                    font.pixelSize: Theme.fontSizeSmall
+                    truncationMode: TruncationMode.Fade
                 }
             }
             Label{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: lineIcon.right
-                anchors.leftMargin: Theme.itemSizeExtraSmall/3
+                anchors.leftMargin: Theme.itemSizeExtraSmall/5
                 text: lineName
             }
         }
