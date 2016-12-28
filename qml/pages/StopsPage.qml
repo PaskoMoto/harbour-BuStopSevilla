@@ -30,54 +30,100 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import "../data"
 
 Page{
-    id: page
-    anchors.fill: parent
-    PageHeader{
-        title: qsTr("Select a line")
+    id:pageStops
+    property var theLine
+    property var theColor
+    Loader{
+        id: lineObject
+        source: "../data/Line_"+theLine+".qml"
     }
-    SilicaGridView {
-        width: parent.width
-        height: parent.height*0.9
-        id:viewGrid
-        Rectangle{
-            anchors.fill: parent
-            color: 'white'
-            z: -1
-        }
-
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        model: ListModel {
-            ListElement { line: "01" }
-            ListElement { line: "02" }
-            ListElement { line: "03" }
-            ListElement { line: "34" }
-            ListElement { line: "06" }
-            ListElement { line: "C1" }
-            ListElement { line: "C2" }
-            ListElement { line: "C3" }
-            ListElement { line: "C4" }
-            ListElement { line: "37" }
-        }
-        cellWidth: viewGrid.width/5
-        cellHeight: cellWidth
-        delegate: ListItem {
-            contentHeight: viewGrid.cellHeight*0.8
-            contentWidth: contentHeight
+    SilicaListView{
+        anchors.fill: parent
+        spacing: 0
+        header: Item{
+            width: parent.width
+            height: Theme.itemSizeMedium
             Rectangle{
-                anchors.fill: parent
-                radius: width
-                color: 'red'
+                id: lineIcon
+                anchors.right: parent.right
+                anchors.rightMargin: Theme.itemSizeExtraSmall/6
+                anchors.verticalCenter: parent.verticalCenter
+                color: 'transparent'
+                height: Theme.itemSizeSmall
+                width: height
+                radius: width*0.5
+                border{
+                    width: parent.width/100
+                    color: theColor
+                }
                 Label {
                     anchors.centerIn: parent
-                    text: line
-                    fontSizeMode: Theme.fontSizeHuge
+                    color: Theme.primaryColor
+                    text: theLine
+                    font.pixelSize: Theme.fontSizeMedium
+                    font.bold: true
                 }
             }
+        }
+        model: lineObject.item
+        section{
+            property: "stopDirection"
+            criteria: ViewSection.FullString
+            delegate: Column{
+                width: parent.width
+                Label{
+                    width: parent.width*0.9
+                    anchors.left: pageStops.left
+                    anchors.leftMargin: Theme.itemSizeExtraSmall
+                    text: "> > > "+section
+                    color: Theme.highlightColor
+                    font.pixelSize: Theme.fontSizeLarge
+                    truncationMode: TruncationMode.Fade
+                }
+                Item{
+                    width: parent.width
+                    height: Theme.itemSizeExtraSmall/10
+                }
+                Separator {
+                    color: secondaryColor
+                    height: Theme.itemSizeExtraSmall/50
+                    width: parent.width*0.6
+                }
+                Item{
+                    width: parent.width
+                    height: Theme.itemSizeExtraSmall/10
+                }
+            }
+        }
+        delegate: ListItem {
+            width: ListView.view.width
+            height: Theme.itemSizeSmall
+            Label{
+                id: stopLabel
+                width: Theme.itemSizeSmall*9/12
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: Theme.itemSizeExtraSmall/6
+                text: stopNumber
+                color: Theme.primaryColor
+                font.pixelSize: Theme.fontSizeMedium
+                font.bold: true
+            }
+            Label{
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: stopLabel.right
+                anchors.leftMargin: Theme.itemSizeExtraSmall/5
+                text: stopName
+                color: Theme.primaryColor
+                font.pixelSize: Theme.fontSizeExtraSmall
+                truncationMode: TruncationMode.Fade
+                width: parent.width*0.8
+            }
             onClicked: {
-                console.log("Pushed "+line)
+                console.log("Clic on bus stop "+stopName)
             }
         }
     }

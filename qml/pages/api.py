@@ -11,8 +11,10 @@ def getTiemposLlegada(parada = 154):
     for item in result.lineasCoincidentes.tiempoLinea:
         line = [item.label]
         line.append(str(abs(item.estimacion1.minutos)))
+        line.append(str(abs(item.estimacion1.metros)))
         #test = str(abs(item.estimacion1.minutos))
         line.append(str(abs(item.estimacion2.minutos)))
+        line.append(str(abs(item.estimacion2.metros)))
         output.append(line)
     
     pyotherside.send('TiemposLlegada',output)

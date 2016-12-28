@@ -69,8 +69,10 @@ Page {
                     width: column.width
                     Label {
                         height: Theme.itemSizeExtraSmall/2
-                        width: parent.width
+                        width: Theme.itemSizeMedium
                         anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: parent.left
                         text: "Line: "+var_tiempos_llegada[index][0]
                         color: Theme.secondaryColor
                         font.pixelSize: Theme.fontSizeSmall
@@ -79,7 +81,7 @@ Page {
                         height: Theme.itemSizeExtraSmall/2
                         width: parent.width*0.8
                         anchors.right: parent.right
-                        text: "Estimation: "+var_tiempos_llegada[index][1]+", "+var_tiempos_llegada[index][2]
+                        text: "Estimation: "+var_tiempos_llegada[index][1]+" ("+var_tiempos_llegada[index][2]+" m), "+var_tiempos_llegada[index][3]+" ("+var_tiempos_llegada[index][4]+" m)"
 //                        text: var_tiempos_llegada
                         color: Theme.secondaryColor
                         font.pixelSize: Theme.fontSizeSmall
@@ -97,14 +99,13 @@ Page {
 //                             return false
 //                         }
 //            }
-
             TextField{
                 id:busStopCode
                 width: parent.width*0.5
                 anchors.horizontalCenter: parent.horizontalCenter
-//                anchors.top: timesList.bottom
                 placeholderText: qsTr("Ask for a bus stop code")
                 label:qsTr("Bus stop code")
+                inputMethodHints: Qt.ImhDigitsOnly
             }
             Item{
                 width: parent.width*0.9
@@ -116,13 +117,22 @@ Page {
                     anchors.left: parent.left
                     text: qsTr("Pick stop!")
                     onClicked: {
-                        pageStack.push("LinesPage.qml")
+                        pageStack.push(Qt.resolvedUrl("LinesPage.qml"))
                     }
                 }
                 Button{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
                     text: qsTr("Ask!")
+                    enabled: {
+                        if (busStopCode.text.length > 0){
+                            return true
+                        }
+                        else{
+                            return false
+                        }
+                    }
+
                     onClicked: {
                         pythonMain.ask();
                         var_tiempos_llegada = [];
