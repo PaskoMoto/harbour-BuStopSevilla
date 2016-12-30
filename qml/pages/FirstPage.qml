@@ -36,10 +36,23 @@ Page {
     id: page
     property var var_tiempos_llegada: ""
     property bool modules_unloaded: true
+    property var searchStop: "0"
+    function pushAskButton(){
+        pythonMain.ask();
+        var_tiempos_llegada = [];
+    }
+
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
         anchors.fill: parent
-
+        PullDownMenu{
+            MenuItem{
+                text: qsTr("About")
+                onClicked: {
+                    pageStack.push("About.qml")
+                }
+            }
+        }
         // Tell SilicaFlickable the height of its content.
         contentHeight: column.height
 
@@ -47,7 +60,6 @@ Page {
         // of the page, followed by our content.
         Column {
             id: column
-
             width: page.width
             spacing: Theme.paddingLarge
             PageHeader {
@@ -72,7 +84,7 @@ Page {
                         width: Theme.itemSizeMedium
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.left: parent.left
-                        anchors.leftMargin: parent.left
+                        anchors.leftMargin: Theme.itemSizeExtraSmall/10
                         text: "Line: "+var_tiempos_llegada[index][0]
                         color: Theme.secondaryColor
                         font.pixelSize: Theme.fontSizeSmall
@@ -106,7 +118,14 @@ Page {
                 placeholderText: qsTr("Ask for a bus stop code")
                 label:qsTr("Bus stop code")
                 inputMethodHints: Qt.ImhDigitsOnly
+                text: if(searchStop != "0"){
+                          return searchStop
+                      }
+                      else{
+                          return ""
+                      }
             }
+
             Item{
                 width: parent.width*0.9
                 height: Theme.itemSizeMedium
@@ -121,6 +140,7 @@ Page {
                     }
                 }
                 Button{
+                    id: askButton
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
                     text: qsTr("Ask!")
@@ -134,8 +154,7 @@ Page {
                     }
 
                     onClicked: {
-                        pythonMain.ask();
-                        var_tiempos_llegada = [];
+                        pushAskButton();
                     }
                 }
             }
@@ -150,6 +169,10 @@ Page {
                 modules_unloaded = false;
                 console.log("===> Modules loaded!")
             }
+            if(searchStop > 0){
+                pushAskButton();
+            }
+
             setHandler('TiemposLlegada',function(TiemposLlegada){
                 var_tiempos_llegada = TiemposLlegada;
                 console.log("===> Got some info!!")

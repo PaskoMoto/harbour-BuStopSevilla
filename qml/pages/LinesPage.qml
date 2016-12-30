@@ -56,7 +56,7 @@ Page{
                     height: Theme.itemSizeExtraSmall/10
                 }
                 Separator {
-                    color: secondaryColor
+                    color: Theme.secondaryColor
                     height: Theme.itemSizeExtraSmall/50
                     width: parent.width*0.6
                 }

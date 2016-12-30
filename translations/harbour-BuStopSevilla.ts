@@ -2,6 +2,54 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
+    <name>About</name>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BuStopSevilla is an unofficial app to get arrival times from TUSSAM bus service of Seville city. Arrival times are just an stimation and depends on TUSSAM servers. 
+This app depends on suds libs for easy use of SOAP web services.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>License</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See it in Github</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Support this work</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Develop an app</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make a donation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CoverPage</name>
     <message>
         <source>My Cover</source>
@@ -30,18 +78,15 @@
         <source>Ask!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LinesPage</name>
     <message>
         <source>Lines</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SecondPage</name>
-    <message>
-        <source>Select a line</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

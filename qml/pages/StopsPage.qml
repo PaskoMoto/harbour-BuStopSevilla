@@ -76,8 +76,8 @@ Page{
                 width: parent.width
                 Label{
                     width: parent.width*0.9
-                    anchors.left: pageStops.left
-                    anchors.leftMargin: Theme.itemSizeExtraSmall
+                    anchors.left: parent.left
+                    anchors.leftMargin: Theme.itemSizeExtraSmall/10
                     text: "> > > "+section
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeLarge
@@ -88,7 +88,7 @@ Page{
                     height: Theme.itemSizeExtraSmall/10
                 }
                 Separator {
-                    color: secondaryColor
+                    color: Theme.secondaryColor
                     height: Theme.itemSizeExtraSmall/50
                     width: parent.width*0.6
                 }
@@ -124,6 +124,10 @@ Page{
             }
             onClicked: {
                 console.log("Clic on bus stop "+stopName)
+                console.log("Poping "+pageStack.previousPage()+" and "+ pageStack.previousPage(pageStack.previousPage()))
+                pageStack.pop(pageStack.previousPage(pageStack.previousPage()),PageStackAction.Immediate)
+                pageStack.replaceAbove(null,"FirstPage.qml", {searchStop: stopNumber})
+              //pageStack.push("StopsPage.qml", {theLine: lineNumber, theColor: lineColor})
             }
         }
     }

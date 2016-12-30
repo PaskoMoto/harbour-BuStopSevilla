@@ -19,7 +19,6 @@ SOURCES += src/harbour-BuStopSevilla.cpp
 OTHER_FILES += qml/harbour-BuStopSevilla.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/harbour-BuStopSevilla.changes.in \
     rpm/harbour-BuStopSevilla.spec \
     rpm/harbour-BuStopSevilla.yaml \
@@ -212,4 +211,66 @@ DISTFILES += \
     qml/pages/suds/wsdl.py \
     qml/pages/suds/wsse.py \
     qml/pages/LinesPage.qml \
-    qml/data/Lines.qml
+    qml/data/Lines.qml \
+    qml/pages/StopsPage.qml \
+    qml/data/Line_1.qml \
+    qml/data/Line_10.qml \
+    qml/data/Line_11.qml \
+    qml/data/Line_12.qml \
+    qml/data/Line_13.qml \
+    qml/data/Line_14.qml \
+    qml/data/Line_15.qml \
+    qml/data/Line_16.qml \
+    qml/data/Line_2.qml \
+    qml/data/Line_20.qml \
+    qml/data/Line_21.qml \
+    qml/data/Line_22.qml \
+    qml/data/Line_24.qml \
+    qml/data/Line_25.qml \
+    qml/data/Line_26.qml \
+    qml/data/Line_27.qml \
+    qml/data/Line_28.qml \
+    qml/data/Line_29.qml \
+    qml/data/Line_3.qml \
+    qml/data/Line_30.qml \
+    qml/data/Line_31.qml \
+    qml/data/Line_32.qml \
+    qml/data/Line_34.qml \
+    qml/data/Line_37.qml \
+    qml/data/Line_38.qml \
+    qml/data/Line_39.qml \
+    qml/data/Line_40.qml \
+    qml/data/Line_41.qml \
+    qml/data/Line_43.qml \
+    qml/data/Line_5.qml \
+    qml/data/Line_52.qml \
+    qml/data/Line_53.qml \
+    qml/data/Line_6.qml \
+    qml/data/Line_A1.qml \
+    qml/data/Line_A2.qml \
+    qml/data/Line_A3.qml \
+    qml/data/Line_A4.qml \
+    qml/data/Line_A5.qml \
+    qml/data/Line_A6.qml \
+    qml/data/Line_A7.qml \
+    qml/data/Line_A8.qml \
+    qml/data/Line_B3.qml \
+    qml/data/Line_B4.qml \
+    qml/data/Line_C1.qml \
+    qml/data/Line_C2.qml \
+    qml/data/Line_C3.qml \
+    qml/data/Line_C4.qml \
+    qml/data/Line_C5.qml \
+    qml/data/Line_C6A.qml \
+    qml/data/Line_C6B.qml \
+    qml/data/Line_EA.qml \
+    qml/data/Line_T1.qml \
+    qml/data/Line_01.qml \
+    qml/data/Line_02.qml \
+    qml/data/Line_03.qml \
+    qml/data/Line_05.qml \
+    qml/data/Line_06.qml \
+    qml/pages/About.qml
+
+RESOURCES += \
+    resources.qrc

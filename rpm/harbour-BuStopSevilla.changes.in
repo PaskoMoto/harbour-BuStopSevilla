@@ -8,7 +8,16 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Sun Apr 13 2014 Jack Tar <jack.tar@example.com> 0.0.1-1
-- Scrubbed the deck
-- Hoisted the sails
+* Thu Dec 29 2016 J.Pablo Navarro <elfio@hiperones.es> 0.2-1
+- Added icon.
+- Added numerical keyboard for enter the bus stop.
+- Improved margins.
+- Added distance stimation in meters.
+- Added line and bus stops data base.
+- Added bus stop selection.
+- Added About page.
+- Minor improvements.
+
+* Sun Dec 11 2016 J.Pablo Navarro <elfio@hiperones.es> 0.1-1
+- Initial release.
 
