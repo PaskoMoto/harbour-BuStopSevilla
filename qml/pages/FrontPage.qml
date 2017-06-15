@@ -1,5 +1,196 @@
+/*
+  Copyright (C) 2013 Jolla Ltd.
+  Contact: Thomas Perl <thomas.perl@jollamobile.com>
+  All rights reserved.
+
+  You may use this file under the terms of BSD license as follows:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of the Jolla Ltd nor the
+      names of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR
+  ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 import QtQuick 2.0
+import Sailfish.Silica 1.0
+import io.thp.pyotherside 1.3
 
-Item {
+Page {
+    id: page
+    property var var_tiempos_llegada: ""
+    property bool modules_unloaded: true
+    property var searchStop: "0"
+    function pushAskButton(){
+        pythonMain.ask();
+        var_tiempos_llegada = [];
+    }
 
+    PageHeader{
+        title: qsTr("Front page")
+    }
+    // To enable PullDownMenu, place our content in a SilicaFlickable
+//    Column{
+        width: parent.width
+        SilicaFlickable{
+            anchors{
+                fill: parent
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+                top: parent.top
+            }
+            PullDownMenu{
+                MenuItem{
+                    text: qsTr("About")
+                    onClicked: {
+                        pageStack.push("About.qml")
+                    }
+                }
+            }
+            // Tell SilicaFlickable the height of its content.
+            //        contentHeight: page.height
+
+            SilicaGridView{
+                clip: true
+                id: mainGrid
+                cellHeight: Theme.itemSizeMedium*3
+                cellWidth: Theme.itemSizeMedium*2.3
+                width: Math.floor(parent.width/cellWidth)*cellWidth
+                anchors{
+                    horizontalCenter: parent.Center
+                    left: parent.left
+//                    right: parent.right
+                    bottom: parent.bottom
+                    top: parent.top
+                    topMargin: Theme.itemSizeMedium
+                    leftMargin: (parent.width-width)/2
+//                    rightMargin: (parent.width-width)/4
+                }
+
+            model: ListModel{
+                ListElement{
+                    title: "hola"
+                    icon: "qrc:///res/map.png"
+                }
+                ListElement{
+                    title: "adios"
+                    icon: "qrc:///res/icon.png"
+                }
+                ListElement{
+                    title: "hola"
+                    icon: "qrc:///res/icon.png"
+                }
+                ListElement{
+                    title: "adios"
+                    icon: "qrc:///res/icon.png"
+                }
+                ListElement{
+                    title: "hola que tal estan ustedes"
+                    icon: "qrc:///res/icon.png"
+                }
+            }
+            delegate: BackgroundItem {
+//                contentHeight: height
+//                contentWidth: width
+                width: contentWidth
+                height: contentHeight
+                onClicked: console.log("clicked!")
+                Item{
+                    height: mainGrid.cellHeight
+                    width: mainGrid.cellWidth
+                    Rectangle{
+                        anchors{
+                            left: parent.left
+                            leftMargin: Theme.itemSizeExtraSmall/10
+                            right: parent.right
+                            rightMargin: Theme.itemSizeExtraSmall/10
+                            top: parent.top
+                            topMargin: Theme.itemSizeExtraSmall/10
+                            bottom: parent.bottom
+                            bottomMargin: Theme.itemSizeExtraSmall/10
+                        }
+                        color: Theme.secondaryColor
+                        opacity: 0.2
+                    }
+                    Image {
+                        anchors{
+                            horizontalCenter: parent.horizontalCenter
+                            top: parent.top
+                            topMargin: Theme.itemSizeExtraSmall/2
+                        }
+
+                        id: imageIcon
+                        width: Theme.itemSizeExtraLarge
+                        height: width
+                        source: icon
+                    }
+                    Label{
+                        width: parent.width*0.9
+                        wrapMode: Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors{
+                            horizontalCenter: parent.horizontalCenter
+                            top: imageIcon.bottom
+                            topMargin: Theme.itemSizeExtraSmall/5
+                        }
+                        text: title
+                        color: Theme.primaryColor
+                    }
+                }
+            }
+
+
+            /*Python{
+        id:pythonMain
+        Component.onCompleted: {
+            if(modules_unloaded){
+                addImportPath(Qt.resolvedUrl('.'));
+                importModule('api', function () {});
+                modules_unloaded = false;
+                console.log("===> Modules loaded!")
+            }
+            if(searchStop > 0){
+                pushAskButton();
+            }
+
+            setHandler('TiemposLlegada',function(TiemposLlegada){
+                var_tiempos_llegada = TiemposLlegada;
+                console.log("===> Got some info!!")
+            });
+            pushAskButton(); // Develop hack
+        }
+//        function ask(){
+//            call('api.getTiemposLlegada', function() {});
+//        }
+        function ask(){
+            call('api.getTiemposLlegada', [busStopCode.text] , function(parada) {});
+            console.log("Details requested.")
+        }
+
+        onReceived:
+            {
+                // All the stuff you send, not assigned to a 'setHandler', will be shown here:
+                console.log('got message from python: ' + data);
+            }
+    }*/
+        }
+    }
 }
+

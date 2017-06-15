@@ -84,6 +84,17 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     </message>
 </context>
 <context>
+    <name>FrontPage</name>
+    <message>
+        <source>Front page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LinesPage</name>
     <message>
         <source>Lines</source>
