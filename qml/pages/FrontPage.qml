@@ -43,7 +43,7 @@ Page {
     }
 
     PageHeader{
-        title: qsTr("Front page")
+        title: qsTr("BuStop Sevilla")
     }
     // To enable PullDownMenu, place our content in a SilicaFlickable
 //    Column{
@@ -70,93 +70,81 @@ Page {
             SilicaGridView{
                 clip: true
                 id: mainGrid
-                cellHeight: Theme.itemSizeMedium*3
-                cellWidth: Theme.itemSizeMedium*2.3
+                cellHeight: Theme.itemSizeMedium*2.75
+                cellWidth: Theme.itemSizeMedium*2.2
                 width: Math.floor(parent.width/cellWidth)*cellWidth
                 anchors{
                     horizontalCenter: parent.Center
                     left: parent.left
-//                    right: parent.right
                     bottom: parent.bottom
                     top: parent.top
-                    topMargin: Theme.itemSizeMedium
+                    topMargin: Theme.itemSizeExtraSmall
                     leftMargin: (parent.width-width)/2
-//                    rightMargin: (parent.width-width)/4
                 }
 
             model: ListModel{
                 ListElement{
-                    title: "hola"
+                    title: qsTr("Bus stop")
+                    icon: "qrc:///res/bus_stop.png"
+                    move2: "FirstPage.qml"
+                }
+                ListElement{
+                    title: "Stops map"
                     icon: "qrc:///res/map.png"
+                    move2: "FirstPage.qml"
                 }
                 ListElement{
-                    title: "adios"
-                    icon: "qrc:///res/icon.png"
+                    title: "Nearest stops?"
+                    icon: "image://theme/icon-m-whereami"
+                    move2: "FirstPage.qml"
                 }
                 ListElement{
-                    title: "hola"
-                    icon: "qrc:///res/icon.png"
+                    title: "Usual stops"
+                    icon: "image://theme/icon-m-favorite"
+                    move2: "FirstPage.qml"
                 }
                 ListElement{
-                    title: "adios"
-                    icon: "qrc:///res/icon.png"
+                    title: "Lines"
+                    icon: "image://theme/icon-l-document"
+                    move2: "FirstPage.qml"
                 }
                 ListElement{
-                    title: "hola que tal estan ustedes"
-                    icon: "qrc:///res/icon.png"
+                    title: "Check card balance"
+                    icon: "image://theme/icon-l-mobile-network"
+                    move2: "FirstPage.qml"
                 }
             }
             delegate: BackgroundItem {
-//                contentHeight: height
-//                contentWidth: width
-                width: contentWidth
-                height: contentHeight
-                onClicked: console.log("clicked!")
-                Item{
-                    height: mainGrid.cellHeight
-                    width: mainGrid.cellWidth
-                    Rectangle{
-                        anchors{
-                            left: parent.left
-                            leftMargin: Theme.itemSizeExtraSmall/10
-                            right: parent.right
-                            rightMargin: Theme.itemSizeExtraSmall/10
-                            top: parent.top
-                            topMargin: Theme.itemSizeExtraSmall/10
-                            bottom: parent.bottom
-                            bottomMargin: Theme.itemSizeExtraSmall/10
-                        }
-                        color: Theme.secondaryColor
-                        opacity: 0.2
+                height: mainGrid.cellHeight
+                width: mainGrid.cellWidth
+                onClicked: {
+                    console.log("clicked!")
+                    pageStack.push(move2)
+                }
+                Image {
+                    anchors{
+                        horizontalCenter: parent.horizontalCenter
+                        top: parent.top
+                        topMargin: Theme.itemSizeExtraSmall/2
                     }
-                    Image {
-                        anchors{
-                            horizontalCenter: parent.horizontalCenter
-                            top: parent.top
-                            topMargin: Theme.itemSizeExtraSmall/2
-                        }
-
-                        id: imageIcon
-                        width: Theme.itemSizeExtraLarge
-                        height: width
-                        source: icon
+                    id: imageIcon
+                    width: Theme.itemSizeExtraLarge
+                    height: width
+                    source: icon
+                }
+                Label{
+                    width: parent.width*0.9
+                    wrapMode: Text.WordWrap
+                    horizontalAlignment: Text.AlignHCenter
+                    anchors{
+                        horizontalCenter: parent.horizontalCenter
+                        top: imageIcon.bottom
+                        topMargin: Theme.itemSizeExtraSmall/5
                     }
-                    Label{
-                        width: parent.width*0.9
-                        wrapMode: Text.WordWrap
-                        horizontalAlignment: Text.AlignHCenter
-                        anchors{
-                            horizontalCenter: parent.horizontalCenter
-                            top: imageIcon.bottom
-                            topMargin: Theme.itemSizeExtraSmall/5
-                        }
-                        text: title
-                        color: Theme.primaryColor
-                    }
+                    text: title
+                    color: Theme.primaryColor
                 }
             }
-
-
             /*Python{
         id:pythonMain
         Component.onCompleted: {

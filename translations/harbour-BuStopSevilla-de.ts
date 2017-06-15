@@ -86,11 +86,15 @@ This app depends on suds libs for easy use of SOAP web services.</source>
 <context>
     <name>FrontPage</name>
     <message>
-        <source>Front page</source>
+        <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About</source>
+        <source>Bus stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BuStop Sevilla</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

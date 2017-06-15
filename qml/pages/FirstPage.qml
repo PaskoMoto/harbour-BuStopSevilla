@@ -118,13 +118,13 @@ Page {
                 placeholderText: qsTr("Ask for a bus stop code")
                 label:qsTr("Bus stop code")
                 inputMethodHints: Qt.ImhDigitsOnly
-                text: "54"
-//                text: if(searchStop != "0"){
-//                          return searchStop
-//                      }
-//                      else{
-//                          return ""
-//                      }
+//                text: "54" // See line 181, aka develop hack
+                text: if(searchStop != "0"){
+                          return searchStop
+                      }
+                      else{
+                          return ""
+                      }
             }
 
             Item{
@@ -178,7 +178,7 @@ Page {
                 var_tiempos_llegada = TiemposLlegada;
                 console.log("===> Got some info!!")
             });
-            pushAskButton(); // Develop hack
+//            pushAskButton(); // Develop hack
         }
 //        function ask(){
 //            call('api.getTiemposLlegada', function() {});
