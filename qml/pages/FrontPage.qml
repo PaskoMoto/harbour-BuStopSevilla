@@ -42,11 +42,6 @@ Page {
         var_tiempos_llegada = [];
     }
 
-    PageHeader{
-        title: qsTr("BuStop Sevilla")
-    }
-    // To enable PullDownMenu, place our content in a SilicaFlickable
-//    Column{
         width: parent.width
         SilicaFlickable{
             anchors{
@@ -64,9 +59,10 @@ Page {
                     }
                 }
             }
-            // Tell SilicaFlickable the height of its content.
-            //        contentHeight: page.height
-
+            PageHeader{
+                id: header
+                title: qsTr("BuStop Sevilla")
+            }
             SilicaGridView{
                 clip: true
                 id: mainGrid
@@ -94,13 +90,13 @@ Page {
                     move2: "TBDPage.qml"
                 }
                 ListElement{
-                    title: "Nearest stops?"
-                    icon: "image://theme/icon-m-whereami"
+                    title: "Usual stops"
+                    icon: "image://theme/icon-m-favorite"
                     move2: "TBDPage.qml"
                 }
                 ListElement{
-                    title: "Usual stops"
-                    icon: "image://theme/icon-m-favorite"
+                    title: "Nearest stops?"
+                    icon: "image://theme/icon-m-whereami"
                     move2: "TBDPage.qml"
                 }
                 ListElement{
