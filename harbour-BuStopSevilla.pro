@@ -271,7 +271,9 @@ DISTFILES += \
     qml/data/Line_05.qml \
     qml/data/Line_06.qml \
     qml/pages/About.qml \
-    qml/pages/FrontPage.qml
+    qml/pages/FrontPage.qml \
+    qml/pages/TBDPage.qml \
+    qml/pages/StopPage.qml
 
 RESOURCES += \
     resources.qrc

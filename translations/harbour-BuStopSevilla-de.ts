@@ -12,11 +12,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>BuStopSevilla is an unofficial app to get arrival times from TUSSAM bus service of Seville city. Arrival times are just an stimation and depends on TUSSAM servers. 
-This app depends on suds libs for easy use of SOAP web services.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Author</source>
         <translation type="unfinished"></translation>
     </message>
@@ -46,6 +41,11 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     </message>
     <message>
         <source>Make a donation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BuStopSevilla is an unofficial app to get arrival times from TUSSAM bus service of Seville city. Arrival times are just an estimation and depends on TUSSAM servers. 
+This app depends on suds libs for easy use of SOAP web services.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -102,6 +102,20 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <name>LinesPage</name>
     <message>
         <source>Lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StopPage</name>
+    <message>
+        <source>My stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TBDPage</name>
+    <message>
+        <source>To be implemented!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
