@@ -29,7 +29,7 @@ Page {
                 width: parent.width
                 wrapMode: Text.Wrap
                 font.pixelSize: Theme.fontSizeExtraSmall
-                text:qsTr("BuStopSevilla is an unofficial app to get arrival times from TUSSAM bus service of Seville city. Arrival times are just an stimation and depends on TUSSAM servers. \nThis app depends on suds libs for easy use of SOAP web services.")
+                text:qsTr("BuStopSevilla is an unofficial app to get arrival times from TUSSAM bus service of Seville city. Arrival times are just an estimation and depends on TUSSAM servers. \nThis app depends on suds libs for easy use of SOAP web services.")
             }
             Label{
                 text: qsTr("Author")
