@@ -91,27 +91,27 @@ Page {
                 ListElement{
                     title: "Stops map"
                     icon: "qrc:///res/map.png"
-                    move2: "FirstPage.qml"
+                    move2: "TBDPage.qml"
                 }
                 ListElement{
                     title: "Nearest stops?"
                     icon: "image://theme/icon-m-whereami"
-                    move2: "FirstPage.qml"
+                    move2: "TBDPage.qml"
                 }
                 ListElement{
                     title: "Usual stops"
                     icon: "image://theme/icon-m-favorite"
-                    move2: "FirstPage.qml"
+                    move2: "TBDPage.qml"
                 }
                 ListElement{
                     title: "Lines"
                     icon: "image://theme/icon-l-document"
-                    move2: "FirstPage.qml"
+                    move2: "LinesPage.qml"
                 }
                 ListElement{
                     title: "Check card balance"
                     icon: "image://theme/icon-l-mobile-network"
-                    move2: "FirstPage.qml"
+                    move2: "TBDPage.qml"
                 }
             }
             delegate: BackgroundItem {
