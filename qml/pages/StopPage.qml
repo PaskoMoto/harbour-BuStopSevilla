@@ -34,26 +34,30 @@ import QtGraphicalEffects 1.0
 
 Page {
     id:stopPage
-    property var testing_rectangles: false
+    property bool testing_rectangles: false
+    property string current_stop
     SilicaFlickable{
         anchors.fill: parent
         PullDownMenu{
-            MenuItem{
-                text: qsTr("Pin to front page")
-            }
-            MenuItem{
-                text: qsTr("Mark as usual")
-            }
-            MenuItem{
-                text: qsTr("Auto refresh")
-            }
+            //            MenuItem{
+            //                text: qsTr("Pin to front page")
+            //            }
+            //            MenuItem{
+            //                text: qsTr("Mark as usual")
+            //            }
+            //            MenuItem{
+            //                text: qsTr("Auto refresh")
+            //            }
             MenuItem{
                 text: qsTr("Refresh")
+                onClicked: {stopDataModel.clear();
+                    pythonMain.ask(current_stop);}
             }
         }
         ViewPlaceholder {
             id: loadingIndicator
             enabled: if (linesList.count === 0){
+                         populateStopData(rootPage.var_tiempos_llegada);
                          return true
                      }
                      else{
@@ -86,7 +90,7 @@ Page {
                 leftMargin: Theme.itemSizeExtraSmall/10
             }
             font.pixelSize: Theme.fontSizeExtraLarge
-            text: "154"
+            text: current_stop
         }
         Label{
             id: subHeader
@@ -99,7 +103,8 @@ Page {
             truncationMode: TruncationMode.Fade
             font.pixelSize: Theme.fontSizeSmall
             color: Theme.secondaryColor
-            text: "Santa Fe - Niebla u otro nombre muy, muy largo"
+//            text: "Name of the stop: TBD"
+            text: " "
         }
         Item{
             id: topLayer
@@ -110,7 +115,8 @@ Page {
             }
             Image{
                 id: favIcon
-                visible: ! loadingIndicator.enabled
+//                visible: ! loadingIndicator.enabled
+                visible: false
                 source:"image://theme/icon-s-favorite"
                 anchors{
                     verticalCenter: parent.verticalCenter
@@ -125,7 +131,8 @@ Page {
             }
             Image{
                 id: pinIcon
-                visible: ! loadingIndicator.enabled
+//                visible: ! loadingIndicator.enabled
+                visible: false
                 source:"image://theme/icon-s-certificates"
                 anchors{
                     verticalCenter: parent.verticalCenter
@@ -140,7 +147,8 @@ Page {
             }
             Image{
                 id: syncIcon
-                visible: ! loadingIndicator.enabled
+//                visible: ! loadingIndicator.enabled
+                visible: false
                 source:"image://theme/icon-s-sync"
                 anchors{
                     verticalCenter: parent.verticalCenter
@@ -153,7 +161,8 @@ Page {
                     color: Theme.highlightColor
                 }
                 Label{
-                    visible: ! loadingIndicator.enabled
+//                    visible: ! loadingIndicator.enabled
+                    visible: false
                     anchors{
                         verticalCenter: parent.verticalCenter
                         left: syncIcon.right
@@ -184,8 +193,11 @@ Page {
                 id:lastRefresh
                 font.bold: true
                 font.pixelSize: Theme.fontSizeSmall
-                color: "green"
-                text: "10:34"
+                //                color: "green" // To be implemented
+                text: { var now = new Date()
+                    return now.getHours()+":"+now.getMinutes()
+                }
+
             }
             Rectangle{
                 visible: testing_rectangles
@@ -206,48 +218,7 @@ Page {
             }
             spacing: Theme.itemSizeExtraSmall/5
             model: ListModel{
-                ListElement{
-                    line: "01"
-                    first_bus_time: "10"
-                    first_bus_distance: "900"
-                    second_bus_time: "15"
-                    second_bus_distance: "1650"
-                }
-                ListElement{
-                    line: "01"
-                    first_bus_time: "10"
-                    first_bus_distance: "900"
-                    second_bus_time: "15"
-                    second_bus_distance: "1650"
-                }
-                ListElement{
-                    line: "01"
-                    first_bus_time: "10"
-                    first_bus_distance: "900"
-                    second_bus_time: "15"
-                    second_bus_distance: "1650"
-                }
-                ListElement{
-                    line: "01"
-                    first_bus_time: "10"
-                    first_bus_distance: "900"
-                    second_bus_time: "15"
-                    second_bus_distance: "1650"
-                }
-                ListElement{
-                    line: "01"
-                    first_bus_time: "10"
-                    first_bus_distance: "900"
-                    second_bus_time: "15"
-                    second_bus_distance: "1650"
-                }
-                ListElement{
-                    line: "01"
-                    first_bus_time: "10"
-                    first_bus_distance: "900"
-                    second_bus_time: "15"
-                    second_bus_distance: "1650"
-                }
+                id: stopDataModel
             }
             delegate: Item{
                 width: stopPage.width
@@ -271,7 +242,7 @@ Page {
                     Label {
                         anchors.centerIn: parent
                         color: Theme.primaryColor
-                        text: index+5
+                        text: line
                         font.pixelSize: Theme.fontSizeMedium
                         font.bold: true
                     }
@@ -287,6 +258,7 @@ Page {
                         topMargin: Theme.itemSizeExtraSmall/5
                     }
                     Image{
+                        visible: false
                         id: directionBusIcon
                         anchors{
                             verticalCenter: parent.verticalCenter
@@ -302,7 +274,8 @@ Page {
                         }
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.highlightColor
-                        text: "Prado de San Sebastián"
+//                        text: "Direction: TBD"
+                        text: " "
                     }
                     Rectangle{
                         visible: testing_rectangles
@@ -334,7 +307,7 @@ Page {
                             leftMargin: Theme.itemSizeExtraSmall/20
                             verticalCenter: parent.verticalCenter
                         }
-                        text: "5"+qsTr(" minutes")+", "+"900"+qsTr(" meters")
+                        text: first_bus_time+qsTr(" minutes")+", "+first_bus_distance+qsTr(" meters")
                     }
                     Rectangle{
                         visible: testing_rectangles
@@ -371,7 +344,7 @@ Page {
                         }
                         font.pixelSize: Theme.fontSizeExtraSmall
                         color: Theme.secondaryColor
-                        text: "10"+qsTr(" minutes")+", "+"2500"+qsTr(" meters")
+                        text: second_bus_time+qsTr(" minutes")+", "+second_bus_distance+qsTr(" meters")
                     }
                     Rectangle{
                         visible: testing_rectangles
@@ -380,7 +353,6 @@ Page {
                         anchors.fill: parent
                     }
                 }
-
                 Rectangle{
                     visible: testing_rectangles
                     color: "transparent"
@@ -395,5 +367,19 @@ Page {
             }
         }
     }
+    function populateStopData(mylist) {
+        if (mylist){
+            for(var i = 0; i < mylist.length; i++){
+                stopDataModel.append({
+                                         "line": mylist[i][0],
+                                         "first_bus_time": mylist[i][1],
+                                         "first_bus_distance": mylist[i][2],
+                                         "second_bus_time": mylist[i][3],
+                                         "second_bus_distance": mylist[i][4]
+                                     })
+            }
+            var now = new Date()
+            lastRefresh.text = now.getHours()+":"+('0'+now.getMinutes()).slice(-2)
+        }
+    }
 }
-
