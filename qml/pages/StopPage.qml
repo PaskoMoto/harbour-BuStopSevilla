@@ -51,8 +51,34 @@ Page {
                 text: qsTr("Refresh")
             }
         }
+        ViewPlaceholder {
+            id: loadingIndicator
+            enabled: if (linesList.count === 0){
+                         return true
+                     }
+                     else{
+                         return false
+                     }
+            text: qsTr("Loading...")
+            BusyIndicator {
+                anchors{
+                    horizontalCenter: parent.horizontalCenter
+                    top: parent.bottom
+                    topMargin: Theme.itemSizeExtraSmall/2
+                }
+                size: BusyIndicatorSize.Large
+                running: parent.enabled
+            }
+            Rectangle{
+                visible: testing_rectangles
+                anchors.fill: parent
+                color: "transparent"
+                border.color: "white"
+            }
+        }
         Label{
             id: header
+            visible: ! loadingIndicator.enabled
             anchors{
                 top:parent.top
                 topMargin: Theme.itemSizeExtraSmall/2
@@ -64,6 +90,7 @@ Page {
         }
         Label{
             id: subHeader
+            visible: ! loadingIndicator.enabled
             anchors{
                 left: header.left
                 top: header.bottom
@@ -83,6 +110,7 @@ Page {
             }
             Image{
                 id: favIcon
+                visible: ! loadingIndicator.enabled
                 source:"image://theme/icon-s-favorite"
                 anchors{
                     verticalCenter: parent.verticalCenter
@@ -97,7 +125,7 @@ Page {
             }
             Image{
                 id: pinIcon
-                visible: true
+                visible: ! loadingIndicator.enabled
                 source:"image://theme/icon-s-certificates"
                 anchors{
                     verticalCenter: parent.verticalCenter
@@ -109,32 +137,35 @@ Page {
                     source: pinIcon
                     color: Theme.highlightColor
                 }
-                Image{
-                    id: syncIcon
-                    source:"image://theme/icon-s-sync"
+            }
+            Image{
+                id: syncIcon
+                visible: ! loadingIndicator.enabled
+                source:"image://theme/icon-s-sync"
+                anchors{
+                    verticalCenter: parent.verticalCenter
+                    left: pinIcon.right
+                    leftMargin: Theme.itemSizeExtraSmall/10
+                }
+                ColorOverlay{
+                    anchors.fill: syncIcon
+                    source: syncIcon
+                    color: Theme.highlightColor
+                }
+                Label{
+                    visible: ! loadingIndicator.enabled
                     anchors{
                         verticalCenter: parent.verticalCenter
-                        left: pinIcon.right
+                        left: syncIcon.right
                         leftMargin: Theme.itemSizeExtraSmall/10
                     }
-                    ColorOverlay{
-                        anchors.fill: syncIcon
-                        source: syncIcon
-                        color: Theme.highlightColor
-                    }
-                    Label{
-                        anchors{
-                            verticalCenter: parent.verticalCenter
-                            left: syncIcon.right
-                            leftMargin: Theme.itemSizeExtraSmall/10
-                        }
-                        id: time2Refresh
-                        text: "55"+" s"
-                        font.pixelSize: Theme.fontSizeSmall
-                    }
+                    id: time2Refresh
+                    text: "55"+" s"
+                    font.pixelSize: Theme.fontSizeSmall
                 }
             }
             Image{
+                visible: ! loadingIndicator.enabled
                 anchors{
                     right: lastRefresh.left
                     rightMargin: Theme.itemSizeExtraSmall/20
@@ -144,6 +175,7 @@ Page {
                 source:"image://theme/icon-s-time"
             }
             Label{
+                visible: ! loadingIndicator.enabled
                 anchors{
                     right: parent.right
                     rightMargin: Theme.itemSizeExtraSmall/5
@@ -155,7 +187,6 @@ Page {
                 color: "green"
                 text: "10:34"
             }
-
             Rectangle{
                 visible: testing_rectangles
                 anchors.fill: parent
@@ -164,6 +195,7 @@ Page {
             }
         }
         SilicaListView{
+            id: linesList
             clip: true
             width: parent.width
             anchors{
@@ -360,12 +392,6 @@ Page {
                     width: parent.width*2/3
                     color: Theme.secondaryColor
                 }
-
-//                Rectangle{
-//                                width: parent.width
-//                                anchors.horizontalCenter: parent.horizontalCenter
-//                                height: Theme.itemSizeExtraSmall/10
-//                            }
             }
         }
     }
