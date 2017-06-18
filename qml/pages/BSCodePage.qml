@@ -39,8 +39,8 @@ Page {
     property var searchStop: "0"
     property bool testing_rectangles: false
     function pushAskButton(){
-        pythonMain.ask();
-        pageStack.replace("StopPage.qml")
+        pythonMain.ask(busStopCode.text);
+        pageStack.replace("StopPage.qml", {current_stop: busStopCode.text})
     }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -134,38 +134,6 @@ Page {
                 color: "transparent"
                 border.color: "green"
             }
-        }
-    }
-    Python{
-        id:pythonMain
-        Component.onCompleted: {
-            if(modules_unloaded){
-                addImportPath(Qt.resolvedUrl('.'));
-                importModule('api', function () {});
-                modules_unloaded = false;
-                console.log("===> Modules loaded!")
-            }
-            if(searchStop > 0){
-                pushAskButton();
-            }
-            setHandler('TiemposLlegada',function(TiemposLlegada){
-                var_tiempos_llegada = TiemposLlegada;
-                console.log("===> Got some info!!")
-            });
-            //            pushAskButton(); // Develop hack
-        }
-        //        function ask(){
-        //            call('api.getTiemposLlegada', function() {});
-        //        }
-        function ask(){
-            call('api.getTiemposLlegada', [busStopCode.text] , function(parada) {});
-            console.log("Details requested.")
-        }
-
-        onReceived:
-        {
-            // All the stuff you send, not assigned to a 'setHandler', will be shown here:
-            console.log('got message from python: ' + data);
         }
     }
 }
