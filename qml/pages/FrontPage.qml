@@ -41,6 +41,14 @@ Page {
         pythonMain.ask();
         var_tiempos_llegada = [];
     }
+    function toggleBusStopBlock(){
+        if (busStopBlock.visible){
+            busStopBlock.visible = false;
+        }
+        else{
+            busStopBlock.visible = true;
+        }
+    }
 
         width: parent.width
         SilicaFlickable{
@@ -63,6 +71,56 @@ Page {
                 id: header
                 title: qsTr("BuStop Sevilla")
             }
+            Item{
+                id: busStopBlock
+                width: parent.width
+                height: Theme.itemSizeSmall
+                visible: false
+                anchors{
+                    top: header.bottom
+                }
+                TextField{
+                    id:busStopCode
+                    width: parent.width*0.5
+                    anchors{
+                        top: parent.top
+                        topMargin: Theme.itemSizeExtraSmall/5
+                        left: parent.left
+                        leftMargin: Theme.itemSizeExtraSmall/5
+                    }
+                    placeholderText: qsTr("Ask for a bus stop code")
+                    label:qsTr("Bus stop code")
+                    inputMethodHints: Qt.ImhDigitsOnly
+                    text: if(searchStop != "0"){
+                              return searchStop
+                          }
+                          else{
+                              return ""
+                          }
+                }
+                Button{
+                    id: askButton
+                    anchors{
+                        top: parent.top
+                        topMargin: Theme.itemSizeExtraSmall/5
+                        right: parent.right
+                        rightMargin: Theme.itemSizeExtraSmall/5
+                    }
+                    text: qsTr("Ask!")
+                    enabled: {
+                        if (busStopCode.text.length > 0){
+                            return true
+                        }
+                        else{
+                            return false
+                        }
+                    }
+
+//                    onClicked: {
+//                        pushAskButton();
+//                    }
+                }
+            }
             SilicaGridView{
                 clip: true
                 id: mainGrid
@@ -73,7 +131,13 @@ Page {
                     horizontalCenter: parent.Center
                     left: parent.left
                     bottom: parent.bottom
-                    top: parent.top
+//                    top: parent.top
+                    top: if (busStopBlock.visible){
+                             return busStopBlock.bottom
+                         }
+                         else{
+                             return parent.top
+                         }
                     topMargin: Theme.itemSizeExtraSmall
                     leftMargin: (parent.width-width)/2
                 }
@@ -114,8 +178,8 @@ Page {
                 height: mainGrid.cellHeight
                 width: mainGrid.cellWidth
                 onClicked: {
-                    console.log("clicked!")
-                    pageStack.push(move2)
+                    console.log("clicked!"+index)
+                        pageStack.push(move2)
                 }
                 Image {
                     anchors{
@@ -141,39 +205,39 @@ Page {
                     color: Theme.primaryColor
                 }
             }
-            /*Python{
-        id:pythonMain
-        Component.onCompleted: {
-            if(modules_unloaded){
-                addImportPath(Qt.resolvedUrl('.'));
-                importModule('api', function () {});
-                modules_unloaded = false;
-                console.log("===> Modules loaded!")
-            }
-            if(searchStop > 0){
-                pushAskButton();
-            }
+//            Python{
+//        id:pythonMain
+//        Component.onCompleted: {
+//            if(modules_unloaded){
+//                addImportPath(Qt.resolvedUrl('.'));
+//                importModule('api', function () {});
+//                modules_unloaded = false;
+//                console.log("===> Modules loaded!")
+//            }
+//            if(searchStop > 0){
+//                pushAskButton();
+//            }
 
-            setHandler('TiemposLlegada',function(TiemposLlegada){
-                var_tiempos_llegada = TiemposLlegada;
-                console.log("===> Got some info!!")
-            });
-            pushAskButton(); // Develop hack
-        }
-//        function ask(){
-//            call('api.getTiemposLlegada', function() {});
+//            setHandler('TiemposLlegada',function(TiemposLlegada){
+//                var_tiempos_llegada = TiemposLlegada;
+//                console.log("===> Got some info!!")
+//            });
+//            pushAskButton(); // Develop hack
 //        }
-        function ask(){
-            call('api.getTiemposLlegada', [busStopCode.text] , function(parada) {});
-            console.log("Details requested.")
-        }
+////        function ask(){
+////            call('api.getTiemposLlegada', function() {});
+////        }
+//        function ask(){
+//            call('api.getTiemposLlegada', [busStopCode.text] , function(parada) {});
+//            console.log("Details requested.")
+//        }
 
-        onReceived:
-            {
-                // All the stuff you send, not assigned to a 'setHandler', will be shown here:
-                console.log('got message from python: ' + data);
-            }
-    }*/
+//        onReceived:
+//            {
+//                // All the stuff you send, not assigned to a 'setHandler', will be shown here:
+//                console.log('got message from python: ' + data);
+//            }
+//    }
         }
     }
 }
