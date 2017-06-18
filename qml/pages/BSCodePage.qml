@@ -40,6 +40,7 @@ Page {
     property bool testing_rectangles: false
     function pushAskButton(){
         pythonMain.ask();
+        pageStack.replace("StopPage.qml")
     }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -65,8 +66,10 @@ Page {
                     topMargin: Theme.itemSizeExtraSmall/3.3
                 }
                 placeholderText: qsTr("Enter a bus stop code")
+                focus: true
                 label:qsTr("Bus stop code")
                 inputMethodHints: Qt.ImhDigitsOnly
+                EnterKey.onClicked: pushAskButton();
                 //                text: "54" // See line 181, aka develop hack
                 text: if(searchStop != "0"){
                           return searchStop

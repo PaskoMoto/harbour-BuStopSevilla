@@ -146,7 +146,7 @@ Page {
                 ListElement{
                     title: qsTr("Bus stop")
                     icon: "qrc:///res/bus_stop.png"
-                    move2: "FirstPage.qml"
+                    move2: "BSCodePage.qml"
                 }
                 ListElement{
                     title: "Stops map"
