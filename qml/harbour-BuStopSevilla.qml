@@ -35,7 +35,9 @@ import "pages"
 
 ApplicationWindow
 {
+    id: rootPage
     property bool modules_unloaded: true
+    property var var_tiempos_llegada
     initialPage: Component { FrontPage { } }
 //    cover: Qt.resolvedUrl("cover/CoverPage.qml")
     cover: null
@@ -50,9 +52,14 @@ ApplicationWindow
                 modules_unloaded = false;
                 console.log("===> Modules loaded!")
             }
+            setHandler('TiemposLlegada',function(TiemposLlegada){
+                            var_tiempos_llegada = TiemposLlegada;
+                            console.log("===> Got some info!!")
+                        });
         }
-        function ask(){
-            call('api.getTiemposLlegada', [busStopCode.text] , function(parada) {});
+        function ask(stopCode){
+            call('api.getTiemposLlegada', [stopCode] , function(parada) {});
+            var_tiempos_llegada = []
             console.log("Details requested.")
         }
         onReceived:
