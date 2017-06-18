@@ -39,6 +39,11 @@ ListModel {
 	ListElement { lineNumber:"41"; lineName: "Plz. Magadalena - Tablada"; lineColor: "#000d6f"; lineType: "Regular" }
 	ListElement { lineNumber:"43"; lineName: "Plz. Magdalena - El Tardon"; lineColor: "#000d6f"; lineType: "Regular" }
 	ListElement { lineNumber:"52"; lineName: "S. Bernardo - Palmete"; lineColor: "#742929"; lineType: "Regular" }
+	ListElement { lineNumber:"A3"; lineName: "P. San Sebastian - Polig. S. Pablo"; lineColor: "#000000"; lineType: "Regular" }
+	ListElement { lineNumber:"A4"; lineName: "P.S.Sebastian - Sta.Aurelia"; lineColor: "#000000"; lineType: "Regular" }
+	ListElement { lineNumber:"A5"; lineName: "P.San Sebastian - Poligono Sur"; lineColor: "#000000"; lineType: "Regular" }
+	ListElement { lineNumber:"A6"; lineName: "P.S.Sebastian - Heliopolis"; lineColor: "#000000"; lineType: "Regular" }
+	ListElement { lineNumber:"A8"; lineName: "P.S.Sebastian - Alcosa"; lineColor: "#000000"; lineType: "Regular" }
 	ListElement { lineNumber:"B3"; lineName: "Gran Plaza - Santa Clara"; lineColor: "#84c6e3"; lineType: "Regular" }
 	ListElement { lineNumber:"B4"; lineName: "San Bernardo - Torreblanca"; lineColor: "#84c6e3"; lineType: "Regular" }
 	ListElement { lineNumber:"EA"; lineName: "Aeropuerto"; lineColor: "#84c6e3"; lineType: "Regular" }

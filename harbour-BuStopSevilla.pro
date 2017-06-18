@@ -18,7 +18,6 @@ SOURCES += src/harbour-BuStopSevilla.cpp
 
 OTHER_FILES += qml/harbour-BuStopSevilla.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
     rpm/harbour-BuStopSevilla.changes.in \
     rpm/harbour-BuStopSevilla.spec \
     rpm/harbour-BuStopSevilla.yaml \
@@ -38,7 +37,6 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-BuStopSevilla-de.ts
 
 DISTFILES += \
-    qml/pages/api.py \
     qml/pages/suds/__pycache__/__init__.cpython-35.opt-1.pyc \
     qml/pages/suds/__pycache__/__init__.cpython-35.pyc \
     qml/pages/suds/__pycache__/argparser.cpython-35.opt-1.pyc \
@@ -270,7 +268,189 @@ DISTFILES += \
     qml/data/Line_03.qml \
     qml/data/Line_05.qml \
     qml/data/Line_06.qml \
-    qml/pages/About.qml
+    qml/pages/About.qml \
+    qml/pages/FrontPage.qml \
+    qml/pages/TBDPage.qml \
+    qml/pages/StopPage.qml \
+    qml/pages/BSCodePage.qml \
+    qml/api.py \
+    qml/suds/__pycache__/__init__.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/__init__.cpython-35.pyc \
+    qml/suds/__pycache__/argparser.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/argparser.cpython-35.pyc \
+    qml/suds/__pycache__/builder.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/builder.cpython-35.pyc \
+    qml/suds/__pycache__/cache.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/cache.cpython-35.pyc \
+    qml/suds/__pycache__/client.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/client.cpython-35.pyc \
+    qml/suds/__pycache__/metrics.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/metrics.cpython-35.pyc \
+    qml/suds/__pycache__/options.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/options.cpython-35.pyc \
+    qml/suds/__pycache__/plugin.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/plugin.cpython-35.pyc \
+    qml/suds/__pycache__/properties.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/properties.cpython-35.pyc \
+    qml/suds/__pycache__/reader.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/reader.cpython-35.pyc \
+    qml/suds/__pycache__/resolver.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/resolver.cpython-35.pyc \
+    qml/suds/__pycache__/servicedefinition.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/servicedefinition.cpython-35.pyc \
+    qml/suds/__pycache__/serviceproxy.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/serviceproxy.cpython-35.pyc \
+    qml/suds/__pycache__/soaparray.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/soaparray.cpython-35.pyc \
+    qml/suds/__pycache__/store.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/store.cpython-35.pyc \
+    qml/suds/__pycache__/sudsobject.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/sudsobject.cpython-35.pyc \
+    qml/suds/__pycache__/version.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/version.cpython-35.pyc \
+    qml/suds/__pycache__/wsdl.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/wsdl.cpython-35.pyc \
+    qml/suds/__pycache__/wsse.cpython-35.opt-1.pyc \
+    qml/suds/__pycache__/wsse.cpython-35.pyc \
+    qml/suds/bindings/__pycache__/__init__.cpython-35.opt-1.pyc \
+    qml/suds/bindings/__pycache__/__init__.cpython-35.pyc \
+    qml/suds/bindings/__pycache__/binding.cpython-35.opt-1.pyc \
+    qml/suds/bindings/__pycache__/binding.cpython-35.pyc \
+    qml/suds/bindings/__pycache__/document.cpython-35.opt-1.pyc \
+    qml/suds/bindings/__pycache__/document.cpython-35.pyc \
+    qml/suds/bindings/__pycache__/multiref.cpython-35.opt-1.pyc \
+    qml/suds/bindings/__pycache__/multiref.cpython-35.pyc \
+    qml/suds/bindings/__pycache__/rpc.cpython-35.opt-1.pyc \
+    qml/suds/bindings/__pycache__/rpc.cpython-35.pyc \
+    qml/suds/mx/__pycache__/__init__.cpython-35.opt-1.pyc \
+    qml/suds/mx/__pycache__/__init__.cpython-35.pyc \
+    qml/suds/mx/__pycache__/appender.cpython-35.opt-1.pyc \
+    qml/suds/mx/__pycache__/appender.cpython-35.pyc \
+    qml/suds/mx/__pycache__/basic.cpython-35.opt-1.pyc \
+    qml/suds/mx/__pycache__/basic.cpython-35.pyc \
+    qml/suds/mx/__pycache__/core.cpython-35.opt-1.pyc \
+    qml/suds/mx/__pycache__/core.cpython-35.pyc \
+    qml/suds/mx/__pycache__/encoded.cpython-35.opt-1.pyc \
+    qml/suds/mx/__pycache__/encoded.cpython-35.pyc \
+    qml/suds/mx/__pycache__/literal.cpython-35.opt-1.pyc \
+    qml/suds/mx/__pycache__/literal.cpython-35.pyc \
+    qml/suds/mx/__pycache__/typer.cpython-35.opt-1.pyc \
+    qml/suds/mx/__pycache__/typer.cpython-35.pyc \
+    qml/suds/sax/__pycache__/__init__.cpython-35.opt-1.pyc \
+    qml/suds/sax/__pycache__/__init__.cpython-35.pyc \
+    qml/suds/sax/__pycache__/attribute.cpython-35.opt-1.pyc \
+    qml/suds/sax/__pycache__/attribute.cpython-35.pyc \
+    qml/suds/sax/__pycache__/date.cpython-35.opt-1.pyc \
+    qml/suds/sax/__pycache__/date.cpython-35.pyc \
+    qml/suds/sax/__pycache__/document.cpython-35.opt-1.pyc \
+    qml/suds/sax/__pycache__/document.cpython-35.pyc \
+    qml/suds/sax/__pycache__/element.cpython-35.opt-1.pyc \
+    qml/suds/sax/__pycache__/element.cpython-35.pyc \
+    qml/suds/sax/__pycache__/enc.cpython-35.opt-1.pyc \
+    qml/suds/sax/__pycache__/enc.cpython-35.pyc \
+    qml/suds/sax/__pycache__/parser.cpython-35.opt-1.pyc \
+    qml/suds/sax/__pycache__/parser.cpython-35.pyc \
+    qml/suds/sax/__pycache__/text.cpython-35.opt-1.pyc \
+    qml/suds/sax/__pycache__/text.cpython-35.pyc \
+    qml/suds/transport/__pycache__/__init__.cpython-35.opt-1.pyc \
+    qml/suds/transport/__pycache__/__init__.cpython-35.pyc \
+    qml/suds/transport/__pycache__/http.cpython-35.opt-1.pyc \
+    qml/suds/transport/__pycache__/http.cpython-35.pyc \
+    qml/suds/transport/__pycache__/https.cpython-35.opt-1.pyc \
+    qml/suds/transport/__pycache__/https.cpython-35.pyc \
+    qml/suds/transport/__pycache__/options.cpython-35.opt-1.pyc \
+    qml/suds/transport/__pycache__/options.cpython-35.pyc \
+    qml/suds/umx/__pycache__/__init__.cpython-35.opt-1.pyc \
+    qml/suds/umx/__pycache__/__init__.cpython-35.pyc \
+    qml/suds/umx/__pycache__/attrlist.cpython-35.opt-1.pyc \
+    qml/suds/umx/__pycache__/attrlist.cpython-35.pyc \
+    qml/suds/umx/__pycache__/basic.cpython-35.opt-1.pyc \
+    qml/suds/umx/__pycache__/basic.cpython-35.pyc \
+    qml/suds/umx/__pycache__/core.cpython-35.opt-1.pyc \
+    qml/suds/umx/__pycache__/core.cpython-35.pyc \
+    qml/suds/umx/__pycache__/encoded.cpython-35.opt-1.pyc \
+    qml/suds/umx/__pycache__/encoded.cpython-35.pyc \
+    qml/suds/umx/__pycache__/typed.cpython-35.opt-1.pyc \
+    qml/suds/umx/__pycache__/typed.cpython-35.pyc \
+    qml/suds/xsd/__pycache__/__init__.cpython-35.opt-1.pyc \
+    qml/suds/xsd/__pycache__/__init__.cpython-35.pyc \
+    qml/suds/xsd/__pycache__/deplist.cpython-35.opt-1.pyc \
+    qml/suds/xsd/__pycache__/deplist.cpython-35.pyc \
+    qml/suds/xsd/__pycache__/doctor.cpython-35.opt-1.pyc \
+    qml/suds/xsd/__pycache__/doctor.cpython-35.pyc \
+    qml/suds/xsd/__pycache__/query.cpython-35.opt-1.pyc \
+    qml/suds/xsd/__pycache__/query.cpython-35.pyc \
+    qml/suds/xsd/__pycache__/schema.cpython-35.opt-1.pyc \
+    qml/suds/xsd/__pycache__/schema.cpython-35.pyc \
+    qml/suds/xsd/__pycache__/sxbase.cpython-35.opt-1.pyc \
+    qml/suds/xsd/__pycache__/sxbase.cpython-35.pyc \
+    qml/suds/xsd/__pycache__/sxbasic.cpython-35.opt-1.pyc \
+    qml/suds/xsd/__pycache__/sxbasic.cpython-35.pyc \
+    qml/suds/xsd/__pycache__/sxbuiltin.cpython-35.opt-1.pyc \
+    qml/suds/xsd/__pycache__/sxbuiltin.cpython-35.pyc \
+    icons/108x108/harbour-BuStopSevilla.png \
+    icons/128x128/harbour-BuStopSevilla.png \
+    icons/256x256/harbour-BuStopSevilla.png \
+    icons/86x86/harbour-BuStopSevilla.png \
+    qml/suds/bindings/__init__.py \
+    qml/suds/bindings/binding.py \
+    qml/suds/bindings/document.py \
+    qml/suds/bindings/multiref.py \
+    qml/suds/bindings/rpc.py \
+    qml/suds/mx/__init__.py \
+    qml/suds/mx/appender.py \
+    qml/suds/mx/basic.py \
+    qml/suds/mx/core.py \
+    qml/suds/mx/encoded.py \
+    qml/suds/mx/literal.py \
+    qml/suds/mx/typer.py \
+    qml/suds/sax/__init__.py \
+    qml/suds/sax/attribute.py \
+    qml/suds/sax/date.py \
+    qml/suds/sax/document.py \
+    qml/suds/sax/element.py \
+    qml/suds/sax/enc.py \
+    qml/suds/sax/parser.py \
+    qml/suds/sax/text.py \
+    qml/suds/transport/__init__.py \
+    qml/suds/transport/http.py \
+    qml/suds/transport/https.py \
+    qml/suds/transport/options.py \
+    qml/suds/umx/__init__.py \
+    qml/suds/umx/attrlist.py \
+    qml/suds/umx/basic.py \
+    qml/suds/umx/core.py \
+    qml/suds/umx/encoded.py \
+    qml/suds/umx/typed.py \
+    qml/suds/xsd/__init__.py \
+    qml/suds/xsd/deplist.py \
+    qml/suds/xsd/doctor.py \
+    qml/suds/xsd/query.py \
+    qml/suds/xsd/schema.py \
+    qml/suds/xsd/sxbase.py \
+    qml/suds/xsd/sxbasic.py \
+    qml/suds/xsd/sxbuiltin.py \
+    qml/suds/__init__.py \
+    qml/suds/argparser.py \
+    qml/suds/builder.py \
+    qml/suds/cache.py \
+    qml/suds/client.py \
+    qml/suds/metrics.py \
+    qml/suds/options.py \
+    qml/suds/plugin.py \
+    qml/suds/properties.py \
+    qml/suds/reader.py \
+    qml/suds/resolver.py \
+    qml/suds/servicedefinition.py \
+    qml/suds/serviceproxy.py \
+    qml/suds/soaparray.py \
+    qml/suds/store.py \
+    qml/suds/sudsobject.py \
+    qml/suds/version.py \
+    qml/suds/wsdl.py \
+    qml/suds/wsse.py \
+    harbour-BuStopSevilla.pro.user \
+    harbour-BuStopSevilla.pro.user.edb680b
 
 RESOURCES += \
     resources.qrc

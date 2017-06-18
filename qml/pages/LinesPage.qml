@@ -103,7 +103,6 @@ Page{
             }
             onClicked: {
                 console.log("Clic on line "+lineNumber)
-                //pageStack.push(Qt.resolvedUrl("LinesPage.qml"))
                 pageStack.push("StopsPage.qml", {theLine: lineNumber, theColor: lineColor})
             }
         }

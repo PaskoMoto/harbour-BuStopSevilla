@@ -123,11 +123,9 @@ Page{
                 width: parent.width*0.8
             }
             onClicked: {
-                console.log("Clic on bus stop "+stopName)
-                console.log("Poping "+pageStack.previousPage()+" and "+ pageStack.previousPage(pageStack.previousPage()))
-                pageStack.pop(pageStack.previousPage(pageStack.previousPage()),PageStackAction.Immediate)
-                pageStack.replaceAbove(null,"FirstPage.qml", {searchStop: stopNumber})
-              //pageStack.push("StopsPage.qml", {theLine: lineNumber, theColor: lineColor})
+                console.log("Clic on bus stop "+stopNumber)
+                pythonMain.ask(stopNumber);
+                pageStack.replaceAbove(pageStack.previousPage(pageStack.previousPage()),"StopPage.qml", {current_stop: stopNumber})
             }
         }
     }

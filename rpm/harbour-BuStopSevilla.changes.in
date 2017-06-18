@@ -8,6 +8,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Jun 18 2017 J.Pablo Navarro <elfio@hiperones.es> 0.3
+- New UI.
+
 * Thu Dec 29 2016 J.Pablo Navarro <elfio@hiperones.es> 0.2-1
 - Added icon.
 - Added numerical keyboard for enter the bus stop.
