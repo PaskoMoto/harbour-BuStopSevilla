@@ -30,14 +30,36 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import io.thp.pyotherside 1.3
 import "pages"
 
 ApplicationWindow
 {
+    property bool modules_unloaded: true
     initialPage: Component { FrontPage { } }
 //    cover: Qt.resolvedUrl("cover/CoverPage.qml")
     cover: null
     allowedOrientations: Orientation.All
     _defaultPageOrientations: Orientation.All
+    Python{
+        id:pythonMain
+        Component.onCompleted: {
+            if(modules_unloaded){
+                addImportPath(Qt.resolvedUrl('.'));
+                importModule('api', function () {});
+                modules_unloaded = false;
+                console.log("===> Modules loaded!")
+            }
+        }
+        function ask(){
+            call('api.getTiemposLlegada', [busStopCode.text] , function(parada) {});
+            console.log("Details requested.")
+        }
+        onReceived:
+        {
+            // All the stuff you send, not assigned to a 'setHandler', will be shown here:
+            console.log('Got message from python: ' + data);
+        }
+    }
 }
 
