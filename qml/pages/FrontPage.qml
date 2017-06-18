@@ -205,39 +205,6 @@ Page {
                     color: Theme.primaryColor
                 }
             }
-//            Python{
-//        id:pythonMain
-//        Component.onCompleted: {
-//            if(modules_unloaded){
-//                addImportPath(Qt.resolvedUrl('.'));
-//                importModule('api', function () {});
-//                modules_unloaded = false;
-//                console.log("===> Modules loaded!")
-//            }
-//            if(searchStop > 0){
-//                pushAskButton();
-//            }
-
-//            setHandler('TiemposLlegada',function(TiemposLlegada){
-//                var_tiempos_llegada = TiemposLlegada;
-//                console.log("===> Got some info!!")
-//            });
-//            pushAskButton(); // Develop hack
-//        }
-////        function ask(){
-////            call('api.getTiemposLlegada', function() {});
-////        }
-//        function ask(){
-//            call('api.getTiemposLlegada', [busStopCode.text] , function(parada) {});
-//            console.log("Details requested.")
-//        }
-
-//        onReceived:
-//            {
-//                // All the stuff you send, not assigned to a 'setHandler', will be shown here:
-//                console.log('got message from python: ' + data);
-//            }
-//    }
         }
     }
 }
