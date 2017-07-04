@@ -10,19 +10,18 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = harbour-BuStopSevilla
+TARGET = harbour-bustopsevilla
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-BuStopSevilla.cpp
+SOURCES += \
+    src/harbour-bustopsevilla.cpp
 
-OTHER_FILES += qml/harbour-BuStopSevilla.qml \
+OTHER_FILES += qml/harbour-bustopsevilla.qml \
     qml/cover/CoverPage.qml \
-    rpm/harbour-BuStopSevilla.changes.in \
-    rpm/harbour-BuStopSevilla.spec \
-    rpm/harbour-BuStopSevilla.yaml \
-    translations/*.ts \
-    harbour-BuStopSevilla.desktop
+    rpm/harbour-bustopsevilla.spec \
+    rpm/harbour-bustopsevilla.yaml \
+    translations/*.ts
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
@@ -34,7 +33,7 @@ CONFIG += sailfishapp_i18n
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-BuStopSevilla-de.ts
+TRANSLATIONS += translations/harbour-bustopsevilla-de.ts
 
 DISTFILES += \
     qml/pages/suds/__pycache__/__init__.cpython-35.opt-1.pyc \
@@ -449,8 +448,10 @@ DISTFILES += \
     qml/suds/version.py \
     qml/suds/wsdl.py \
     qml/suds/wsse.py \
-    harbour-BuStopSevilla.pro.user \
-    harbour-BuStopSevilla.pro.user.edb680b
+    harbour-bustopsevilla.desktop \
+    harbour-bustopsevilla.pro.user \
+    harbour-bustopsevilla.pro.user.edb680b \
+    rpm/harbour-bustopsevilla.changes.in
 
 RESOURCES += \
     resources.qrc
