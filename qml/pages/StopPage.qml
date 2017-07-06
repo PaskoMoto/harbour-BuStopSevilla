@@ -36,6 +36,7 @@ Page {
     id:stopPage
     property bool testing_rectangles: false
     property string current_stop
+    onStatusChanged:current_page = ['StopPage',current_stop]
     SilicaFlickable{
         anchors.fill: parent
         PullDownMenu{
@@ -86,8 +87,8 @@ Page {
             anchors{
                 top:parent.top
                 topMargin: Theme.itemSizeExtraSmall/2
-                left: parent.left
-                leftMargin: Theme.itemSizeExtraSmall/10
+                right: parent.right
+                rightMargin: Theme.itemSizeExtraSmall/5
             }
             font.pixelSize: Theme.fontSizeExtraLarge
             text: current_stop

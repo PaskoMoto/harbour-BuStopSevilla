@@ -34,10 +34,11 @@ import io.thp.pyotherside 1.3
 
 Page {
     id: page
-    property var var_tiempos_llegada: ""
+    property string var_tiempos_llegada: ""
     property bool modules_unloaded: true
-    property var searchStop: "0"
+    property string searchStop: "0"
     property bool testing_rectangles: false
+    onStatusChanged: current_page = ['BSCodePage']
     function pushAskButton(){
         pythonMain.ask(busStopCode.text);
         pageStack.replace("StopPage.qml", {current_stop: busStopCode.text})

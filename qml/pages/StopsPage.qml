@@ -36,6 +36,7 @@ Page{
     id:pageStops
     property var theLine
     property var theColor
+    onStatusChanged: current_page = ['StopsPage']
     Loader{
         id: lineObject
         source: "../data/Line_"+theLine+".qml"

@@ -35,19 +35,22 @@ CoverBackground {
     Label {
         id: label
         anchors.centerIn: parent
-        text: qsTr("My Cover")
+        text: "BuStopSevilla"
     }
 
     CoverActionList {
         id: coverAction
 
-        CoverAction {
-            iconSource: "image://theme/icon-cover-next"
-        }
+//        CoverAction {
+//            iconSource: "image://theme/icon-cover-next"
+//        }
 
-        CoverAction {
-            iconSource: "image://theme/icon-cover-pause"
-        }
+//        CoverAction {
+//            iconSource: "image://theme/icon-cover-pause"
+//        }
+//        CoverAction {
+//            iconSource: "image://theme/icon-cover-play"
+//        }
     }
 }
 
