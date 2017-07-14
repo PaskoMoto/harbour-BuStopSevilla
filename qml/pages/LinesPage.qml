@@ -30,6 +30,7 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import QtQuick.LocalStorage 2.0
 import "../data"
 
 Page{
@@ -40,7 +41,8 @@ Page{
         header: PageHeader{
             title: qsTr("Lines")
         }
-        model: Lines {}
+        model: ListModel {
+        id:linesListModel}
         section{
             property: "lineType"
             criteria: ViewSection.FullString
@@ -106,5 +108,28 @@ Page{
                 pageStack.push("StopsPage.qml", {theLine: lineNumber, theColor: lineColor})
             }
         }
+    }
+    function getLines(){
+        linesListModel.clear()
+        var db = LocalStorage.openDatabaseSync("data","1.0","Internal data for hitmemap! app.",1000000)
+        db.transaction(
+                    function(tx){
+                        var r1 = tx.executeSql('SELECT * FROM lines WHERE category=circular')
+                        var r2 = tx.executeSql('SELECT * FROM lines WHERE category=largo_recorrdio')
+                        var r3 = tx.executeSql('SELECT * FROM lines WHERE category=regular')
+                        var r4 = tx.executeSql('SELECT * FROM lines WHERE category=circular')
+                        var r5 = tx.executeSql('SELECT * FROM lines WHERE category=especial')
+                        var r6 = tx.executeSql('SELECT * FROM lines WHERE category=tranvia')
+                        var results = r1.concat(r2).concat(r3).concat(r4).concat(r5).concat(r6)
+                        console.log(results)
+                        for(var i = 0; i < results.rows.length; i++){
+                            linesListModel.append({"lineNumber": results.rows.item(i).label,
+                                                      "lineName": results.rows.item(i).name,
+                                                      "lineColor": results.rows.item(i).color,
+                                                      "lineType": results.rows.item(i).category
+                                                  })
+                        }
+                    }
+                    )
     }
 }
