@@ -36,7 +36,6 @@ Page {
     id: page
     property var var_tiempos_llegada: ""
     property bool modules_unloaded: true
-    onStatusChanged: current_page = ['FrontPage']
     property var searchStop: "0"
     function pushAskButton(){
         pythonMain.ask();
@@ -208,5 +207,8 @@ Page {
             }
         }
     }
+        Component.onCompleted: {
+            current_page = ['FrontPage']
+        }
 }
 

@@ -35,7 +35,6 @@ import "../data"
 
 Page{
     id:pageLines
-    onStatusChanged: current_page = ['LinesPage']
     SilicaListView{
         anchors.fill: parent
         spacing: 0
@@ -111,6 +110,7 @@ Page{
         }
     }
     Component.onCompleted: {
+        current_page = ['LinesPage']
         getLines();
     }
 

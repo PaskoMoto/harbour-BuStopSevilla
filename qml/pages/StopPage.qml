@@ -36,7 +36,6 @@ Page {
     id:stopPage
     property bool testing_rectangles: false
     property string current_stop
-    onStatusChanged:current_page = ['StopPage',current_stop]
     SilicaFlickable{
         anchors.fill: parent
         PullDownMenu{
@@ -368,6 +367,10 @@ Page {
             }
         }
     }
+    Component.onCompleted: {
+        current_page = ['StopPage',current_stop]
+    }
+
     function populateStopData(mylist) {
         if (mylist){
             for(var i = 0; i < mylist.length; i++){

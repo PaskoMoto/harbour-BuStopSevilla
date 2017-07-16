@@ -36,7 +36,6 @@ Page{
     id:pageStops
     property var theLine
     property var theColor
-    onStatusChanged: current_page = ['StopsPage']
     Loader{
         id: lineObject
         source: "../data/Line_"+theLine+".qml"
@@ -129,5 +128,8 @@ Page{
                 pageStack.replaceAbove(pageStack.previousPage(pageStack.previousPage()),"StopPage.qml", {current_stop: stopNumber})
             }
         }
+    }
+    Component.onCompleted: {
+        current_page = ['StopsPage']
     }
 }
