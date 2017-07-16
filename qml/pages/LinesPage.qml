@@ -110,6 +110,10 @@ Page{
             }
         }
     }
+    Component.onCompleted: {
+        getLines();
+    }
+
     function getLines(){
         linesListModel.clear()
         var db = LocalStorage.openDatabaseSync("data","1.0","Internal data for hitmemap! app.",1000000)
