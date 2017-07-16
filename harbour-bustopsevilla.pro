@@ -451,7 +451,8 @@ DISTFILES += \
     harbour-bustopsevilla.desktop \
     harbour-bustopsevilla.pro.user \
     harbour-bustopsevilla.pro.user.edb680b \
-    rpm/harbour-bustopsevilla.changes.in
+    rpm/harbour-bustopsevilla.changes.in \
+    qml/cover/CoverStopPage.qml
 
 RESOURCES += \
     resources.qrc

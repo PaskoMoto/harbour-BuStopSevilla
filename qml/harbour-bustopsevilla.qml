@@ -32,15 +32,24 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import io.thp.pyotherside 1.3
 import "pages"
+import "cover"
 
 ApplicationWindow
 {
     id: rootPage
     property bool modules_unloaded: true
     property var var_tiempos_llegada
+    property var current_page
     initialPage: Component { FrontPage { } }
-//    cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    cover: null
+//    cover: Qt.resolvedUrl("cover/CoverStopPage.qml")
+//    cover: Component { CoverStopPage { } }
+    cover: if (current_page[0] === 'StopPage'){
+    return Qt.resolvedUrl("cover/CoverStopPage.qml")
+}
+    else{
+        return Qt.resolvedUrl("cover/CoverPage.qml")
+    }
+
     allowedOrientations: Orientation.All
     _defaultPageOrientations: Orientation.All
     Python{

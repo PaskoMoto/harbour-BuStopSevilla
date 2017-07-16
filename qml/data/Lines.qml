@@ -6,6 +6,7 @@ ListModel {
 	ListElement { lineNumber:"C2"; lineName: "Circular Exterior 2"; lineColor: "#008431"; lineType: "Circular" }
 	ListElement { lineNumber:"C3"; lineName: "Circular Interior 1"; lineColor: "#008431"; lineType: "Circular" }
 	ListElement { lineNumber:"C4"; lineName: "Circular Interior 2"; lineColor: "#008431"; lineType: "Circular" }
+	ListElement { lineNumber:"C5"; lineName: "Circular Centro 5"; lineColor: "#008431"; lineType: "Circular" }
 	ListElement { lineNumber:"C6A"; lineName: "Circular Macarena Norte Sentido A"; lineColor: "#008431"; lineType: "Circular" }
 	ListElement { lineNumber:"01"; lineName: "Plg. Norte H. Virgen del Rocio"; lineColor: "#f54129"; lineType: "Regular" }
 	ListElement { lineNumber:"02"; lineName: "Barqueta Heliopolis"; lineColor: "#f54129"; lineType: "Regular" }
@@ -39,13 +40,19 @@ ListModel {
 	ListElement { lineNumber:"41"; lineName: "Plz. Magadalena - Tablada"; lineColor: "#000d6f"; lineType: "Regular" }
 	ListElement { lineNumber:"43"; lineName: "Plz. Magdalena - El Tardon"; lineColor: "#000d6f"; lineType: "Regular" }
 	ListElement { lineNumber:"52"; lineName: "S. Bernardo - Palmete"; lineColor: "#742929"; lineType: "Regular" }
-	ListElement { lineNumber:"A3"; lineName: "P. San Sebastian - Polig. S. Pablo"; lineColor: "#000000"; lineType: "Regular" }
-	ListElement { lineNumber:"A4"; lineName: "P.S.Sebastian - Sta.Aurelia"; lineColor: "#000000"; lineType: "Regular" }
-	ListElement { lineNumber:"A5"; lineName: "P.San Sebastian - Poligono Sur"; lineColor: "#000000"; lineType: "Regular" }
-	ListElement { lineNumber:"A6"; lineName: "P.S.Sebastian - Heliopolis"; lineColor: "#000000"; lineType: "Regular" }
-	ListElement { lineNumber:"A8"; lineName: "P.S.Sebastian - Alcosa"; lineColor: "#000000"; lineType: "Regular" }
+	ListElement { lineNumber:"A1"; lineName: "Prado San Sebastián - Pino Montano"; lineColor: "#000000"; lineType: "Nighttime" }
+	ListElement { lineNumber:"A2"; lineName: "P.S.Sebastian - Torneo - S.Jeronimo"; lineColor: "#000000"; lineType: "Nighttime" }
+	ListElement { lineNumber:"A3"; lineName: "P. San Sebastian - Polig. S. Pablo"; lineColor: "#000000"; lineType: "Nighttime" }
+	ListElement { lineNumber:"A4"; lineName: "P.S.Sebastian - Sta.Aurelia"; lineColor: "#000000"; lineType: "Nighttime" }
+	ListElement { lineNumber:"A5"; lineName: "P.San Sebastian - Poligono Sur"; lineColor: "#000000"; lineType: "Nighttime" }
+	ListElement { lineNumber:"A6"; lineName: "P.S.Sebastian - Heliopolis"; lineColor: "#000000"; lineType: "Nighttime" }
+	ListElement { lineNumber:"A7"; lineName: "Circular Nocturno"; lineColor: "#000000"; lineType: "Nighttime" }
+	ListElement { lineNumber:"A8"; lineName: "P.S.Sebastian - Alcosa"; lineColor: "#000000"; lineType: "Nighttime" }
 	ListElement { lineNumber:"B3"; lineName: "Gran Plaza - Santa Clara"; lineColor: "#84c6e3"; lineType: "Regular" }
 	ListElement { lineNumber:"B4"; lineName: "San Bernardo - Torreblanca"; lineColor: "#84c6e3"; lineType: "Regular" }
-	ListElement { lineNumber:"EA"; lineName: "Aeropuerto"; lineColor: "#84c6e3"; lineType: "Regular" }
+	ListElement { lineNumber:"C1"; lineName: "Circular Exterior 1"; lineColor: "#008431"; lineType: "Circular" }
+	ListElement { lineNumber:"C2"; lineName: "Circular Exterior 2"; lineColor: "#008431"; lineType: "Circular" }
+	ListElement { lineNumber:"C6A"; lineName: "Circular Macarena Norte Sentido A"; lineColor: "#008431"; lineType: "Circular" }
+	ListElement { lineNumber:"EA"; lineName: "Aeropuerto"; lineColor: "#84c6e3"; lineType: "Special" }
 	ListElement { lineNumber:"T1"; lineName: "Metrocentro"; lineColor: "#c60018"; lineType: "Tranvia" }
 }
