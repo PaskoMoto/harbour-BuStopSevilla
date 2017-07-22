@@ -116,22 +116,40 @@ Page{
 
     function getLines(){
         linesListModel.clear()
-        var db = LocalStorage.openDatabaseSync("data","1.0","Internal data for hitmemap! app.",1000000)
+        var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
         db.transaction(
                     function(tx){
-                        var r1 = tx.executeSql('SELECT * FROM lines WHERE category=circular')
-                        var r2 = tx.executeSql('SELECT * FROM lines WHERE category=largo_recorrdio')
-                        var r3 = tx.executeSql('SELECT * FROM lines WHERE category=regular')
-                        var r4 = tx.executeSql('SELECT * FROM lines WHERE category=circular')
-                        var r5 = tx.executeSql('SELECT * FROM lines WHERE category=especial')
-                        var r6 = tx.executeSql('SELECT * FROM lines WHERE category=tranvia')
-                        var results = r1.concat(r2).concat(r3).concat(r4).concat(r5).concat(r6)
-                        console.log(results)
-                        for(var i = 0; i < results.rows.length; i++){
-                            linesListModel.append({"lineNumber": results.rows.item(i).label,
-                                                      "lineName": results.rows.item(i).name,
-                                                      "lineColor": results.rows.item(i).color,
-                                                      "lineType": results.rows.item(i).category
+                        var query = 'SELECT * FROM lines ORDER BY category ASC'
+                        var r1 = tx.executeSql(query)
+                        var category = ''
+                        for(var i = 0; i < r1.rows.length; i++){
+                            switch (r1.rows.item(i).category){
+                            case '0circular':
+                                category = qsTr("Circular");
+                                break;
+                            case '1largo_recorrido':
+                                category = qsTr("Long Line");
+                                break;
+                            case '2regular':
+                                category = qsTr("Regular");
+                                break;
+                            case '3tranvia':
+                                category = qsTr("Trolley Car");
+                                break;
+                            case '4especial':
+                                category = qsTr("Special");
+                                break;
+                            case '5nocturno':
+                                category = qsTr("Nighttime");
+                                break;
+                            default:
+                                category = qsTr("Other");
+                            }
+
+                            linesListModel.append({"lineNumber": r1.rows.item(i).label,
+                                                      "lineName": r1.rows.item(i).name,
+                                                      "lineColor": r1.rows.item(i).color,
+                                                      "lineType": category
                                                   })
                         }
                     }
