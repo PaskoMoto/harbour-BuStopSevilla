@@ -31,7 +31,6 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
-import "../data"
 
 Page{
     id:pageLines
@@ -105,7 +104,7 @@ Page{
             }
             onClicked: {
                 console.log("Clic on line "+lineNumber)
-                pageStack.push("StopsPage.qml", {theLine: lineNumber, theColor: lineColor})
+                pageStack.push("StopsPage.qml", {theLine: code, theColor: lineColor})
             }
         }
     }
@@ -149,7 +148,8 @@ Page{
                             linesListModel.append({"lineNumber": r1.rows.item(i).label,
                                                       "lineName": r1.rows.item(i).name,
                                                       "lineColor": r1.rows.item(i).color,
-                                                      "lineType": category
+                                                      "lineType": category,
+                                                      "code": r1.rows.item(i).code
                                                   })
                         }
                     }

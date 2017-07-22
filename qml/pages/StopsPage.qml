@@ -30,45 +30,61 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
-import "../data"
+import QtQuick.LocalStorage 2.0
 
 Page{
     id:pageStops
     property var theLine
-    property var theColor
-    Loader{
-        id: lineObject
-        source: "../data/Line_"+theLine+".qml"
-    }
-    SilicaListView{
-        anchors.fill: parent
-        spacing: 0
-        header: Item{
-            width: parent.width
-            height: Theme.itemSizeMedium
-            Rectangle{
-                id: lineIcon
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.itemSizeExtraSmall/6
-                anchors.verticalCenter: parent.verticalCenter
-                color: 'transparent'
-                height: Theme.itemSizeSmall
-                width: height
-                radius: width*0.5
-                border{
-                    width: parent.width/100
-                    color: theColor
-                }
-                Label {
-                    anchors.centerIn: parent
-                    color: Theme.primaryColor
-                    text: theLine
-                    font.pixelSize: Theme.fontSizeMedium
-                    font.bold: true
-                }
+    Item{
+        id: headerItem
+        width: parent.width
+        height: Theme.itemSizeMedium
+        Label{
+            id: lineName
+            anchors{
+                left: parent.left
+                leftMargin: Theme.itemSizeExtraSmall/2
+                right: lineIcon.left
+                rightMargin: Theme.itemSizeExtraSmall/6
+                verticalCenter: parent.verticalCenter
+            }
+            width: parent.width - lineIcon.width - lineIcon.anchors.rightMargin - anchors.rightMargin - anchors.leftMargin
+            truncationMode: TruncationMode.Fade
+        }
+        Rectangle{
+            id: lineIcon
+            anchors.right: parent.right
+            anchors.rightMargin: Theme.itemSizeExtraSmall/6
+            anchors.verticalCenter: parent.verticalCenter
+            color: 'transparent'
+            height: Theme.itemSizeSmall
+            width: height
+            radius: width*0.5
+            border{
+                width: parent.width/100
+            }
+            Label {
+                id: lineLabel
+                anchors.centerIn: parent
+                color: Theme.primaryColor
+                font.pixelSize: Theme.fontSizeMedium
+                font.bold: true
             }
         }
-        model: lineObject.item
+            }
+    SilicaListView{
+        id: stopsListView
+        anchors{
+            right: parent.right
+            left: parent.left
+            bottom: parent.bottom
+            top: headerItem.bottom
+            topMargin: Theme.itemSizeExtraSmall/1.5
+        }
+        spacing: 0
+        model: ListModel{
+            id: stopsListModel
+        }
         section{
             property: "stopDirection"
             criteria: ViewSection.FullString
@@ -131,5 +147,37 @@ Page{
     }
     Component.onCompleted: {
         current_page = ['StopsPage']
+        getStops(theLine);
+        console.log("asdfasdf " +getLineProperties(theLine));
+    }
+    function getStops(line){
+        console.log("Asking stops for line "+line)
+        var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
+        db.transaction(
+                    function(tx){
+                        var query = "SELECT * FROM nodes WHERE line_codes LIKE '%?%'"
+                        var r1 = tx.executeSql("SELECT * FROM nodes WHERE line_codes LIKE ?", ['%:'+line+'%:'])
+                        for(var i = 0; i < r1.rows.length; i++){
+                            stopsListModel.append({"stopNumber": r1.rows.item(i).code,
+                                                      "stopName": r1.rows.item(i).name,
+                                                      "links": r1.rows.item(i).lines_codes
+                                                  })
+                        }
+                    }
+                    )
+    }
+    function getLineProperties(line){
+        console.log("Asking properties of line "+line)
+        var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
+        db.transaction(
+                    function(tx){
+                        var query = 'SELECT name, label, color FROM lines WHERE code=?'
+                        var r1 = tx.executeSql(query,[line])
+                        lineName.text = r1.rows.item(0).name;
+                        lineLabel.text = r1.rows.item(0).label;
+                        lineIcon.border.color = r1.rows.item(0).color;
+
+                    }
+                    )
     }
 }
