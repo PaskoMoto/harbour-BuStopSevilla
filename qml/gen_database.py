@@ -49,17 +49,17 @@ class populate_db:
             if line not in ["", None, "None", []]:
                 self.db.execute("SELECT * FROM lines WHERE label = ?",(line['label'],))
                 if self.db.fetchone() == None:
-                    category = 'regular'
+                    category = '2regular'
                     if 'Circular' in line['nombre']:
-                        category = 'circular'
-                    elif line['label'] in ['B3','B4','EA','52']:
-                        category = 'especial'
+                        category = '0circular'
+                    elif line['label'] in ['B3','B4','EA','52','53']:
+                        category = '4especial'
                     elif line['label'] in ['T1']:
-                        category = 'tranvia'
+                        category = '3tranvia'
                     elif line['label'] in ['01','02','03','05','06']:
-                        category = 'largo_recorrido'
+                        category = '1largo_recorrido'
                     elif line['label'] in ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8']:
-                        category = 'nocturno'
+                        category = '5nocturno'
                     data = (int(line['macro']),line['nombre'],line['label'],line['color'],category)
                     if type(line['secciones'][0]) == list:
                         for seccion in line['secciones'][0]:
