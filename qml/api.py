@@ -4,6 +4,8 @@ import uuid
 
 
 def getTiemposLlegada(parada = 154):
+    if type(parada) != type(1):
+        parada = int(parada)
     con = Client("http://www.infobustussam.com:9005/InfoTusWS/services/InfoTus?wsdl", username="infotus-usermobile", password="2infotus0user1mobile2", headers={"deviceid":str(uuid.uuid4())})
     result = con.service.getTiemposNodo(parada)
     output = []

@@ -90,32 +90,32 @@ This app depends on suds libs for easy use of SOAP web services.</source>
 <context>
     <name>FrontPage</name>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="65"/>
+        <location filename="../qml/pages/FrontPage.qml" line="64"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="73"/>
+        <location filename="../qml/pages/FrontPage.qml" line="72"/>
         <source>BuStop Sevilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="92"/>
+        <location filename="../qml/pages/FrontPage.qml" line="91"/>
         <source>Ask for a bus stop code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="93"/>
+        <location filename="../qml/pages/FrontPage.qml" line="92"/>
         <source>Bus stop code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="110"/>
+        <location filename="../qml/pages/FrontPage.qml" line="109"/>
         <source>Ask!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="148"/>
+        <location filename="../qml/pages/FrontPage.qml" line="143"/>
         <source>Bus stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -123,32 +123,67 @@ This app depends on suds libs for easy use of SOAP web services.</source>
 <context>
     <name>LinesPage</name>
     <message>
-        <location filename="../qml/pages/LinesPage.qml" line="42"/>
+        <location filename="../qml/pages/LinesPage.qml" line="41"/>
         <source>Lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LinesPage.qml" line="127"/>
+        <source>Circular</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LinesPage.qml" line="130"/>
+        <source>Long Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LinesPage.qml" line="133"/>
+        <source>Regular</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LinesPage.qml" line="136"/>
+        <source>Trolley Car</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LinesPage.qml" line="139"/>
+        <source>Special</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LinesPage.qml" line="142"/>
+        <source>Nighttime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LinesPage.qml" line="145"/>
+        <source>Other</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>StopPage</name>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="53"/>
+        <location filename="../qml/pages/StopPage.qml" line="52"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="67"/>
+        <location filename="../qml/pages/StopPage.qml" line="66"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="311"/>
-        <location filename="../qml/pages/StopPage.qml" line="348"/>
+        <location filename="../qml/pages/StopPage.qml" line="310"/>
+        <location filename="../qml/pages/StopPage.qml" line="347"/>
         <source> minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="311"/>
-        <location filename="../qml/pages/StopPage.qml" line="348"/>
+        <location filename="../qml/pages/StopPage.qml" line="310"/>
+        <location filename="../qml/pages/StopPage.qml" line="347"/>
         <source> meters</source>
         <translation type="unfinished"></translation>
     </message>
@@ -156,7 +191,7 @@ This app depends on suds libs for easy use of SOAP web services.</source>
 <context>
     <name>TBDPage</name>
     <message>
-        <location filename="../qml/pages/TBDPage.qml" line="8"/>
+        <location filename="../qml/pages/TBDPage.qml" line="7"/>
         <source>To be implemented!</source>
         <translation type="unfinished"></translation>
     </message>

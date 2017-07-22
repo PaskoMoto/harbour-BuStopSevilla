@@ -115,10 +115,6 @@ Page {
                             return false
                         }
                     }
-
-//                    onClicked: {
-//                        pushAskButton();
-//                    }
                 }
             }
             SilicaGridView{
