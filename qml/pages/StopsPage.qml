@@ -86,7 +86,7 @@ Page{
             id: stopsListModel
         }
         section{
-            property: "stopDirection"
+            property: "stopSection"
             criteria: ViewSection.FullString
             delegate: Column{
                 width: parent.width
@@ -120,18 +120,33 @@ Page{
             Label{
                 id: stopLabel
                 width: Theme.itemSizeSmall*9/12
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
-                anchors.leftMargin: Theme.itemSizeExtraSmall/6
+                anchors{
+                    verticalCenter: parent.verticalCenter
+                    left: parent.left
+                    leftMargin: Theme.itemSizeExtraSmall/6
+                }
                 text: stopNumber
                 color: Theme.primaryColor
                 font.pixelSize: Theme.fontSizeMedium
                 font.bold: true
             }
             Label{
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: stopLabel.right
-                anchors.leftMargin: Theme.itemSizeExtraSmall/5
+                id: distanceLabel
+                anchors{
+                    top:stopLabel.bottom
+                    left: stopLabel.left
+                    leftMargin: Theme.itemSizeExtraSmall
+                }
+                font.pixelSize: Theme.fontSizeExtraSmall
+                text: stopDistance+" m"
+            }
+
+            Label{
+                anchors{
+                    verticalCenter: parent.verticalCenter
+                    left: stopLabel.right
+                    leftMargin: Theme.itemSizeExtraSmall/5
+                }
                 text: stopName
                 color: Theme.primaryColor
                 font.pixelSize: Theme.fontSizeExtraSmall
@@ -147,8 +162,8 @@ Page{
     }
     Component.onCompleted: {
         current_page = ['StopsPage']
+        getLineProperties(theLine);
         getStops(theLine);
-        console.log("asdfasdf " +getLineProperties(theLine));
     }
     function getStops(line){
         console.log("Asking stops for line "+line)
@@ -156,11 +171,29 @@ Page{
         db.transaction(
                     function(tx){
                         var query = "SELECT * FROM nodes WHERE line_codes LIKE '%?%'"
-                        var r1 = tx.executeSql("SELECT * FROM nodes WHERE line_codes LIKE ?", ['%:'+line+'%:'])
+                        var r1 = tx.executeSql("SELECT * FROM nodes WHERE line_codes LIKE ?", ['%:'+line+'.%'])
                         for(var i = 0; i < r1.rows.length; i++){
+//                            console.log("All: "+r1.rows.item(i).line_codes)
+                            var line_codes = r1.rows.item(i).line_codes.slice(1,-1).split(":")
+                            var links = [];
+                            var distance = 0;
+                            var section = 0;
+                            for(var j=0; j< line_codes.length; j++){
+                                var line_code = line_codes[j];
+                                links.push(line_code.split(".")[0]);
+//                                console.log("--> "+line_code.split(".")[0]+"-"+line)
+                                if(Number(line_code.split(".")[0]) - line === 0){
+                                    distance = line_code.split(".")[2]
+                                    section = line_code.split(".")[1]
+//                                    console.log("Match! Distance: "+distance)
+                                }
+                            }
+//                            console.log("Links: "+links)
+//                            console.log("Distance: "+distance)
                             stopsListModel.append({"stopNumber": r1.rows.item(i).code,
                                                       "stopName": r1.rows.item(i).name,
-                                                      "links": r1.rows.item(i).lines_codes
+                                                      "stopSection": section,
+                                                      "stopDistance": distance
                                                   })
                         }
                     }
