@@ -11,7 +11,7 @@ class populate_db:
         self.tussam_connect()
     
     def init_db(self):
-        self.db_conn = sqlite3.connect('data.db')
+        self.db_conn = sqlite3.connect('../db/7e3f3d4078aa797ff831e9bc3fbbfe46.sqlite')
         c = self.db_conn.cursor()
         return c
     
@@ -58,6 +58,8 @@ class populate_db:
                         category = 'tranvia'
                     elif line['label'] in ['01','02','03','05','06']:
                         category = 'largo_recorrido'
+                    elif line['label'] in ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8']:
+                        category = 'nocturno'
                     data = (int(line['macro']),line['nombre'],line['label'],line['color'],category)
                     if type(line['secciones'][0]) == list:
                         for seccion in line['secciones'][0]:
@@ -97,5 +99,5 @@ class populate_db:
 if __name__ == '__main__':
     x = populate_db()
     x.get_tussam_lines()
-    x.get_tussam_nodes()
+    #x.get_tussam_nodes()
     x.close_db()

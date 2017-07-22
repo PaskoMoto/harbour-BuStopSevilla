@@ -58,9 +58,11 @@ ApplicationWindow
             if(modules_unloaded){
                 addImportPath(Qt.resolvedUrl('.'));
                 importModule('api', function () {});
+                importModule('utils', function () {});
                 modules_unloaded = false;
                 console.log("===> Modules loaded!")
             }
+            checkDB();
             setHandler('TiemposLlegada',function(TiemposLlegada){
                             var_tiempos_llegada = TiemposLlegada;
                             console.log("===> Got some info!!")
@@ -71,6 +73,10 @@ ApplicationWindow
             var_tiempos_llegada = []
             console.log("Details requested.")
         }
+        function checkDB(){
+            call('utils.checkDB',[],console.log("DB OK."))
+        }
+
         onReceived:
         {
             // All the stuff you send, not assigned to a 'setHandler', will be shown here:

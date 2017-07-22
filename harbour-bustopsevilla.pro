@@ -22,6 +22,7 @@ OTHER_FILES += qml/harbour-bustopsevilla.qml \
     rpm/harbour-bustopsevilla.spec \
     rpm/harbour-bustopsevilla.yaml \
     translations/*.ts
+    db/data.db
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
@@ -34,6 +35,11 @@ CONFIG += sailfishapp_i18n
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/harbour-bustopsevilla-de.ts
+
+database.files = db
+database.path = /usr/share/$${TARGET}
+
+INSTALLS += database
 
 DISTFILES += \
     qml/pages/suds/__pycache__/__init__.cpython-35.opt-1.pyc \
@@ -452,7 +458,9 @@ DISTFILES += \
     harbour-bustopsevilla.pro.user \
     harbour-bustopsevilla.pro.user.edb680b \
     rpm/harbour-bustopsevilla.changes.in \
-    qml/cover/CoverStopPage.qml
+    qml/cover/CoverStopPage.qml \
+    qml/utils.py \
+    db/data.db
 
 RESOURCES += \
     resources.qrc
