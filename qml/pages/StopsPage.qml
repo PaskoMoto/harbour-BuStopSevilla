@@ -74,12 +74,13 @@ Page{
             }
     SilicaListView{
         id: stopsListView
+        clip: true
         anchors{
             right: parent.right
             left: parent.left
             bottom: parent.bottom
             top: headerItem.bottom
-            topMargin: Theme.itemSizeExtraSmall/1.5
+//            topMargin: Theme.itemSizeExtraSmall/1.5
         }
         spacing: 0
         model: ListModel{
