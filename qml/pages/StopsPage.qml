@@ -130,16 +130,6 @@ Page{
                 font.pixelSize: Theme.fontSizeMedium
                 font.bold: true
             }
-            Label{
-                id: distanceLabel
-                anchors{
-                    top:stopLabel.bottom
-                    left: stopLabel.left
-                    leftMargin: Theme.itemSizeExtraSmall
-                }
-                font.pixelSize: Theme.fontSizeExtraSmall
-                text: stopDistance+" m"
-            }
 
             Label{
                 anchors{
@@ -162,54 +152,48 @@ Page{
     }
     Component.onCompleted: {
         current_page = ['StopsPage']
-        getLineProperties(theLine);
-        getStops(theLine);
+        getStopsData(theLine);
     }
-    function getStops(line){
+    function getStopsData(line){
         console.log("Asking stops for line "+line)
         var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
+        var section_list = []
+        var section_names = []
+        var node_list = []
         db.transaction(
                     function(tx){
-                        var query = "SELECT * FROM nodes WHERE line_codes LIKE '%?%'"
-                        var r1 = tx.executeSql("SELECT * FROM nodes WHERE line_codes LIKE ?", ['%:'+line+'.%'])
-                        for(var i = 0; i < r1.rows.length; i++){
-//                            console.log("All: "+r1.rows.item(i).line_codes)
-                            var line_codes = r1.rows.item(i).line_codes.slice(1,-1).split(":")
-                            var links = [];
-                            var distance = 0;
-                            var section = 0;
-                            for(var j=0; j< line_codes.length; j++){
-                                var line_code = line_codes[j];
-                                links.push(line_code.split(".")[0]);
-//                                console.log("--> "+line_code.split(".")[0]+"-"+line)
-                                if(Number(line_code.split(".")[0]) - line === 0){
-                                    distance = line_code.split(".")[2]
-                                    section = line_code.split(".")[1]
-//                                    console.log("Match! Distance: "+distance)
-                                }
-                            }
-//                            console.log("Links: "+links)
-//                            console.log("Distance: "+distance)
-                            stopsListModel.append({"stopNumber": r1.rows.item(i).code,
-                                                      "stopName": r1.rows.item(i).name,
-                                                      "stopSection": section,
-                                                      "stopDistance": distance
-                                                  })
-                        }
-                    }
-                    )
-    }
-    function getLineProperties(line){
-        console.log("Asking properties of line "+line)
-        var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
-        db.transaction(
-                    function(tx){
-                        var query = 'SELECT name, label, color FROM lines WHERE code=?'
+                        var query = 'SELECT name, label, color, head_name, tail_name FROM lines WHERE code=?'
                         var r1 = tx.executeSql(query,[line])
                         lineName.text = r1.rows.item(0).name;
                         lineLabel.text = r1.rows.item(0).label;
                         lineIcon.border.color = r1.rows.item(0).color;
-
+                        section_names[0] = r1.rows.item(0).head_name;
+                        section_names[1] = r1.rows.item(0).tail_name;
+                    }
+                    )
+        db.transaction(
+                    function(tx){
+                        var query = 'SELECT section, nodes FROM line_nodes WHERE line_code=? ORDER BY section'
+                        var r1 = tx.executeSql(query,[line])
+                        for(var i = 0; i < r1.rows.length; i++){
+                            section_list[i] = r1.rows.item(i).section
+                            var nodes = r1.rows.item(i).nodes.replace(/:/g," ")
+                            node_list[i] = nodes.trim().split(" ")
+                        }
+                    }
+                    )
+        db.transaction(
+                    function(tx){
+                        for (var j = 0; j < section_list.length; j++){
+                            var nodes = node_list[j]
+                            for (var m = 0; m < nodes.length; m++){
+                                var r1 = tx.executeSql("SELECT * FROM nodes WHERE code=?", [nodes[m]])
+                                stopsListModel.append({"stopNumber": nodes[m],
+                                                          "stopName": r1.rows.item(0).name,
+                                                          "stopSection": section_names[j]
+                                                      })
+                            }
+                        }
                     }
                     )
     }
