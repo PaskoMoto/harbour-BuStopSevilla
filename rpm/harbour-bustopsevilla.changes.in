@@ -8,6 +8,12 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Wed Jul 7 2017 J.Pablo Navarro <elfio@hiperones.es> 0.5-1
+- Implemented DB as backed for the data.
+- Updated data to more recent stops and lines.
+- Some UI improvements.
+- Other fixes.
+
 * Wed Jul 7 2017 J.Pablo Navarro <elfio@hiperones.es> 0.4-1
 - Added cover.
 
