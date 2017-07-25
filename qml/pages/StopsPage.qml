@@ -80,7 +80,6 @@ Page{
             left: parent.left
             bottom: parent.bottom
             top: headerItem.bottom
-//            topMargin: Theme.itemSizeExtraSmall/1.5
         }
         spacing: 0
         model: ListModel{

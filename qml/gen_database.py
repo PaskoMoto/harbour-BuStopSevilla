@@ -142,7 +142,7 @@ class populate_db:
                     temp = (code, line, int(section),)
                     self.db.execute('SELECT nodes, distance FROM line_nodes WHERE line_code=? AND line_label=? AND section=?', temp)
                     local_data = self.db.fetchone()
-                    if local_data == None or local_data[0] == "::" or local_data[1] == "::":
+                    if local_data == None or (node_list != "::" and distance_list != "::" and (local_data[0] == "::" or local_data[1] == "::")):
                         data = (code, line, int(section), ":"+":".join(node_list)+":",":"+":".join(distance_list)+":",)
                         print("Adding data:", data)
                         self.db.execute('INSERT INTO line_nodes VALUES (NULL,?,?,?,?,?)', data)
