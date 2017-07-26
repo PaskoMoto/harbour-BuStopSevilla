@@ -31,6 +31,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
+import QtQuick.LocalStorage 2.0
 
 Page {
     id:stopPage
@@ -57,7 +58,7 @@ Page {
         ViewPlaceholder {
             id: loadingIndicator
             enabled: if (linesList.count === 0){
-                         populateStopData(rootPage.var_tiempos_llegada);
+                         populateStopData(rootPage.var_tiempos_llegada, current_stop);
                          return true
                      }
                      else{
@@ -96,10 +97,11 @@ Page {
             id: subHeader
             visible: ! loadingIndicator.enabled
             anchors{
-                left: header.left
-                top: header.bottom
+                left: parent.left
+                leftMargin: Theme.itemSizeExtraSmall/3
+                verticalCenter: header.verticalCenter
             }
-            width: stopPage.width*0.95
+            width: stopPage.width*0.8
             truncationMode: TruncationMode.Fade
             font.pixelSize: Theme.fontSizeSmall
             color: Theme.secondaryColor
@@ -258,7 +260,7 @@ Page {
                         topMargin: Theme.itemSizeExtraSmall/5
                     }
                     Image{
-                        visible: false
+                        visible: true
                         id: directionBusIcon
                         anchors{
                             verticalCenter: parent.verticalCenter
@@ -274,8 +276,7 @@ Page {
                         }
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.highlightColor
-//                        text: "Direction: TBD"
-                        text: " "
+                        text: section_name
                     }
                     Rectangle{
                         visible: testing_rectangles
@@ -371,16 +372,52 @@ Page {
         current_page = ['StopPage',current_stop]
     }
 
-    function populateStopData(mylist) {
+    function populateStopData(mylist, stop_code) {
         if (mylist){
+//            console.log("Asking stop data for code: "+stop_code)
+            var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
+            var raw_line_codes = ""
+            var section_names = {}
+            db.transaction(
+                        function(tx){
+                            var query = 'SELECT name, line_codes FROM nodes WHERE code=?'
+                            var r1 = tx.executeSql(query,[stop_code])
+                            subHeader.text = r1.rows.item(0).name
+                            raw_line_codes = r1.rows.item(0).line_codes
+                        }
+                        )
+            db.transaction(
+                        function(tx){
+                            var tmp_line_codes = raw_line_codes.replace(/:/g," ")
+                            var line_codes = tmp_line_codes.trim().split(" ")
+                            for (var i = 0; i < line_codes.length; i++){
+                                var line = line_codes[i].split(".")[0]
+                                var section = line_codes[i].split(".")[1]
+                                var query = 'SELECT label, head_name, head_number, tail_name, tail_number FROM lines WHERE code=? AND (head_number=? OR tail_number=?)'
+                                var r1 = tx.executeSql(query,[line, section, section])
+                                for (var j = 0; j < r1.rows.length; j++){
+//                                    console.log("Head name: "+r1.rows.item(j).head_name)
+//                                    console.log("Tail name: "+r1.rows.item(j).tail_name)
+                                    if (r1.rows.item(j).head_number - section === 0){
+                                        section_names[r1.rows.item(j).label] = r1.rows.item(j).head_name
+                                    }
+                                    else{
+                                        section_names[r1.rows.item(j).label] = r1.rows.item(j).tail_name
+                                    }
+                                }
+                            }
+                        }
+                        )
             for(var i = 0; i < mylist.length; i++){
                 stopDataModel.append({
                                          "line": mylist[i][0],
                                          "first_bus_time": mylist[i][1],
                                          "first_bus_distance": mylist[i][2],
                                          "second_bus_time": mylist[i][3],
-                                         "second_bus_distance": mylist[i][4]
+                                         "second_bus_distance": mylist[i][4],
+                                         "section_name": section_names[String(mylist[i][0])]
                                      })
+//                console.log("Line "+mylist[i][0]+" heading to "+section_names[String(mylist[i][0])])
             }
             var now = new Date()
             lastRefresh.text = now.getHours()+":"+('0'+now.getMinutes()).slice(-2)
