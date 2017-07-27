@@ -460,7 +460,8 @@ DISTFILES += \
     rpm/harbour-bustopsevilla.changes.in \
     qml/cover/CoverStopPage.qml \
     qml/utils.py \
-    db/data.db
+    db/data.db \
+    qml/pages/UsualStopsPage.qml
 
 RESOURCES += \
     resources.qrc

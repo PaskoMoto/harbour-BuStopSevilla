@@ -152,7 +152,7 @@ Page {
                 ListElement{
                     title: "Usual stops"
                     icon: "image://theme/icon-m-favorite"
-                    move2: "TBDPage.qml"
+                    move2: "UsualStopsPage.qml"
                 }
                 ListElement{
                     title: "Nearest stops?"
@@ -204,7 +204,7 @@ Page {
         }
     }
         Component.onCompleted: {
-            current_page = ['FrontPage']
+            rootPage.current_page = ['FrontPage']
         }
 }
 

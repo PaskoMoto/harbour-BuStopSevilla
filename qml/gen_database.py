@@ -35,7 +35,7 @@ class populate_db:
             return 0
         
         if not self.db.execute('''CREATE TABLE IF NOT EXISTS usual_nodes
-            (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, code INTEGER, custom_label TEXT, custom_color TEXT)'''):
+            (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, code INTEGER UNIQUE, custom_label TEXT, custom_color TEXT)'''):
             return 0
         
         if not self.db.execute('''CREATE TABLE IF NOT EXISTS metadata

@@ -43,9 +43,10 @@ Page {
             //            MenuItem{
             //                text: qsTr("Pin to front page")
             //            }
-            //            MenuItem{
-            //                text: qsTr("Mark as usual")
-            //            }
+            MenuItem{
+                text: qsTr("Add to usual stops")
+                onClicked: addUsual(current_stop,subHeader.text)
+            }
             //            MenuItem{
             //                text: qsTr("Auto refresh")
             //            }
@@ -369,7 +370,7 @@ Page {
         }
     }
     Component.onCompleted: {
-        current_page = ['StopPage',current_stop]
+        rootPage.current_page = ['StopPage',current_stop]
     }
 
     function populateStopData(mylist, stop_code) {
@@ -422,5 +423,14 @@ Page {
             var now = new Date()
             lastRefresh.text = now.getHours()+":"+('0'+now.getMinutes()).slice(-2)
         }
+    }
+    function addUsual(code,name){
+        console.log("Adding "+code+" top usual stops")
+        var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
+        db.transaction(
+                    function(tx){
+                        var r1 = tx.executeSql('INSERT INTO usual_nodes VALUES (NULL,?,?,NULL)',[code,"->"+name])
+                    }
+                    )
     }
 }

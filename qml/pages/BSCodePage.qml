@@ -38,7 +38,6 @@ Page {
     property bool modules_unloaded: true
     property string searchStop: "0"
     property bool testing_rectangles: false
-    onStatusChanged: current_page = ['BSCodePage']
     function pushAskButton(){
         pythonMain.ask(busStopCode.text);
         pageStack.replace("StopPage.qml", {current_stop: busStopCode.text})
@@ -136,6 +135,9 @@ Page {
                 border.color: "green"
             }
         }
+    }
+    Component.onCompleted: {
+        rootPage.current_page = ['BSCodePage']
     }
 }
 

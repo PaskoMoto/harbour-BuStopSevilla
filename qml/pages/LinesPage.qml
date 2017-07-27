@@ -109,7 +109,7 @@ Page{
         }
     }
     Component.onCompleted: {
-        current_page = ['LinesPage']
+        rootPage.current_page = ['LinesPage']
         getLines();
     }
 

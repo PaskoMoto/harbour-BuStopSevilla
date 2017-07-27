@@ -7,7 +7,7 @@ Page {
         text: qsTr("To be implemented!")
     }
     Component.onCompleted: {
-        current_page = ['TBDPage']
+        rootPage.current_page = ['TBDPage']
     }
 }
 

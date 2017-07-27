@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 
 Page {
     id: page
-    onStatusChanged: current_page = ['About']
     SilicaFlickable{
         anchors.fill: parent
         VerticalScrollDecorator { }
@@ -108,6 +107,8 @@ Page {
             }
         }
     }
-
+    Component.onCompleted: {
+        rootPage.current_page = ['About']
+    }
 }
 
