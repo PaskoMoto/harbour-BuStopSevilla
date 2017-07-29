@@ -8,6 +8,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Wed Jul 29 2017 J.Pablo Navarro <elfio@hiperones.es> 0.6-2
+- Fixed section names.
+
 * Wed Jul 29 2017 J.Pablo Navarro <elfio@hiperones.es> 0.6-1
 - Lines are sorted.
 - Basic Usual stops implemented.
