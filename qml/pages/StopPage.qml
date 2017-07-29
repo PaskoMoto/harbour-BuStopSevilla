@@ -117,6 +117,7 @@ Page {
         }
         Item{
             id: topLayer
+            visible: ! loadingIndicator.enabled
             height: Theme.itemSizeExtraSmall/1.5
             width: parent.width
             anchors{
@@ -245,8 +246,8 @@ Page {
                     width: height
                     radius: width*0.5
                     border{
-                        width: parent.width/100
-                        color: "green"
+                        width: Theme.itemSizeExtraSmall/12
+                        color: line_color
                     }
                     Label {
                         anchors.centerIn: parent
@@ -382,10 +383,10 @@ Page {
     function populateStopData(mylist, stop_code) {
         isUsual(stop_code);
         if (mylist){
-//            console.log("Asking stop data for code: "+stop_code)
             var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
             var raw_line_codes = ""
             var section_names = {}
+            var line_colors = {}
             db.transaction(
                         function(tx){
                             var query = 'SELECT name, line_codes FROM nodes WHERE code=?'
@@ -401,11 +402,10 @@ Page {
                             for (var i = 0; i < line_codes.length; i++){
                                 var line = line_codes[i].split(".")[0]
                                 var section = line_codes[i].split(".")[1]
-                                var query = 'SELECT label, head_name, head_number, tail_name, tail_number FROM lines WHERE code=? AND (head_number=? OR tail_number=?)'
+                                var query = 'SELECT label, color, head_name, head_number, tail_name, tail_number FROM lines WHERE code=? AND (head_number=? OR tail_number=?)'
                                 var r1 = tx.executeSql(query,[line, section, section])
                                 for (var j = 0; j < r1.rows.length; j++){
-//                                    console.log("Head name: "+r1.rows.item(j).head_name)
-//                                    console.log("Tail name: "+r1.rows.item(j).tail_name)
+                                    line_colors[r1.rows.item(j).label] = r1.rows.item(j).color
                                     if (r1.rows.item(j).head_number - section === 0){
                                         section_names[r1.rows.item(j).label] = r1.rows.item(j).head_name
                                     }
@@ -423,9 +423,9 @@ Page {
                                          "first_bus_distance": mylist[i][2],
                                          "second_bus_time": mylist[i][3],
                                          "second_bus_distance": mylist[i][4],
-                                         "section_name": section_names[String(mylist[i][0])]
+                                         "section_name": section_names[String(mylist[i][0])],
+                                         "line_color": line_colors[String(mylist[i][0])]
                                      })
-//                console.log("Line "+mylist[i][0]+" heading to "+section_names[String(mylist[i][0])])
             }
             var now = new Date()
             lastRefresh.text = now.getHours()+":"+('0'+now.getMinutes()).slice(-2)

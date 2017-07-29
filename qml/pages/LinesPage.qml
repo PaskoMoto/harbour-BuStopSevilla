@@ -80,7 +80,7 @@ Page{
                 width: height
                 radius: width*0.5
                 border{
-                    width: parent.width/100
+                    width: Theme.itemSizeExtraSmall/12
                     color: lineColor
                 }
 
@@ -118,7 +118,7 @@ Page{
         var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
         db.transaction(
                     function(tx){
-                        var query = 'SELECT * FROM lines ORDER BY category ASC'
+                        var query = 'SELECT * FROM lines ORDER BY category ASC, label ASC'
                         var r1 = tx.executeSql(query)
                         var category = ''
                         for(var i = 0; i < r1.rows.length; i++){

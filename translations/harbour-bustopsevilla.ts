@@ -171,24 +171,29 @@ This app depends on suds libs for easy use of SOAP web services.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="54"/>
+        <location filename="../qml/pages/StopPage.qml" line="52"/>
+        <source>Remove from usual stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StopPage.qml" line="60"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="68"/>
+        <location filename="../qml/pages/StopPage.qml" line="74"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="312"/>
-        <location filename="../qml/pages/StopPage.qml" line="349"/>
+        <location filename="../qml/pages/StopPage.qml" line="319"/>
+        <location filename="../qml/pages/StopPage.qml" line="356"/>
         <source> minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="312"/>
-        <location filename="../qml/pages/StopPage.qml" line="349"/>
+        <location filename="../qml/pages/StopPage.qml" line="319"/>
+        <location filename="../qml/pages/StopPage.qml" line="356"/>
         <source> meters</source>
         <translation type="unfinished"></translation>
     </message>

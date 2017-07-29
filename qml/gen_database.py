@@ -66,6 +66,9 @@ class populate_db:
                         category = '1largo_recorrido'
                     elif line['label'] in ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8']:
                         category = '5nocturno'
+                    if line['nombre'] in ['38A', 'C6B']:
+                        line_name = line['nombre'][0-1]
+                        data = (int(line['macro']),line_name,line['label'],line['color'],category)
                     data = (int(line['macro']),line['nombre'],line['label'],line['color'],category)
                     if type(line['secciones'][0]) == list:
                         for seccion in line['secciones'][0]:
