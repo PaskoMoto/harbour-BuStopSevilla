@@ -46,6 +46,12 @@ Page {
             MenuItem{
                 text: qsTr("Add to usual stops")
                 onClicked: addUsual(current_stop,subHeader.text)
+                visible: !favIcon.visible
+            }
+            MenuItem{
+                text: qsTr("Remove from usual stops")
+                onClicked: removeUsual(current_stop)
+                visible: favIcon.visible
             }
             //            MenuItem{
             //                text: qsTr("Auto refresh")
@@ -374,6 +380,7 @@ Page {
     }
 
     function populateStopData(mylist, stop_code) {
+        isUsual(stop_code);
         if (mylist){
 //            console.log("Asking stop data for code: "+stop_code)
             var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
@@ -425,12 +432,41 @@ Page {
         }
     }
     function addUsual(code,name){
-        console.log("Adding "+code+" top usual stops")
+        console.log("Adding "+code+" to usual stops")
         var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
         db.transaction(
                     function(tx){
                         var r1 = tx.executeSql('INSERT INTO usual_nodes VALUES (NULL,?,?,NULL)',[code,"->"+name])
                     }
                     )
+        isUsual(code);
     }
+    function removeUsual(code){
+        console.log("Removing "+code+" from usual stops")
+        var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
+        db.transaction(
+                    function(tx){
+                        var r1 = tx.executeSql('DELETE FROM usual_nodes WHERE code=?',[code])
+                    }
+                    )
+        isUsual(code);
+    }
+    function isUsual(code){
+
+        var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
+        db.transaction(
+                    function(tx){
+                        var r1 = tx.executeSql('SELECT id FROM usual_nodes WHERE code=?',[code])
+                        if (r1.rows.length > 0){
+                            favIcon.visible = true
+                            console.log("Stop "+code+" is a usual stops")
+                        }
+                        else{
+                            favIcon.visible = false
+                            console.log("Stop "+code+" is not a usual stops")
+                        }
+                    }
+                    )
+    }
+
 }

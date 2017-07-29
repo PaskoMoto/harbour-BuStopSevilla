@@ -166,24 +166,29 @@ This app depends on suds libs for easy use of SOAP web services.</source>
 <context>
     <name>StopPage</name>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="53"/>
+        <location filename="../qml/pages/StopPage.qml" line="47"/>
+        <source>Add to usual stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StopPage.qml" line="54"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="67"/>
+        <location filename="../qml/pages/StopPage.qml" line="68"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="311"/>
-        <location filename="../qml/pages/StopPage.qml" line="348"/>
+        <location filename="../qml/pages/StopPage.qml" line="312"/>
+        <location filename="../qml/pages/StopPage.qml" line="349"/>
         <source> minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="311"/>
-        <location filename="../qml/pages/StopPage.qml" line="348"/>
+        <location filename="../qml/pages/StopPage.qml" line="312"/>
+        <location filename="../qml/pages/StopPage.qml" line="349"/>
         <source> meters</source>
         <translation type="unfinished"></translation>
     </message>
@@ -193,6 +198,14 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/TBDPage.qml" line="7"/>
         <source>To be implemented!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UsualStopsPage</name>
+    <message>
+        <location filename="../qml/pages/UsualStopsPage.qml" line="40"/>
+        <source>Your usual stops</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
