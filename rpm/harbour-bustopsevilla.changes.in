@@ -8,7 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Wed Jul 7 2017 J.Pablo Navarro <elfio@hiperones.es> 0.5-1
+* Wed Jul 29 2017 J.Pablo Navarro <elfio@hiperones.es> 0.6-1
+- Lines are sorted.
+- Basic Usual stops implemented.
+
+* Wed Jul 25 2017 J.Pablo Navarro <elfio@hiperones.es> 0.5-1
 - Implemented DB as backed for the data.
 - Updated data to more recent stops and lines.
 - Some UI improvements.

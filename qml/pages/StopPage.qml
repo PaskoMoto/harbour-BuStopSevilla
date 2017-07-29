@@ -40,9 +40,6 @@ Page {
     SilicaFlickable{
         anchors.fill: parent
         PullDownMenu{
-            //            MenuItem{
-            //                text: qsTr("Pin to front page")
-            //            }
             MenuItem{
                 text: qsTr("Add to usual stops")
                 onClicked: addUsual(current_stop,subHeader.text)
@@ -53,9 +50,6 @@ Page {
                 onClicked: removeUsual(current_stop)
                 visible: favIcon.visible
             }
-            //            MenuItem{
-            //                text: qsTr("Auto refresh")
-            //            }
             MenuItem{
                 text: qsTr("Refresh")
                 onClicked: {stopDataModel.clear();
@@ -112,7 +106,6 @@ Page {
             truncationMode: TruncationMode.Fade
             font.pixelSize: Theme.fontSizeSmall
             color: Theme.secondaryColor
-//            text: "Name of the stop: TBD"
             text: " "
         }
         Item{
@@ -125,7 +118,6 @@ Page {
             }
             Image{
                 id: favIcon
-//                visible: ! loadingIndicator.enabled
                 visible: false
                 source:"image://theme/icon-s-favorite"
                 anchors{

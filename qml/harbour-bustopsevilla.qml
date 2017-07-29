@@ -41,8 +41,6 @@ ApplicationWindow
     property var var_tiempos_llegada
     property var current_page
     initialPage: Component { FrontPage { } }
-//    cover: Qt.resolvedUrl("cover/CoverStopPage.qml")
-//    cover: Component { CoverStopPage { } }
     cover: if (current_page[0] === 'StopPage'){
     return Qt.resolvedUrl("cover/CoverStopPage.qml")
 }

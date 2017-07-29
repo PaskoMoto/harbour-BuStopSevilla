@@ -42,8 +42,6 @@ Page {
         pythonMain.ask(busStopCode.text);
         pageStack.replace("StopPage.qml", {current_stop: busStopCode.text})
     }
-
-    // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
         anchors.fill: parent
         PageHeader {
@@ -70,7 +68,6 @@ Page {
                 label:qsTr("Bus stop code")
                 inputMethodHints: Qt.ImhDigitsOnly
                 EnterKey.onClicked: pushAskButton();
-                //                text: "54" // See line 181, aka develop hack
                 text: if(searchStop != "0"){
                           return searchStop
                       }
@@ -140,4 +137,3 @@ Page {
         rootPage.current_page = ['BSCodePage']
     }
 }
-

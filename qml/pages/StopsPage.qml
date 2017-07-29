@@ -117,7 +117,6 @@ Page{
         }
         delegate: ListItem {
             width: ListView.view.width
-//            height: Theme.itemSizeSmall
             Label{
                 id: stopLabel
                 width: Theme.itemSizeSmall*9/12

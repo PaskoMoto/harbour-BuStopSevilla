@@ -52,21 +52,10 @@ Page{
         spacing: 0
         model: ListModel{
             id: stopDataModel
-//            ListElement{
-//                code: "3"
-//                name: "holi"
-//                custom_label: "holi2"
-//            }
-//            ListElement{
-//                code: "23"
-//                name: "holsdi"
-//                custom_label: "Esta es la parada que hay frente al hospital"
-//            }
         }
         delegate: ListItem {
             width: ListView.view.width
             contentHeight: Theme.itemSizeMedium
-//            property int id_entry: id
             Label{
                 id: codeLabel
                 anchors{
@@ -101,9 +90,11 @@ Page{
                 width: parent.width - Theme.itemSizeMedium
                 truncationMode: TruncationMode.Fade
                 horizontalAlignment: Text.AlignLeft
-                text: custom_label
+                //text: custom_label // This is the real field here; needs Usual Stop Dialog TBD first
+                text: name
             }
             Label{
+                visible: false // This will make sense once the Usual Stop Dialog is done
                 anchors{
                     bottom: parent.bottom
                     bottomMargin: Theme.itemSizeExtraSmall/4
@@ -147,8 +138,6 @@ Page{
                             var code = r1.rows.item(i).code
                             var query = 'SELECT usual_nodes.custom_label, usual_nodes.id, nodes.name FROM usual_nodes, nodes WHERE usual_nodes.code=? and nodes.code=?'
                             var r2 = tx.executeSql(query,[code,code])
-//                            var nodes = r2.rows.item(i).line_codes.replace(/:/g," ")
-//                            var links = nodes.trim().split(" ")
                             console.log("Adding id: "+r2.rows.item(0).id)
                             stopDataModel.append({
                                                      "code": String(code),

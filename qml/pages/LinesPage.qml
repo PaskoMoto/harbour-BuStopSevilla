@@ -103,7 +103,7 @@ Page{
                 width: parent.width*0.75
             }
             onClicked: {
-                console.log("Clic on line "+lineNumber)
+                console.log("Tapped on line "+lineNumber)
                 pageStack.push("StopsPage.qml", {theLine: code, theColor: lineColor})
             }
         }
