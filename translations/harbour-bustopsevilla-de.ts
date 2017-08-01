@@ -164,6 +164,14 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     </message>
 </context>
 <context>
+    <name>MapPage</name>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="107"/>
+        <source>Go back</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>StopPage</name>
     <message>
         <location filename="../qml/pages/StopPage.qml" line="44"/>

@@ -461,7 +461,8 @@ DISTFILES += \
     qml/cover/CoverStopPage.qml \
     qml/utils.py \
     db/data.db \
-    qml/pages/UsualStopsPage.qml
+    qml/pages/UsualStopsPage.qml \
+    qml/pages/MapPage.qml
 
 RESOURCES += \
     resources.qrc

@@ -147,7 +147,7 @@ Page {
                 ListElement{
                     title: "Stops map"
                     icon: "qrc:///res/map.png"
-                    move2: "TBDPage.qml"
+                    move2: "MapPage.qml"
                 }
                 ListElement{
                     title: "Usual stops"
