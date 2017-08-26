@@ -85,7 +85,7 @@ Page {
                 width: parent.width
                 wrapMode: Text.Wrap
                 font.pixelSize: Theme.fontSizeExtraSmall
-                text:"You can support this app if you want. Ideally I'd feel my work supported just with you coding other native apps for SailfishOS so I can enjoy them myself. If you can't code or just don't want to do it, you can make a donation."
+                text:qsTr("You can support this app if you want. Ideally I'd feel my work supported just with you coding other native apps for SailfishOS so I can enjoy them myself. If you can't code or just don't want to do it, you can make a donation.")
             }
             Button{
                 text:qsTr("Develop an app")
