@@ -230,6 +230,14 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     </message>
 </context>
 <context>
+    <name>StopsPage</name>
+    <message>
+        <location filename="../qml/pages/StopsPage.qml" line="153"/>
+        <source>Add to usual stops</source>
+        <translation>Añadir a mis paradas</translation>
+    </message>
+</context>
+<context>
     <name>TBDPage</name>
     <message>
         <location filename="../qml/pages/TBDPage.qml" line="7"/>
