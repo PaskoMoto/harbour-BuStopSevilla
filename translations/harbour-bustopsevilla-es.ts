@@ -244,5 +244,10 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
         <source>Your usual stops</source>
         <translation>Tus paradas</translation>
     </message>
+    <message>
+        <location filename="../qml/pages/UsualStopsPage.qml" line="120"/>
+        <source>Remove</source>
+        <translation>Eliminar</translation>
+    </message>
 </context>
 </TS>
