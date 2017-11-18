@@ -206,7 +206,6 @@ Page {
                 inputMethodHints: Qt.ImhDigitsOnly
                 EnterKey.onClicked: pushAskButton();
                 validator: RegExpValidator { regExp: /[0-9]{12,12}/ }
-                text: "117873484571"
                 Rectangle{
                     visible: testing_rectangles
                     anchors.fill: parent
