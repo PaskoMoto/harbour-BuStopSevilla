@@ -128,7 +128,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
         <translation>El código de la tarjeta tiene 12 dígitos</translation>
     </message>
     <message>
-        <location filename="../qml/pages/CardBalancePage.qml" line="256"/>
+        <location filename="../qml/pages/CardBalancePage.qml" line="255"/>
         <source>Ask!</source>
         <translation>¡Consultar!</translation>
     </message>

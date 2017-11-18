@@ -127,7 +127,7 @@ This app depends on suds libs for easy use of SOAP web services.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/CardBalancePage.qml" line="256"/>
+        <location filename="../qml/pages/CardBalancePage.qml" line="255"/>
         <source>Ask!</source>
         <translation type="unfinished"></translation>
     </message>
