@@ -86,6 +86,54 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     </message>
 </context>
 <context>
+    <name>CardBalancePage</name>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="29"/>
+        <source>Card Balance</source>
+        <translation>Saldo de bonobús</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="78"/>
+        <source>Nº</source>
+        <translation>Nº</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="102"/>
+        <source>Card type: </source>
+        <translation>Tipo de bonobús: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="125"/>
+        <source>Expiration: </source>
+        <translation>Caducidad: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="148"/>
+        <source>Balance: </source>
+        <translation>Saldo: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="171"/>
+        <source>Remaining trips: </source>
+        <translation>Viajes restantes: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="203"/>
+        <source>Enter your card code</source>
+        <translation>Introduzca el código de su tarjeta</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="205"/>
+        <source>The card code is 12 digits long</source>
+        <translation>El código de la tarjeta tiene 12 dígitos</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="256"/>
+        <source>Ask!</source>
+        <translation>¡Consultar!</translation>
+    </message>
+</context>
+<context>
     <name>CoverStopPage</name>
     <message>
         <location filename="../qml/cover/CoverStopPage.qml" line="47"/>
@@ -101,54 +149,59 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
         <translation>Acerca de</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="72"/>
+        <location filename="../qml/pages/FrontPage.qml" line="70"/>
+        <source>Official rates (website)</source>
+        <translation>Tarifas oficiales (sitio web)</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FrontPage.qml" line="76"/>
         <source>BuStop Sevilla</source>
         <translation>BuStop Sevilla</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="91"/>
+        <location filename="../qml/pages/FrontPage.qml" line="95"/>
         <source>Ask for a bus stop code</source>
         <translation>Consulta un código de parada</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="92"/>
+        <location filename="../qml/pages/FrontPage.qml" line="96"/>
         <source>Bus stop code</source>
         <translation>Código de parada</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="109"/>
+        <location filename="../qml/pages/FrontPage.qml" line="113"/>
         <source>Ask!</source>
         <translation>¡Consultar!</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="143"/>
+        <location filename="../qml/pages/FrontPage.qml" line="147"/>
         <source>Bus stop</source>
         <translation>Parada</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="148"/>
+        <location filename="../qml/pages/FrontPage.qml" line="152"/>
         <source>Stops map</source>
         <translation>Mapa de paradas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="153"/>
+        <location filename="../qml/pages/FrontPage.qml" line="157"/>
         <source>Usual stops</source>
         <translation>Mis paradas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="158"/>
-        <source>Nearest stops?</source>
+        <location filename="../qml/pages/FrontPage.qml" line="162"/>
+        <source>Nearest stops</source>
         <translation>Paradas cercanas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="163"/>
+        <location filename="../qml/pages/FrontPage.qml" line="167"/>
         <source>Lines</source>
         <translation>Líneas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="168"/>
+        <location filename="../qml/pages/FrontPage.qml" line="172"/>
         <source>Check card balance</source>
-        <translation>Saldo tarjeta</translation>
+        <translation>Saldo de bonobús</translation>
     </message>
 </context>
 <context>

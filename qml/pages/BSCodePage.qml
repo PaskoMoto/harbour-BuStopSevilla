@@ -30,7 +30,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import io.thp.pyotherside 1.3
+
 
 Page {
     id: page
@@ -110,7 +110,7 @@ Page {
                     right: parent.right
                     rightMargin: Theme.itemSizeExtraSmall/2.8
                 }
-                width: Theme.itemSizeExtraLarge
+                width: Theme.itemSizeExtraLarge*1.2
                 text: qsTr("Ask!")
                 enabled: {
                     if (busStopCode.text.length > 0){

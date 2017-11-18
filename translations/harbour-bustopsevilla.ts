@@ -50,6 +50,11 @@ This app depends on suds libs for easy use of SOAP web services.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../qml/pages/About.qml" line="88"/>
+        <source>You can support this app if you want. Ideally I&apos;d feel my work supported just with you coding other native apps for SailfishOS so I can enjoy them myself. If you can&apos;t code or just don&apos;t want to do it, you can make a donation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/pages/About.qml" line="91"/>
         <source>Develop an app</source>
         <translation type="unfinished"></translation>
@@ -80,6 +85,54 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     </message>
 </context>
 <context>
+    <name>CardBalancePage</name>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="29"/>
+        <source>Card Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="78"/>
+        <source>Nº</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="102"/>
+        <source>Card type: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="125"/>
+        <source>Expiration: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="148"/>
+        <source>Balance: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="171"/>
+        <source>Remaining trips: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="203"/>
+        <source>Enter your card code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="205"/>
+        <source>The card code is 12 digits long</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CardBalancePage.qml" line="256"/>
+        <source>Ask!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CoverStopPage</name>
     <message>
         <location filename="../qml/cover/CoverStopPage.qml" line="47"/>
@@ -95,28 +148,58 @@ This app depends on suds libs for easy use of SOAP web services.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="72"/>
+        <location filename="../qml/pages/FrontPage.qml" line="70"/>
+        <source>Official rates (website)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FrontPage.qml" line="76"/>
         <source>BuStop Sevilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="91"/>
+        <location filename="../qml/pages/FrontPage.qml" line="95"/>
         <source>Ask for a bus stop code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="92"/>
+        <location filename="../qml/pages/FrontPage.qml" line="96"/>
         <source>Bus stop code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="109"/>
+        <location filename="../qml/pages/FrontPage.qml" line="113"/>
         <source>Ask!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="143"/>
+        <location filename="../qml/pages/FrontPage.qml" line="147"/>
         <source>Bus stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FrontPage.qml" line="152"/>
+        <source>Stops map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FrontPage.qml" line="157"/>
+        <source>Usual stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FrontPage.qml" line="162"/>
+        <source>Nearest stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FrontPage.qml" line="167"/>
+        <source>Lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FrontPage.qml" line="172"/>
+        <source>Check card balance</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -199,6 +282,14 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     </message>
 </context>
 <context>
+    <name>StopsPage</name>
+    <message>
+        <location filename="../qml/pages/StopsPage.qml" line="153"/>
+        <source>Add to usual stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TBDPage</name>
     <message>
         <location filename="../qml/pages/TBDPage.qml" line="7"/>
@@ -211,6 +302,11 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/UsualStopsPage.qml" line="40"/>
         <source>Your usual stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/UsualStopsPage.qml" line="120"/>
+        <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

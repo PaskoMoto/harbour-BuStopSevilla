@@ -66,6 +66,10 @@ Page {
                         pageStack.push("About.qml")
                     }
                 }
+                MenuItem{
+                    text: qsTr("Official rates (website)")
+                    onClicked: Qt.openUrlExternally("http://www.tussam.es/index.php?id=192")
+                }
             }
             PageHeader{
                 id: header
@@ -155,7 +159,7 @@ Page {
                     move2: "UsualStopsPage.qml"
                 }
                 ListElement{
-                    title: qsTr("Nearest stops?")
+                    title: qsTr("Nearest stops")
                     icon: "image://theme/icon-m-whereami"
                     move2: "TBDPage.qml"
                 }
@@ -167,7 +171,7 @@ Page {
                 ListElement{
                     title: qsTr("Check card balance")
                     icon: "image://theme/icon-l-mobile-network"
-                    move2: "TBDPage.qml"
+                    move2: "CardBalancePage.qml"
                 }
             }
             delegate: BackgroundItem {
