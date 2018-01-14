@@ -84,18 +84,9 @@ Page{
 
     Component.onCompleted: {
         rootPage.current_page = ['StopsPage']
-//        getStopsData(theLine);
-        MyUtils.getStopsData(theLine, mymodel)
-        console.log("eeeeeeeeey")
-    }
-
-    function addUsual(code,name){
-        console.log("Adding "+code+" top usual stops")
-        var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
-        db.transaction(
-                    function(tx){
-                        var r1 = tx.executeSql('INSERT INTO usual_nodes VALUES (NULL,?,?,NULL)',[code,"->"+name])
-                    }
-                    )
+        var output = MyUtils.getStopsData(theLine, mymodel)
+        lineName.text = output[0]
+        lineLabel.text = output[1]
+        lineIcon.border.color = output[2]
     }
 }
