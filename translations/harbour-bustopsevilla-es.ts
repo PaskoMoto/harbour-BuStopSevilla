@@ -283,6 +283,29 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     </message>
 </context>
 <context>
+    <name>StopsMap</name>
+    <message>
+        <location filename="../qml/pages/StopsMap.qml" line="15"/>
+        <source>Go back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StopsMap.qml" line="22"/>
+        <source>Official rates (website)</source>
+        <translation type="unfinished">Tarifas oficiales (sitio web)</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StopsMap.qml" line="57"/>
+        <source>Line </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StopsMap.qml" line="83"/>
+        <source>buses on duty</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>StopsPage</name>
     <message>
         <location filename="../qml/pages/StopsPage.qml" line="153"/>
