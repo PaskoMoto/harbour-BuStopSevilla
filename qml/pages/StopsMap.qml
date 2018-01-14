@@ -3,6 +3,9 @@ import QtLocation 5.0
 import QtPositioning 5.2
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
+import QtQuick.LocalStorage 2.0
+import "../lists"
+import "../lists/utils.js" as MyUtils
 
 Page {
     id: stopsMapPage
@@ -21,9 +24,12 @@ Page {
             }
             MenuItem{
                 text: qsTr("Change line")
+                onClicked: {
+                    safezoneBottom.height = Theme.itemSizeLarge*5;
+                    MyUtils.getLines(ey)
+                }
             }
         }
-
         PositionSource {
             id: src
             updateInterval: 1000
@@ -110,6 +116,13 @@ Page {
                 //font.bold: true
                 font.pixelSize: Theme.fontSizeMedium
             }
+            LineList{
+                id: testing
+                anchors.fill: parent
+                model: ListModel{
+                    id: ey
+                }
+            }
         }
 }
         Map{
@@ -178,3 +191,4 @@ Page {
         rootPage.current_page = ['StopsMap']
     }
 }
+
