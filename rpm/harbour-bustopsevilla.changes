@@ -8,6 +8,12 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Nov 18 2017 J.Pablo Navarro <elfio@hiperones.es> 0.7-1
+- Added Balance check.
+- Updated spanish translation.
+- Cleaned cache files from suds.
+- Minor changes.
+
 * Wed Jul 29 2017 J.Pablo Navarro <elfio@hiperones.es> 0.6-2
 - Fixed section names.
 

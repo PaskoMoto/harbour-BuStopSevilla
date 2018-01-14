@@ -150,7 +150,7 @@ Page{
             }
             menu: ContextMenu {
                 MenuItem {
-                    text: "Add to usual stops"
+                    text: qsTr("Add to usual stops")
                     onClicked: addUsual(stopNumber, stopName)
                 }
             }

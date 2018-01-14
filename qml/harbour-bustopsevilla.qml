@@ -39,6 +39,7 @@ ApplicationWindow
     id: rootPage
     property bool modules_unloaded: true
     property var var_tiempos_llegada
+    property var var_card_balance: []
     property var current_page
     initialPage: Component { FrontPage { } }
     cover: if (current_page[0] === 'StopPage'){
@@ -65,6 +66,10 @@ ApplicationWindow
                             var_tiempos_llegada = TiemposLlegada;
                             console.log("===> Got some info!!")
                         });
+            setHandler('CardBalance',function(CardBalance){
+                            var_card_balance = CardBalance;
+                            console.log("===> Got some info!!")
+                        });
         }
         function ask(stopCode){
             call('api.getTiemposLlegada', [stopCode] , function(parada) {});
@@ -74,7 +79,10 @@ ApplicationWindow
         function checkDB(){
             call('utils.checkDB',[],console.log("DB OK."))
         }
-
+        function askCardBalance(cardCode){
+            call('api.getCardBalance', [cardCode] , function(cardCode) {});
+            console.log("Card Balance requested")
+        }
         onReceived:
         {
             // All the stuff you send, not assigned to a 'setHandler', will be shown here:

@@ -1,68 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="es_ES">
 <context>
     <name>About</name>
     <message>
         <location filename="../qml/pages/About.qml" line="16"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="24"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Descripción</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="32"/>
         <source>BuStopSevilla is an unofficial app to get arrival times from TUSSAM bus service of Seville city. Arrival times are just an estimation and depends on TUSSAM servers. 
 This app depends on suds libs for easy use of SOAP web services.</source>
-        <translation type="unfinished"></translation>
+        <translation>BuStopSevilla es una aplicación no oficial para consultar los tiempos de llegada del servicio de autobuses TUSSAM de la ciudad de Sevilla. Los tiempos de llegada son estimados y depende de los servidores de TUSSAM.
+Esta aplicación depende de librerías suds para un uso sencillo de los servicios Web SOAP.</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="35"/>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="46"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Icono</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="57"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licencia</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="68"/>
         <source>Source code</source>
-        <translation type="unfinished"></translation>
+        <translation>Código fuente</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="73"/>
         <source>See it in Github</source>
-        <translation type="unfinished"></translation>
+        <translation>Consultar en Github</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="80"/>
         <source>Support this work</source>
-        <translation type="unfinished"></translation>
+        <translation>Apoya este trabajo</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="88"/>
         <source>You can support this app if you want. Ideally I&apos;d feel my work supported just with you coding other native apps for SailfishOS so I can enjoy them myself. If you can&apos;t code or just don&apos;t want to do it, you can make a donation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si quieres puedes apoyar esta aplicación. Lo ideal sería sentir que apoyas mi trabajo, con la programación de otras aplicaciones nativas para SailfishOS estaría satisfecho. Si no puedes programar o simplemente no quieres hacerlo, puedes hacer una donación.</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="91"/>
         <source>Develop an app</source>
-        <translation type="unfinished"></translation>
+        <translation>Desarrollar una aplicación</translation>
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="98"/>
         <source>Make a donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hacer una donación</translation>
     </message>
 </context>
 <context>
@@ -71,17 +72,17 @@ This app depends on suds libs for easy use of SOAP web services.</source>
         <location filename="../qml/pages/BSCodePage.qml" line="49"/>
         <location filename="../qml/pages/BSCodePage.qml" line="68"/>
         <source>Bus stop code</source>
-        <translation type="unfinished"></translation>
+        <translation>Código de parada</translation>
     </message>
     <message>
         <location filename="../qml/pages/BSCodePage.qml" line="66"/>
         <source>Enter a bus stop code</source>
-        <translation type="unfinished"></translation>
+        <translation>Introduce código de parada</translation>
     </message>
     <message>
         <location filename="../qml/pages/BSCodePage.qml" line="114"/>
         <source>Ask!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Consultar!</translation>
     </message>
 </context>
 <context>
@@ -89,47 +90,47 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/CardBalancePage.qml" line="29"/>
         <source>Card Balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Saldo de bonobús</translation>
     </message>
     <message>
         <location filename="../qml/pages/CardBalancePage.qml" line="78"/>
         <source>Nº</source>
-        <translation type="unfinished"></translation>
+        <translation>Nº</translation>
     </message>
     <message>
         <location filename="../qml/pages/CardBalancePage.qml" line="102"/>
         <source>Card type: </source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo de bonobús: </translation>
     </message>
     <message>
         <location filename="../qml/pages/CardBalancePage.qml" line="125"/>
         <source>Expiration: </source>
-        <translation type="unfinished"></translation>
+        <translation>Caducidad: </translation>
     </message>
     <message>
         <location filename="../qml/pages/CardBalancePage.qml" line="148"/>
         <source>Balance: </source>
-        <translation type="unfinished"></translation>
+        <translation>Saldo: </translation>
     </message>
     <message>
         <location filename="../qml/pages/CardBalancePage.qml" line="171"/>
         <source>Remaining trips: </source>
-        <translation type="unfinished"></translation>
+        <translation>Viajes restantes: </translation>
     </message>
     <message>
         <location filename="../qml/pages/CardBalancePage.qml" line="203"/>
         <source>Enter your card code</source>
-        <translation type="unfinished"></translation>
+        <translation>Introduzca el código de su tarjeta</translation>
     </message>
     <message>
         <location filename="../qml/pages/CardBalancePage.qml" line="205"/>
         <source>The card code is 12 digits long</source>
-        <translation type="unfinished"></translation>
+        <translation>El código de la tarjeta tiene 12 dígitos</translation>
     </message>
     <message>
         <location filename="../qml/pages/CardBalancePage.qml" line="255"/>
         <source>Ask!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Consultar!</translation>
     </message>
 </context>
 <context>
@@ -137,7 +138,7 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/cover/CoverStopPage.qml" line="47"/>
         <source>Stop nº </source>
-        <translation type="unfinished"></translation>
+        <translation>Parada nº </translation>
     </message>
 </context>
 <context>
@@ -145,62 +146,62 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="64"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="70"/>
         <source>Official rates (website)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarifas oficiales (sitio web)</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="76"/>
         <source>BuStop Sevilla</source>
-        <translation type="unfinished"></translation>
+        <translation>BuStop Sevilla</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="95"/>
         <source>Ask for a bus stop code</source>
-        <translation type="unfinished"></translation>
+        <translation>Consulta un código de parada</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="96"/>
         <source>Bus stop code</source>
-        <translation type="unfinished"></translation>
+        <translation>Código de parada</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="113"/>
         <source>Ask!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Consultar!</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="147"/>
         <source>Bus stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Parada</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="152"/>
         <source>Stops map</source>
-        <translation type="unfinished"></translation>
+        <translation>Mapa de paradas</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="157"/>
         <source>Usual stops</source>
-        <translation type="unfinished"></translation>
+        <translation>Mis paradas</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="162"/>
         <source>Nearest stops</source>
-        <translation type="unfinished"></translation>
+        <translation>Paradas cercanas</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="167"/>
         <source>Lines</source>
-        <translation type="unfinished"></translation>
+        <translation>Líneas</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="172"/>
         <source>Check card balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Saldo de bonobús</translation>
     </message>
 </context>
 <context>
@@ -208,50 +209,42 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/LinesPage.qml" line="41"/>
         <source>Lines</source>
-        <translation type="unfinished"></translation>
+        <translation>Líneas</translation>
     </message>
     <message>
         <location filename="../qml/pages/LinesPage.qml" line="127"/>
         <source>Circular</source>
-        <translation type="unfinished"></translation>
+        <translation>Circular</translation>
     </message>
     <message>
         <location filename="../qml/pages/LinesPage.qml" line="130"/>
         <source>Long Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Línea larga</translation>
     </message>
     <message>
         <location filename="../qml/pages/LinesPage.qml" line="133"/>
         <source>Regular</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../qml/pages/LinesPage.qml" line="136"/>
         <source>Trolley Car</source>
-        <translation type="unfinished"></translation>
+        <translation>Tranvía</translation>
     </message>
     <message>
         <location filename="../qml/pages/LinesPage.qml" line="139"/>
         <source>Special</source>
-        <translation type="unfinished"></translation>
+        <translation>Especial</translation>
     </message>
     <message>
         <location filename="../qml/pages/LinesPage.qml" line="142"/>
         <source>Nighttime</source>
-        <translation type="unfinished"></translation>
+        <translation>Nocturno</translation>
     </message>
     <message>
         <location filename="../qml/pages/LinesPage.qml" line="145"/>
         <source>Other</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MapPage</name>
-    <message>
-        <location filename="../qml/pages/MapPage.qml" line="107"/>
-        <source>Go back</source>
-        <translation type="unfinished"></translation>
+        <translation>Otro</translation>
     </message>
 </context>
 <context>
@@ -259,34 +252,34 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/StopPage.qml" line="44"/>
         <source>Add to usual stops</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir a mis paradas</translation>
     </message>
     <message>
         <location filename="../qml/pages/StopPage.qml" line="49"/>
         <source>Remove from usual stops</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar de mis paradas</translation>
     </message>
     <message>
         <location filename="../qml/pages/StopPage.qml" line="54"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <location filename="../qml/pages/StopPage.qml" line="68"/>
         <source>Loading...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargando...</translation>
     </message>
     <message>
         <location filename="../qml/pages/StopPage.qml" line="311"/>
         <location filename="../qml/pages/StopPage.qml" line="348"/>
         <source> minutes</source>
-        <translation type="unfinished"></translation>
+        <translation> minutos</translation>
     </message>
     <message>
         <location filename="../qml/pages/StopPage.qml" line="311"/>
         <location filename="../qml/pages/StopPage.qml" line="348"/>
         <source> meters</source>
-        <translation type="unfinished"></translation>
+        <translation> metros</translation>
     </message>
 </context>
 <context>
@@ -299,7 +292,7 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/StopsMap.qml" line="22"/>
         <source>Official rates (website)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tarifas oficiales (sitio web)</translation>
     </message>
     <message>
         <location filename="../qml/pages/StopsMap.qml" line="57"/>
@@ -317,7 +310,7 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/StopsPage.qml" line="153"/>
         <source>Add to usual stops</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir a mis paradas</translation>
     </message>
 </context>
 <context>
@@ -325,7 +318,7 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/TBDPage.qml" line="7"/>
         <source>To be implemented!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Se implementará!</translation>
     </message>
 </context>
 <context>
@@ -333,12 +326,12 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <message>
         <location filename="../qml/pages/UsualStopsPage.qml" line="40"/>
         <source>Your usual stops</source>
-        <translation type="unfinished"></translation>
+        <translation>Tus paradas</translation>
     </message>
     <message>
         <location filename="../qml/pages/UsualStopsPage.qml" line="120"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar</translation>
     </message>
 </context>
 </TS>

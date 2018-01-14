@@ -117,7 +117,7 @@ Page{
             onClicked: pushAskButton(code);
             menu: ContextMenu {
                 MenuItem {
-                    text: "Remove"
+                    text: qsTr("Remove")
                     onClicked: removeUsual(entry_id)
                 }
             }
