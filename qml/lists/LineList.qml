@@ -1,8 +1,6 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
-import "../lists"
-import "../lists/utils.js" as MyUtils
 
 SilicaListView{
         anchors.fill: parent
@@ -74,7 +72,7 @@ SilicaListView{
             }
             onClicked: {
                 console.log("Tapped on line "+lineNumber)
-                pageStack.push("StopsPage.qml", {theLine: code, theColor: lineColor})
+                pageStack.push("../pages/StopsPage.qml", {theLine: code, theColor: lineColor})
             }
         }
     }

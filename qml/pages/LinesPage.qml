@@ -31,128 +31,19 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
+import "../lists"
+import "../lists/utils.js" as MyUtils
 
 Page{
     id:pageLines
-    SilicaListView{
-        anchors.fill: parent
-        spacing: 0
-        header: PageHeader{
-            title: qsTr("Lines")
-        }
-        model: ListModel {
-        id:linesListModel}
-        section{
-            property: "lineType"
-            criteria: ViewSection.FullString
-            delegate: Column{
-                width: parent.width
-                Label{
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: section
-                    color: Theme.secondaryColor
-                }
-                Item{
-                    width: parent.width
-                    height: Theme.itemSizeExtraSmall/10
-                }
-                Separator {
-                    color: Theme.secondaryColor
-                    height: Theme.itemSizeExtraSmall/50
-                    width: parent.width*0.6
-                }
-                Item{
-                    width: parent.width
-                    height: Theme.itemSizeExtraSmall/10
-                }
-            }
-        }
-        delegate: ListItem {
-            width: ListView.view.width
-            height: Theme.itemSizeSmall
-            Rectangle{
-                id: lineIcon
-                anchors.left: parent.left
-                anchors.leftMargin: Theme.itemSizeExtraSmall/4
-                anchors.verticalCenter: parent.verticalCenter
-                color: 'transparent'
-                height: parent.height*0.95
-                width: height
-                radius: width*0.5
-                border{
-                    width: Theme.itemSizeExtraSmall/12
-                    color: lineColor
-                }
-
-                Label {
-                    anchors.centerIn: parent
-                    color: Theme.primaryColor
-                    text: lineNumber
-                    font.pixelSize: Theme.fontSizeMedium
-                    font.bold: true
-                }
-            }
-            Label{
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: lineIcon.right
-                anchors.leftMargin: Theme.itemSizeExtraSmall/5
-                text: lineName
-                color: Theme.highlightColor
-                font.pixelSize: Theme.fontSizeExtraSmall
-                truncationMode: TruncationMode.Fade
-                width: parent.width*0.75
-            }
-            onClicked: {
-                console.log("Tapped on line "+lineNumber)
-                pageStack.push("StopsPage.qml", {theLine: code, theColor: lineColor})
-            }
+    LineList{
+        model: ListModel{
+            id: mymodel
         }
     }
+
     Component.onCompleted: {
         rootPage.current_page = ['LinesPage']
-        getLines();
-    }
-
-    function getLines(){
-        linesListModel.clear()
-        var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
-        db.transaction(
-                    function(tx){
-                        var query = 'SELECT * FROM lines ORDER BY category ASC, label ASC'
-                        var r1 = tx.executeSql(query)
-                        var category = ''
-                        for(var i = 0; i < r1.rows.length; i++){
-                            switch (r1.rows.item(i).category){
-                            case '0circular':
-                                category = qsTr("Circular");
-                                break;
-                            case '1largo_recorrido':
-                                category = qsTr("Long Line");
-                                break;
-                            case '2regular':
-                                category = qsTr("Regular");
-                                break;
-                            case '3tranvia':
-                                category = qsTr("Trolley Car");
-                                break;
-                            case '4especial':
-                                category = qsTr("Special");
-                                break;
-                            case '5nocturno':
-                                category = qsTr("Nighttime");
-                                break;
-                            default:
-                                category = qsTr("Other");
-                            }
-
-                            linesListModel.append({"lineNumber": r1.rows.item(i).label,
-                                                      "lineName": r1.rows.item(i).name,
-                                                      "lineColor": r1.rows.item(i).color,
-                                                      "lineType": category,
-                                                      "code": r1.rows.item(i).code
-                                                  })
-                        }
-                    }
-                    )
+        MyUtils.getLines(mymodel);
     }
 }
