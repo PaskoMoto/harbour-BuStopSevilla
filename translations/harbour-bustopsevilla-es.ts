@@ -134,14 +134,6 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     </message>
 </context>
 <context>
-    <name>CoverStopPage</name>
-    <message>
-        <location filename="../qml/cover/CoverStopPage.qml" line="47"/>
-        <source>Stop nº </source>
-        <translation>Parada nº </translation>
-    </message>
-</context>
-<context>
     <name>FrontPage</name>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="64"/>
@@ -273,7 +265,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopsMap.qml" line="193"/>
+        <location filename="../qml/pages/StopsMap.qml" line="205"/>
         <source>Line </source>
         <translation type="unfinished"></translation>
     </message>

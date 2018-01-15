@@ -70,6 +70,10 @@ Page {
                     MyUtils.getStopsData(tappedData[4], myStopList)
                     mapContainer.state = "map open"
                     console.log("Number of stops loaded: "+myStopList.count)
+                    map.center.latitude = 37.3715306
+                    map.center.longitude = -5.9573124
+                    map.zoomLevel = 12;
+                    console.log("Center: "+map.center.latitude+ " - "+ map.center.longitude + " zoom level: "+ map.zoomLevel)
                 }
                 else{
                     console.log("tappedData still empty")
@@ -117,35 +121,9 @@ Page {
                 opacity: 0.2
                 center: src.position.coordinate
             }
-            MapQuickItem {
-                id:currentPosition
-                sourceItem: Item{
-                    width: currentPositionIcon.width
-                    height: currentPositionIcon.height
-                    Image{
-                        id:currentPositionIcon
-                        source: "image://theme/icon-m-person"
-                        visible: false
-                    }
-                    ColorOverlay{
-                        anchors.fill: currentPositionIcon
-                        source: currentPositionIcon
-                        color: 'red'
-                    }
-                }
-                coordinate: uncertaintyCircle.center
-                visible: uncertaintyCircle.visible
-                anchorPoint.x: currentPosition.width/2
-                anchorPoint.y: currentPosition.height/2
-            }
-            Component.onCompleted: {
-                //                map.center = QtPositioning.coordinate(39.775, -3.845);
-                map.center = src.position.coordinate
-                console.log("==> "+src.horizontalAccuracy);
-                map.zoomLevel = 15;
-            }
             MapItemView{
                 model: myStopList
+//                autoFitViewport: true
                 delegate: MapQuickItem {
                     id: stopIconItem
                     sourceItem: BackgroundItem{
@@ -172,13 +150,41 @@ Page {
                     anchorPoint.y: stopIconItem.height/2
                 }
             }
+            MapQuickItem {
+                id:currentPosition
+                sourceItem: Item{
+                    width: currentPositionIcon.width
+                    height: currentPositionIcon.height
+                    Image{
+                        id:currentPositionIcon
+                        source: "image://theme/icon-m-person"
+                        visible: false
+                    }
+                    ColorOverlay{
+                        anchors.fill: currentPositionIcon
+                        source: currentPositionIcon
+                        color: 'red'
+                    }
+                }
+                coordinate: uncertaintyCircle.center
+                visible: uncertaintyCircle.visible
+                anchorPoint.x: currentPosition.width/2
+                anchorPoint.y: currentPosition.height/2
+            }
             MouseArea {
                 id:mapMouseArea
                 anchors.fill: parent
                 preventStealing: true
-                onClicked: {
-                    console.log("Clic on "+mouseX+", "+mouseY)
+//                onClicked: {
+//                    console.log("x: " + mouseX + ", y: " + mouseY)
+//                }
+                onDoubleClicked: {
+                    map.zoomLevel = map.zoomLevel + 1
                 }
+            }
+            Component.onCompleted: {
+                map.center = QtPositioning.coordinate(37.37153059279899, -5.957312423107226);
+                map.zoomLevel = 12;
             }
         }
         Item{

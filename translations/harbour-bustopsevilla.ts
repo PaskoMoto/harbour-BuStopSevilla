@@ -133,14 +133,6 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     </message>
 </context>
 <context>
-    <name>CoverStopPage</name>
-    <message>
-        <location filename="../qml/cover/CoverStopPage.qml" line="47"/>
-        <source>Stop nº </source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>FrontPage</name>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="64"/>
@@ -272,7 +264,7 @@ This app depends on suds libs for easy use of SOAP web services.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopsMap.qml" line="193"/>
+        <location filename="../qml/pages/StopsMap.qml" line="205"/>
         <source>Line </source>
         <translation type="unfinished"></translation>
     </message>
