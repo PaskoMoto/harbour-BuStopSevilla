@@ -111,22 +111,18 @@ Page {
                 PluginParameter { name: "app_code"; value: "qsU98SUji0bBsaUhiNJapQ" }
                 PluginParameter { name: "proxy"; value: "system" }
             }
-            MapCircle{
-                id: uncertaintyCircle
-                // the center is set by a PressAndHold
-                radius: src.position.horizontalAccuracy
-                visible: true
-                color: 'blue'
-                border.width: 0
-                opacity: 0.2
-                center: src.position.coordinate
-            }
             MapItemView{
                 model: myStopList
 //                autoFitViewport: true
                 delegate: MapQuickItem {
                     id: stopIconItem
                     sourceItem: BackgroundItem{
+                        Rectangle{
+                            visible: false
+                            anchors.fill: parent
+                            border.color: "red"
+                            color: "transparent"
+                        }
                         width: stopIcon.width
                         height: stopIcon.height
                         Image{
@@ -147,34 +143,48 @@ Page {
                     }
                     coordinate: QtPositioning.coordinate(latitude, longitude)
                     anchorPoint.x: stopIconItem.width/2
-                    anchorPoint.y: stopIconItem.height/2
+                    anchorPoint.y: stopIconItem.height
                 }
             }
             MapQuickItem {
                 id:currentPosition
-                sourceItem: Item{
+                sourceItem: BackgroundItem{
                     width: currentPositionIcon.width
                     height: currentPositionIcon.height
+                    Rectangle{
+                        radius: currentPositionIcon.width
+                        gradient: Gradient {
+                            GradientStop {
+                                position: 0.00;
+                                color: Theme.highlightDimmerColor;
+                            }
+                            GradientStop {
+                                position: 1.10;
+                                color: "transparent";
+                            }
+                        }
+                        visible: true
+                        anchors.fill: parent
+                    }
                     Image{
                         id:currentPositionIcon
                         source: "image://theme/icon-m-person"
-                        visible: false
-                    }
-                    ColorOverlay{
-                        anchors.fill: currentPositionIcon
-                        source: currentPositionIcon
-                        color: 'red'
+                        visible: true
+                        ColorOverlay{
+                            anchors.fill: currentPositionIcon
+                            source: currentPositionIcon
+                            color: Theme.primaryColor
+                        }
                     }
                 }
-                coordinate: uncertaintyCircle.center
-                visible: uncertaintyCircle.visible
-                anchorPoint.x: currentPosition.width/2
-                anchorPoint.y: currentPosition.height/2
+                coordinate: src.position.coordinate
+                anchorPoint.x: currentPositionIcon.width/2
+                anchorPoint.y: currentPositionIcon.height/2
             }
             MouseArea {
                 id:mapMouseArea
                 anchors.fill: parent
-                preventStealing: true
+//                preventStealing: true
 //                onClicked: {
 //                    console.log("x: " + mouseX + ", y: " + mouseY)
 //                }
