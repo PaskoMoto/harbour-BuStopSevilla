@@ -151,7 +151,7 @@ Page {
                 ListElement{
                     title: qsTr("Stops map")
                     icon: "qrc:///res/map.png"
-                    move2: "StopsMap.qml"
+                    move2: "StopsMap_copy.qml"
                 }
                 ListElement{
                     title: qsTr("Usual stops")

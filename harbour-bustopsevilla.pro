@@ -177,7 +177,8 @@ DISTFILES += \
     db/data.db \
     qml/pages/UsualStopsPage.qml \
     rpm/harbour-bustopsevilla.changes \
-    qml/pages/StopsMap.qml
+    qml/pages/StopsMap.qml \
+    qml/pages/StopsMap_copy.qml
 
 RESOURCES += \
     resources.qrc
