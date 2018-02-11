@@ -171,7 +171,7 @@ Page {
             id: myMapMouseArea
             anchors.fill: parent
             propagateComposedEvents: true
-            onPressed: {
+            onClicked: {
                 console.log("Clic on map")
                 if (myMap.state == ""){
                     myMap.state = "map closed"

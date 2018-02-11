@@ -253,6 +253,11 @@ This app depends on suds libs for easy use of SOAP web services.</source>
         <source>Please, select a line</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../qml/pages/StopsMap.qml" line="308"/>
+        <source>Near stops</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TBDPage</name>

@@ -201,7 +201,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     <message>
         <location filename="../qml/lists/LineList.qml" line="10"/>
         <source>Lines</source>
-        <translation type="unfinished">Líneas</translation>
+        <translation>Líneas</translation>
     </message>
 </context>
 <context>
@@ -244,7 +244,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     <message>
         <location filename="../qml/lists/StopsList.qml" line="83"/>
         <source>Add to usual stops</source>
-        <translation type="unfinished">Añadir a mis paradas</translation>
+        <translation>Añadir a mis paradas</translation>
     </message>
 </context>
 <context>
@@ -252,7 +252,12 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     <message>
         <location filename="../qml/pages/StopsMap.qml" line="63"/>
         <source>Please, select a line</source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor, seleccione una línea</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StopsMap.qml" line="308"/>
+        <source>Near stops</source>
+        <translation>Paradas cercanas</translation>
     </message>
 </context>
 <context>
@@ -281,37 +286,37 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     <message>
         <location filename="../qml/lists/utils.js" line="13"/>
         <source>Circular</source>
-        <translation type="unfinished">Circular</translation>
+        <translation>Circular</translation>
     </message>
     <message>
         <location filename="../qml/lists/utils.js" line="16"/>
         <source>Long Line</source>
-        <translation type="unfinished">Línea larga</translation>
+        <translation>Línea larga</translation>
     </message>
     <message>
         <location filename="../qml/lists/utils.js" line="19"/>
         <source>Regular</source>
-        <translation type="unfinished">Normal</translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../qml/lists/utils.js" line="22"/>
         <source>Trolley Car</source>
-        <translation type="unfinished">Tranvía</translation>
+        <translation>Tranvía</translation>
     </message>
     <message>
         <location filename="../qml/lists/utils.js" line="25"/>
         <source>Special</source>
-        <translation type="unfinished">Especial</translation>
+        <translation>Especial</translation>
     </message>
     <message>
         <location filename="../qml/lists/utils.js" line="28"/>
         <source>Nighttime</source>
-        <translation type="unfinished">Nocturno</translation>
+        <translation>Nocturno</translation>
     </message>
     <message>
         <location filename="../qml/lists/utils.js" line="31"/>
         <source>Other</source>
-        <translation type="unfinished">Otro</translation>
+        <translation>Otro</translation>
     </message>
 </context>
 </TS>
