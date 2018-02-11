@@ -78,8 +78,13 @@ SilicaListView{
                     pageStack.push("../pages/StopsPage.qml", {theLine: code, theColor: lineColor})
                 }
                 else if (workingMode == 2){
-                    tappedData = [lineNumber, lineName, lineColor, lineType, code]
-                    // Does nothing. Just make use of theLine and theColor parameters.
+                    if (code != -1){
+                        tappedData = [lineNumber, lineName, lineColor, lineType, code]
+                        // Does nothing. Just make use of theLine and theColor parameters.
+                    }
+                    else{
+                        console.log("Looking for near stops")
+                    }
                 }
             }
         }

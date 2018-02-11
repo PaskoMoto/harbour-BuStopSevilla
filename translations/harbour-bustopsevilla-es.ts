@@ -250,46 +250,8 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
 <context>
     <name>StopsMap</name>
     <message>
-        <location filename="../qml/pages/StopsMap.qml" line="27"/>
-        <source>See the map</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="35"/>
-        <source>Go back</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="42"/>
-        <source>Change line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="217"/>
-        <source>Line </source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>StopsMap_copy</name>
-    <message>
-        <location filename="../qml/pages/StopsMap_copy.qml" line="27"/>
-        <source>See the map</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap_copy.qml" line="35"/>
-        <source>Go back</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap_copy.qml" line="42"/>
-        <source>Change line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap_copy.qml" line="217"/>
-        <source>Line </source>
+        <location filename="../qml/pages/StopsMap.qml" line="63"/>
+        <source>Please, select a line</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
