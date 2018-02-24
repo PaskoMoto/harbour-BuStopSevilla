@@ -4,11 +4,12 @@ import uuid
 import os
 import sqlite3
 
-class populate_db:
+class internal_db:
     def __init__(self):
         self.db = self.init_db()
         self.create_tables_db()
         self.tussam_connect()
+        self.data_tables = ['lines', 'nodes', 'line_nodes']
     
     def init_db(self):
         self.db_conn = sqlite3.connect('../db/7e3f3d4078aa797ff831e9bc3fbbfe46.sqlite')
@@ -48,7 +49,7 @@ class populate_db:
         self.tussam = Client("http://www.infobustussam.com:9005/InfoTusWS/services/InfoTus?wsdl", username="infotus-usermobile", password="2infotus0user1mobile2", headers={"deviceid":str(uuid.uuid4())})
         return 1
         
-    def get_tussam_lines(self):
+    def update_tussam_lines(self):
         # Download lines from API to DB
         lines = self.tussam.service.getLineas()[0][0]
         for line in lines:
@@ -85,24 +86,24 @@ class populate_db:
             return 0
                 
          
-    def get_tussam_nodes(self):
-        for i in range(4000):
-            if i % 40 == 0:
-                self.tussam_connect()
-                self.db_conn.commit()
-            self.db.execute("SELECT * FROM nodes WHERE code = ?",(i,))
-            if self.db.fetchone() == None:
-                node = self.tussam.service.getInfoNodo(i)
-                if node not in ["", None, "None", []]:
-                    data = (int(node['codigo']), node['descripcion'], node['posicion']['latitud'], node['posicion']['longitud'], node['posicion']['altura'])
-                    lines = ':'
-                    for line in node['lineasCoincidentes'][0]:
-                        lines += str(line['macro'])+':'
-                    data = data + (lines,)
-                    print("Adding node",node['codigo'])
-                    self.db.execute('INSERT INTO nodes VALUES (?,?,?,?,?,?)',data)
+    #def get_tussam_nodes(self):
+        #for i in range(4000):
+            #if i % 40 == 0:
+                #self.tussam_connect()
+                #self.db_conn.commit()
+            #self.db.execute("SELECT * FROM nodes WHERE code = ?",(i,))
+            #if self.db.fetchone() == None:
+                #node = self.tussam.service.getInfoNodo(i)
+                #if node not in ["", None, "None", []]:
+                    #data = (int(node['codigo']), node['descripcion'], node['posicion']['latitud'], node['posicion']['longitud'], node['posicion']['altura'])
+                    #lines = ':'
+                    #for line in node['lineasCoincidentes'][0]:
+                        #lines += str(line['macro'])+':'
+                    #data = data + (lines,)
+                    #print("Adding node",node['codigo'])
+                    #self.db.execute('INSERT INTO nodes VALUES (?,?,?,?,?,?)',data)
                 
-    def get_tussam_nodes2(self):
+    def update_tussam_nodes(self):
         self.tussam_connect()
         self.db.execute("SELECT label, code, head_number, tail_number FROM lines")
         for line, code, head, tail in self.db.fetchall():
@@ -152,12 +153,23 @@ class populate_db:
                 self.db_conn.commit()
                 
                         
+    def get_table_names(self):
+        x = self.db.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        table_list = []
+        for element in x.fetchall():
+            if element[0] != 'sqlite_sequence':
+                table_list.append(element[0])
+        return table_list
         
-        
-        
+    def __wipe_table__(self, table):
+        """ Deletes the content of a table.
+        """
+        self.db.execute('DELETE FROM %s' % table)
+        self.db_conn.commit()
+        return True if self.db.execute('SELECT Count(*) FROM %s' % table).fetchone()[0] == 0 else False
     
-if __name__ == '__main__':
-    x = populate_db()
-    x.get_tussam_lines()
-    x.get_tussam_nodes2()
-    x.close_db()
+    def wipe_data_tables(self):
+        result = []
+        for table in self.data_tables:
+            result.append(self.__wipe_table__(table))
+        return True if all(result) else False
