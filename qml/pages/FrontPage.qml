@@ -61,6 +61,12 @@ Page {
             }
             PullDownMenu{
                 MenuItem{
+                    text: qsTr("Settings")
+                    onClicked: {
+                        pageStack.push("Settings.qml")
+                    }
+                }
+                MenuItem{
                     text: qsTr("About")
                     onClicked: {
                         pageStack.push("About.qml")

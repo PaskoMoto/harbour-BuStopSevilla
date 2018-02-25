@@ -41,6 +41,8 @@ ApplicationWindow
     property bool modules_unloaded: true
     property var var_tiempos_llegada
     property var var_card_balance: []
+    property bool var_updatingdb: false
+    property bool var_wipeupdatingdb: false
     property var current_page
     initialPage: Component { FrontPage { } }
     cover: if (current_page[0] === 'StopPage'){
@@ -71,6 +73,14 @@ ApplicationWindow
                             var_card_balance = CardBalance;
                             console.log("===> Got some info!!")
                         });
+            setHandler('UpdatingDB',function(UpdatingDB){
+                            var_updatingdb = UpdatingDB;
+                            console.log("===> Got some info!!")
+                        });
+            setHandler('WipeUpdatingDB',function(WipeUpdatingDB){
+                            var_wipeupdatingdb = WipeUpdatingDB;
+                            console.log("===> Got some info!!")
+                        });
         }
         function ask(stopCode){
             call('api.getTiemposLlegada', [stopCode] , function(parada) {});
@@ -83,6 +93,12 @@ ApplicationWindow
         function askCardBalance(cardCode){
             call('api.getCardBalance', [cardCode] , function(cardCode) {});
             console.log("Card Balance requested")
+        }
+        function update_database(){
+            call('utils.update_database',[],console.log("Updating the DB."))
+        }
+        function wipe_update_database(){
+            call('utils.wipe_update_database',[],console.log("Wiping and updating the DB."))
         }
         onReceived:
         {

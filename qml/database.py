@@ -3,24 +3,26 @@ from suds.client import Client
 import uuid
 import os
 import sqlite3
+from datetime import datetime
 
 class internal_db:
-    def __init__(self):
-        self.db = self.init_db()
-        self.create_tables_db()
-        self.tussam_connect()
+    def __init__(self, db_path='../db/7e3f3d4078aa797ff831e9bc3fbbfe46.sqlite'):
+        self.db_path = db_path
+        self.db = self.__init_db__()
+        self.__create_tables_db__()
+        self.__tussam_connect__()
         self.data_tables = ['lines', 'nodes', 'line_nodes']
     
-    def init_db(self):
-        self.db_conn = sqlite3.connect('../db/7e3f3d4078aa797ff831e9bc3fbbfe46.sqlite')
+    def __init_db__(self):
+        self.db_conn = sqlite3.connect(self.db_path)
         c = self.db_conn.cursor()
         return c
     
-    def close_db(self):
+    def __close_db__(self):
         self.db_conn.close()
         return 1
         
-    def create_tables_db(self):
+    def __create_tables_db__(self):
         if not self.db.execute('''CREATE TABLE IF NOT EXISTS lines
              (code INTEGER, name TEXT, label TEXT, color TEXT, category TEXT,
              head_name TEXT, head_number INTEGER, head_start_time TEXT, head_end_time TEXT,
@@ -45,11 +47,11 @@ class internal_db:
         
         return 1
     
-    def tussam_connect(self):
+    def __tussam_connect__(self):
         self.tussam = Client("http://www.infobustussam.com:9005/InfoTusWS/services/InfoTus?wsdl", username="infotus-usermobile", password="2infotus0user1mobile2", headers={"deviceid":str(uuid.uuid4())})
         return 1
         
-    def update_tussam_lines(self):
+    def __update_tussam_lines__(self):
         # Download lines from API to DB
         lines = self.tussam.service.getLineas()[0][0]
         for line in lines:
@@ -78,33 +80,15 @@ class internal_db:
                         seccion = line['secciones'][0]
                         data = data + (seccion['nombreSeccion'],int(seccion['numeroSeccion']), seccion['horaInicio'],seccion['horaFin'],
                                        None, None, None, None,)
-                    print("Adding line",line['label'])
+                    #print("Adding line",line['label'])
                     self.db.execute('INSERT INTO lines VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',data)
         if self.db_conn.commit():
             return 1
         else:
             return 0
                 
-         
-    #def get_tussam_nodes(self):
-        #for i in range(4000):
-            #if i % 40 == 0:
-                #self.tussam_connect()
-                #self.db_conn.commit()
-            #self.db.execute("SELECT * FROM nodes WHERE code = ?",(i,))
-            #if self.db.fetchone() == None:
-                #node = self.tussam.service.getInfoNodo(i)
-                #if node not in ["", None, "None", []]:
-                    #data = (int(node['codigo']), node['descripcion'], node['posicion']['latitud'], node['posicion']['longitud'], node['posicion']['altura'])
-                    #lines = ':'
-                    #for line in node['lineasCoincidentes'][0]:
-                        #lines += str(line['macro'])+':'
-                    #data = data + (lines,)
-                    #print("Adding node",node['codigo'])
-                    #self.db.execute('INSERT INTO nodes VALUES (?,?,?,?,?,?)',data)
-                
-    def update_tussam_nodes(self):
-        self.tussam_connect()
+    def __update_tussam_nodes__(self):
+        self.__tussam_connect__()
         self.db.execute("SELECT label, code, head_number, tail_number FROM lines")
         for line, code, head, tail in self.db.fetchall():
             for section in [head,tail]:
@@ -124,9 +108,8 @@ class internal_db:
                                 coincident_lines = local_node[-1].strip(":").split(":")
                                 if way not in coincident_lines:
                                     coincident_lines.append(way)
-                                    #print(":"+":".join(coincident_lines)+":")
-                                    print("Existing node:", local_node)
-                                    print("\tUpdating line_codes to:", coincident_lines)
+                                    #print("Existing node:", local_node)
+                                    #print("\tUpdating line_codes to:", coincident_lines)
                                     self.db.execute('UPDATE nodes SET line_codes=? WHERE code=?',(":"+":".join(coincident_lines)+":",remote_node[0],))
                                 else:
                                     #print("\tNothing to update.")
@@ -140,7 +123,7 @@ class internal_db:
                                     else:
                                         stop_name += ')'
                                 data = (int(remote_node['codigoNodo']), stop_name, remote_node['posicion']['latitud'], remote_node['posicion']['longitud'], remote_node['posicion']['altura'], ":"+way+":")
-                                print("Adding new node:", data,"\n")
+                                #print("Adding new node:", data,"\n")
                                 self.db.execute('INSERT INTO nodes VALUES (?,?,?,?,?,?)',data)
                                 pass
                     temp = (code, line, int(section),)
@@ -148,12 +131,11 @@ class internal_db:
                     local_data = self.db.fetchone()
                     if local_data == None or (node_list != "::" and distance_list != "::" and (local_data[0] == "::" or local_data[1] == "::")):
                         data = (code, line, int(section), ":"+":".join(node_list)+":",":"+":".join(distance_list)+":",)
-                        print("Adding data:", data)
+                        #print("Adding data:", data)
                         self.db.execute('INSERT INTO line_nodes VALUES (NULL,?,?,?,?,?)', data)
                 self.db_conn.commit()
-                
                         
-    def get_table_names(self):
+    def __get_table_names__(self):
         x = self.db.execute("SELECT name FROM sqlite_master WHERE type='table';")
         table_list = []
         for element in x.fetchall():
@@ -168,8 +150,26 @@ class internal_db:
         self.db_conn.commit()
         return True if self.db.execute('SELECT Count(*) FROM %s' % table).fetchone()[0] == 0 else False
     
-    def wipe_data_tables(self):
+    def __wipe_data_tables__(self):
         result = []
         for table in self.data_tables:
             result.append(self.__wipe_table__(table))
         return True if all(result) else False
+
+    def update_data_tables(self, wipe = False):
+        if wipe:
+            self.__wipe_data_tables__()
+        self.__update_tussam_lines__()
+        self.__update_tussam_nodes__()
+        self.__update_modification_date__()
+        
+    def __update_modification_date__(self):
+        if self.db.execute("SELECT Count(*) from metadata WHERE field='last_db_update'").fetchone()[0] == 0:
+            self.db.execute("INSERT INTO metadata VALUES (?, ?)", ('last_db_update', str(datetime.now().strftime("%d/%m/%Y - %H:%M")),))
+        else:
+            self.db.execute("UPDATE metadata SET data=? WHERE field=?", (str(datetime.now().strftime("%d/%m/%Y - %H:%M")), 'last_db_update',))
+        self.db_conn.commit()
+        
+if __name__ == '__main__':
+    x = internal_db()
+    x.update_data_tables(wipe=True)
