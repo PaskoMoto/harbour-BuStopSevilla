@@ -8,6 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Feb 25 2018 J.Pablo Navarro <elfio@hiperones.es> 0.8-1
+- Added settings page.
+- Added db updater.
+- Updated spanish translation.
+
 * Sat Nov 18 2017 J.Pablo Navarro <elfio@hiperones.es> 0.7-1
 - Added Balance check.
 - Updated spanish translation.
