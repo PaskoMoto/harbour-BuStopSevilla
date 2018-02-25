@@ -144,61 +144,66 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     <name>FrontPage</name>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="64"/>
-        <source>About</source>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="70"/>
-        <source>Official rates (website)</source>
+        <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="76"/>
+        <source>Official rates (website)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FrontPage.qml" line="82"/>
         <source>BuStop Sevilla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="95"/>
+        <location filename="../qml/pages/FrontPage.qml" line="101"/>
         <source>Ask for a bus stop code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="96"/>
+        <location filename="../qml/pages/FrontPage.qml" line="102"/>
         <source>Bus stop code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="113"/>
+        <location filename="../qml/pages/FrontPage.qml" line="119"/>
         <source>Ask!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="147"/>
+        <location filename="../qml/pages/FrontPage.qml" line="153"/>
         <source>Bus stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="152"/>
+        <location filename="../qml/pages/FrontPage.qml" line="158"/>
         <source>Stops map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="157"/>
+        <location filename="../qml/pages/FrontPage.qml" line="163"/>
         <source>Usual stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="162"/>
+        <location filename="../qml/pages/FrontPage.qml" line="168"/>
         <source>Nearest stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="167"/>
+        <location filename="../qml/pages/FrontPage.qml" line="173"/>
         <source>Lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FrontPage.qml" line="172"/>
+        <location filename="../qml/pages/FrontPage.qml" line="178"/>
         <source>Check card balance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -210,90 +215,80 @@ This app depends on suds libs for easy use of SOAP web services.</source>
         <source>Lines</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../qml/lists/LineList.qml" line="91"/>
-        <source>Circular</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/lists/LineList.qml" line="94"/>
-        <source>Long Line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/lists/LineList.qml" line="97"/>
-        <source>Regular</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/lists/LineList.qml" line="100"/>
-        <source>Trolley Car</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/lists/LineList.qml" line="103"/>
-        <source>Special</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/lists/LineList.qml" line="106"/>
-        <source>Nighttime</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/lists/LineList.qml" line="109"/>
-        <source>Other</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>LinesPage</name>
-    <message>
-        <location filename="../qml/pages/LinesPage.qml" line="41"/>
-        <source>Lines</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LinesPage.qml" line="127"/>
-        <source>Circular</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LinesPage.qml" line="130"/>
-        <source>Long Line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LinesPage.qml" line="133"/>
-        <source>Regular</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LinesPage.qml" line="136"/>
-        <source>Trolley Car</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LinesPage.qml" line="139"/>
-        <source>Special</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LinesPage.qml" line="142"/>
-        <source>Nighttime</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LinesPage.qml" line="145"/>
-        <source>Other</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>MapPage</name>
     <message>
         <location filename="../qml/pages/MapPage.qml" line="107"/>
         <source>Go back</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Settings</name>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="7"/>
+        <source>Unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="22"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="32"/>
+        <source>Database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="37"/>
+        <source>Lines and stops are stored in an internal database for faster use of the app. This way data is saved, less interaction with the server is required and some information is available without a proper internet conection. The main drawback of this approach is at some point the database goes outdated.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="44"/>
+        <source>Last update: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="48"/>
+        <source>Update database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="54"/>
+        <source>Use this option to update database and add missing data (i.e. missing lines). This may take a while.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="58"/>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="72"/>
+        <source>Updating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="83"/>
+        <source>Use this option to wipe and populate database from scratch. Notice you will only get the current available lines by the time of the day and the database should be manually updated -not wiped- when the other lines are available. This may take a while.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="101"/>
+        <source>Wiping and updating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="77"/>
+        <source>Wipe and update database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="87"/>
+        <source>Wipe &amp; update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -333,33 +328,33 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     </message>
 </context>
 <context>
-    <name>StopsMap</name>
+    <name>StopsList</name>
     <message>
-        <location filename="../qml/pages/StopsMap.qml" line="18"/>
-        <source>Go back</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="25"/>
-        <source>Change line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="116"/>
-        <source>De tu casa a la mía</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="61"/>
-        <source>Line </source>
+        <location filename="../qml/lists/StopsList.qml" line="83"/>
+        <source>Add to usual stops</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>StopsPage</name>
+    <name>StopsMap</name>
     <message>
-        <location filename="../qml/pages/StopsPage.qml" line="153"/>
-        <source>Add to usual stops</source>
+        <location filename="../qml/pages/StopsMap.qml" line="19"/>
+        <source>Go back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StopsMap.qml" line="26"/>
+        <source>Change line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StopsMap.qml" line="114"/>
+        <source>De tu casa a la mía</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StopsMap.qml" line="59"/>
+        <source>Line </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
