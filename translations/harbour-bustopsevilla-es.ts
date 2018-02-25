@@ -146,7 +146,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="64"/>
         <source>Settings</source>
-        <translation>Configuración</translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="70"/>
@@ -222,7 +222,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     <message>
         <location filename="../qml/pages/MapPage.qml" line="107"/>
         <source>Go back</source>
-        <translation>Atrás</translation>
+        <translation>Volver</translation>
     </message>
 </context>
 <context>
@@ -235,7 +235,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     <message>
         <location filename="../qml/pages/Settings.qml" line="22"/>
         <source>Settings</source>
-        <translation>Configuración</translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="32"/>
