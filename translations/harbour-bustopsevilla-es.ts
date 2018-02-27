@@ -254,11 +254,6 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
         <source>Please, select a line</source>
         <translation>Por favor, seleccione una línea</translation>
     </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="308"/>
-        <source>Near stops</source>
-        <translation>Paradas cercanas</translation>
-    </message>
 </context>
 <context>
     <name>TBDPage</name>
