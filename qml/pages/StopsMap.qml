@@ -9,7 +9,7 @@ import "../lists/utils.js" as MyUtils
 
 Page {
     id: stopsMapPage
-    backNavigation: myMap.state == "" ? false : true
+    backNavigation: myMap.state == "" ? true : false
     allowedOrientations: Orientation.PortraitMask
     property bool testing_rectagles: false
     PositionSource {
@@ -70,7 +70,7 @@ Page {
     Map{
         id: myMap
         width: parent.width
-        height: stopsMapPage.height - topSafeZone.height
+        height: Theme.itemSizeHuge
         anchors{
             top: topSafeZone.bottom
             left: parent.left
@@ -84,9 +84,9 @@ Page {
         }
         states: [
             State {
-                name: "map closed"
-                PropertyChanges { target: myMap; height: Theme.itemSizeHuge }
-                PropertyChanges { target: myLineList; height: stopsMapPage.height - topSafeZone.height - myMap.height }
+                name: "map open"
+                PropertyChanges { target: myMap; height: stopsMapPage.height - topSafeZone.height }
+                PropertyChanges { target: myLineList; height: 0}
             }
         ]
         MapItemView{
@@ -156,7 +156,7 @@ Page {
                 onClicked: {
                     console.log("Showing near stops")
 //                    pageStack.push("About.qml")
-                    myMap.state == "map closed" ? myMap.state = "" : myMap.state = "map closed"
+                    myMap.state == "map open" ? myMap.state = "" : myMap.state = "map open"
                 }
             }
             coordinate: src.position.coordinate
@@ -174,7 +174,7 @@ Page {
             onClicked: {
                 console.log("Clic on map")
                 if (myMap.state == ""){
-                    myMap.state = "map closed"
+                    myMap.state = "map open"
                 }
                 else{
                     myMap.state = ""
@@ -196,7 +196,7 @@ Page {
             top: myMap.bottom
         }
         PageHeader{}
-        height: 0
+        height: stopsMapPage.height - topSafeZone.height - myMap.height
         transitions: Transition {
             PropertyAnimation { duration: 100; properties: "height"; easing.type: Easing.InOutQuad }
         }
@@ -211,7 +211,7 @@ Page {
                 lineNumber.text = tappedData[0]
                 lineIcon.border.color = tappedData[2]
                 lineName.text = tappedData[1]
-                myMap.state = ""
+                myMap.state = "map open"
                 console.log("Number of stops loaded: "+myStopList.count)
                 myMap.center.latitude = 37.3715306
                 myMap.center.longitude = -5.9573124
@@ -224,7 +224,6 @@ Page {
         }
     }
     Component.onCompleted: {
-        myMap.state = "map closed"
         rootPage.current_page = ['StopsMap']
         MyUtils.getLines(listOfLines)
 //        TO BE DONE
