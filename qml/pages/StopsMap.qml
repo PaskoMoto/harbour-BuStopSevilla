@@ -70,7 +70,7 @@ Page {
     Map{
         id: myMap
         width: parent.width
-        height: stopsMapPage.height - topSafeZone.height - bottomSafeZone.height
+        height: stopsMapPage.height - topSafeZone.height
         anchors{
             top: topSafeZone.bottom
             left: parent.left
@@ -86,7 +86,7 @@ Page {
             State {
                 name: "map closed"
                 PropertyChanges { target: myMap; height: Theme.itemSizeHuge }
-                PropertyChanges { target: myLineList; height: stopsMapPage.height - topSafeZone.height - bottomSafeZone.height - myMap.height }
+                PropertyChanges { target: myLineList; height: stopsMapPage.height - topSafeZone.height - myMap.height }
             }
         ]
         MapItemView{
@@ -223,93 +223,17 @@ Page {
             }
         }
     }
-//    Deprecated
-    Item{
-        id: bottomSafeZone
-        width: parent.width
-//        height: Theme.itemSizeMedium
-        height: 0
-        visible: false
-        anchors{
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-        }
-        Rectangle{
-            color: "transparent"
-            border.color: "red"
-            anchors.fill: parent
-            visible: testing_rectagles
-        }
-        Separator{
-            anchors.top: parent.top
-            width: parent.width
-            color: Theme.highlightColor
-        }
-
-        BackgroundItem{
-            id: leftButton
-            height: parent.height
-            width: parent.width*2/5
-            anchors.left: parent.left
-            Image {
-                source: "image://theme/icon-m-back"
-                anchors.centerIn: parent
-            }
-            onClicked: {
-                console.log("Pressed on leftButton")
-                stopsMapPage.backNavigation=true
-                pageStack.navigateBack(PageStackAction.Animated)
-            }
-        }
-        BackgroundItem{
-            id: middleButton
-            height: parent.height
-            width: parent.width/5
-            anchors.centerIn: parent
-            Image {
-                source: myMap.state == "" ? "image://theme/icon-m-page-up" : "image://theme/icon-m-page-down"
-                anchors.centerIn: parent
-            }
-            onClicked: {
-                console.log("Pressed on middleButton")
-                if (myMap.state == "") {
-                    myMap.state = "map closed"
-                    myLineList.scrollToTop()
-                }
-                else{
-                    myMap.state = ""
-                }
-            }
-        }
-        BackgroundItem{
-            id: rightButton
-            height: parent.height
-            width: parent.width*2/5
-            anchors.right: parent.right
-            Image {
-                source: "image://theme/icon-m-person"
-                anchors.centerIn: parent
-            }
-            onClicked: {
-                console.log("Pressed on rightButton")
-            }
-        }
-        MouseArea{
-            hoverEnabled: true
-            onHoveredChanged: console.log("hovered!")
-        }
-    }
     Component.onCompleted: {
-        rootPage.current_page = ['StopsMap']
         myMap.state = "map closed"
+        rootPage.current_page = ['StopsMap']
         MyUtils.getLines(listOfLines)
-        listOfLines.insert(0, {"lineNumber": "",
-                               "lineName": qsTr("Near stops"),
-                               "lineColor": "",
-                               "lineType": "",
-                               "code": -1
-                           })
+//        TO BE DONE
+//        listOfLines.insert(0, {"lineNumber": "",
+//                               "lineName": qsTr("Near stops"),
+//                               "lineColor": "",
+//                               "lineType": "",
+//                               "code": -1
+//                           })
     }
 }
 
