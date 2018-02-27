@@ -134,14 +134,6 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
     </message>
 </context>
 <context>
-    <name>CoverStopPage</name>
-    <message>
-        <location filename="../qml/cover/CoverStopPage.qml" line="47"/>
-        <source>Stop nº </source>
-        <translation>Parada nº </translation>
-    </message>
-</context>
-<context>
     <name>FrontPage</name>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="64"/>
@@ -212,17 +204,9 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
 <context>
     <name>LineList</name>
     <message>
-        <location filename="../qml/lists/LineList.qml" line="9"/>
+        <location filename="../qml/lists/LineList.qml" line="10"/>
         <source>Lines</source>
         <translation>Líneas</translation>
-    </message>
-</context>
-<context>
-    <name>MapPage</name>
-    <message>
-        <location filename="../qml/pages/MapPage.qml" line="107"/>
-        <source>Go back</source>
-        <translation>Volver</translation>
     </message>
 </context>
 <context>
@@ -339,24 +323,9 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
 <context>
     <name>StopsMap</name>
     <message>
-        <location filename="../qml/pages/StopsMap.qml" line="19"/>
-        <source>Go back</source>
-        <translation>Volver</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="26"/>
-        <source>Change line</source>
-        <translation>Cambiar línea</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="114"/>
-        <source>De tu casa a la mía</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="59"/>
-        <source>Line </source>
-        <translation>Línea </translation>
+        <location filename="../qml/pages/StopsMap.qml" line="63"/>
+        <source>Please, select a line</source>
+        <translation>Por favor, seleccione una línea</translation>
     </message>
 </context>
 <context>

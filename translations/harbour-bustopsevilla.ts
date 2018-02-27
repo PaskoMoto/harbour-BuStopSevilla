@@ -133,14 +133,6 @@ This app depends on suds libs for easy use of SOAP web services.</source>
     </message>
 </context>
 <context>
-    <name>CoverStopPage</name>
-    <message>
-        <location filename="../qml/cover/CoverStopPage.qml" line="47"/>
-        <source>Stop nº </source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>FrontPage</name>
     <message>
         <location filename="../qml/pages/FrontPage.qml" line="64"/>
@@ -211,16 +203,8 @@ This app depends on suds libs for easy use of SOAP web services.</source>
 <context>
     <name>LineList</name>
     <message>
-        <location filename="../qml/lists/LineList.qml" line="9"/>
+        <location filename="../qml/lists/LineList.qml" line="10"/>
         <source>Lines</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MapPage</name>
-    <message>
-        <location filename="../qml/pages/MapPage.qml" line="107"/>
-        <source>Go back</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -338,23 +322,8 @@ This app depends on suds libs for easy use of SOAP web services.</source>
 <context>
     <name>StopsMap</name>
     <message>
-        <location filename="../qml/pages/StopsMap.qml" line="19"/>
-        <source>Go back</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="26"/>
-        <source>Change line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="114"/>
-        <source>De tu casa a la mía</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StopsMap.qml" line="59"/>
-        <source>Line </source>
+        <location filename="../qml/pages/StopsMap.qml" line="63"/>
+        <source>Please, select a line</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

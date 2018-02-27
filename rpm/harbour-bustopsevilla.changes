@@ -8,6 +8,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Feb 25 2018 J.Pablo Navarro <elfio@hiperones.es> 0.9-1
+- Added map with lines and stops.
+
 * Sun Feb 25 2018 J.Pablo Navarro <elfio@hiperones.es> 0.8-1
 - Added settings page.
 - Added db updater.
