@@ -9,186 +9,230 @@ import "../lists/utils.js" as MyUtils
 
 Page {
     id: stopsMapPage
-    backNavigation: false
+    backNavigation: myMap.state == "" ? true : false
     allowedOrientations: Orientation.PortraitMask
-    SilicaFlickable{
-        id: stopsMapPageFlickable
-        anchors.fill: parent
-        PushUpMenu{
-            MenuItem{
-                text: qsTr("Go back")
-                onClicked: {
-                    stopsMapPage.backNavigation=true
-                    pageStack.navigateBack(PageStackAction.Animated)
-                }
+    property bool testing_rectagles: false
+    PositionSource {
+        id: src
+        updateInterval: 1000
+        active: true
+    }
+    Item{
+        id: topSafeZone
+        width: parent.width
+        height: Theme.itemSizeExtraSmall*0.8
+        anchors{
+            top: parent.top
+            left: parent.left
+            right: parent.right
+        }
+        Rectangle{
+            color: "transparent"
+            border.color: "blue"
+            anchors.fill: parent
+            visible: testing_rectagles
+        }
+        Rectangle{
+            id: lineIcon
+            visible: myLineList.tappedData.length == 0 ? false : true
+            anchors.left: parent.left
+            anchors.leftMargin: Theme.itemSizeExtraSmall/4
+            anchors.verticalCenter: parent.verticalCenter
+            color: 'transparent'
+            height: parent.height*0.9
+            width: height
+            radius: width*0.5
+            border{
+                width: Theme.itemSizeExtraSmall/12
+//                color: lineColor
             }
-            MenuItem{
-                text: qsTr("Change line")
-                onClicked: {
-                    safezoneBottom.height = Theme.itemSizeLarge*5;
-                    MyUtils.getLines(ey)
-                }
-            }
-        }
-        PositionSource {
-            id: src
-            updateInterval: 1000
-            active: true
-        }
-        Item{
-            id: safezoneTop
-            anchors.top: parent.top
-            width: parent.width
-//            height: (lineCodeLabel.height + lineNameLabel.height)*1.1
-            height: 0
-        }
-        Item{
-            id: safezoneBottom
-            anchors.bottom: parent.bottom
-            width: parent.width
-            height: Theme.itemSizeLarge*2
-            Label{
-                id: lineCodeLabel
-                anchors {
-                    top: parent.top
-                    topMargin: Theme.itemSizeExtraSmall/10
-                    left: parent.left
-                    leftMargin: Theme.itemSizeExtraSmall/2
-                }
+            Label {
+                id: lineNumber
+                anchors.centerIn: parent
                 color: Theme.primaryColor
-                text: qsTr("Line ")+"3"
-                //font.bold: true
-                font.pixelSize: Theme.fontSizeLarge
-            }
-            Item{
-                id: resourcesContainer
-                visible: false
-                anchors{
-                    verticalCenter: lineCodeLabel.verticalCenter
-                    horizontalCenter: parent.horizontalCenter
-                }
-                width: (busIcon.width+lineResourcesLabel.width)*1.1
-                height: lineCodeLabel.height
-                Image {
-                    id: busIcon
-                    anchors{
-                        left: parent.left
-                        verticalCenter: parent.verticalCenter
-                    }
-                    source: "qrc:///res/bus_icon.png"
-                    fillMode: Image.PreserveAspectFit
-                    width: Theme.itemSizeExtraSmall/2.2
-                }
-                Label{
-                    id: lineResourcesLabel
-                    anchors {
-                        right: parent.right
-                        bottom: parent.bottom
-                    }
-                    color: Theme.secondaryColor
-                    text: "x "+"3"
-                    //font.bold: true
-                    font.pixelSize: Theme.fontSizeMedium
-                }
-            }
-            Label{
-                id: lineScheduleLabel
-                anchors {
-                    bottom: lineCodeLabel.bottom
-                    right: parent.right
-                    rightMargin: Theme.itemSizeExtraSmall/2
-                }
-                color: Theme.secondaryColor
-                text: "17:00" + " - " + "22:00"
-                //font.bold: true
-                font.pixelSize: Theme.fontSizeMedium
-            }
-            Label{
-                id: lineNameLabel
-                anchors {
-                    top: lineCodeLabel.bottom
-                    left: parent.left
-                    leftMargin: Theme.itemSizeExtraSmall/5
-                }
-                color: Theme.highlightColor
-                text: qsTr("De tu casa a la mía")
-                truncationMode: TruncationMode.Elide
-                //font.bold: true
-                font.pixelSize: Theme.fontSizeMedium
-            }
-            LineList{
-                id: testing
-                anchors.fill: parent
-                model: ListModel{
-                    id: ey
-                }
+                text: ""
+                font.pixelSize: Theme.fontSizeExtraSmall
+                font.bold: true
             }
         }
-}
-        Map{
-            id: map
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: parent.top
-                topMargin: safezoneTop.height
+        Label{
+            id: lineName
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: myLineList.tappedData.length == 0 ? parent.left : lineIcon.right
+            anchors.leftMargin: Theme.itemSizeExtraSmall/5
+            text: myLineList.tappedData.length == 0 ? qsTr("Please, select a line") : ""
+            color: Theme.highlightColor
+            font.pixelSize: Theme.fontSizeExtraSmall
+            truncationMode: TruncationMode.Fade
+            width: parent.width*0.75
+        }
+    }
+    Map{
+        id: myMap
+        width: parent.width
+        height: Theme.itemSizeHuge
+        anchors{
+            top: topSafeZone.bottom
+            left: parent.left
+            right: parent.right
+        }
+        plugin: Plugin {
+            name: "here"
+            PluginParameter { name: "app_id"; value: "SATvHCI03dfWJGK1AROi" }
+            PluginParameter { name: "app_code"; value: "qsU98SUji0bBsaUhiNJapQ" }
+            PluginParameter { name: "proxy"; value: "system" }
+        }
+        states: [
+            State {
+                name: "map open"
+                PropertyChanges { target: myMap; height: stopsMapPage.height - topSafeZone.height }
+                PropertyChanges { target: myLineList; height: 0}
             }
-            height: stopsMapPage.height - safezoneBottom.height - safezoneTop.height
-            plugin: Plugin {
-                name: "here"
-                PluginParameter { name: "app_id"; value: "SATvHCI03dfWJGK1AROi" }
-                PluginParameter { name: "app_code"; value: "qsU98SUji0bBsaUhiNJapQ" }
-                PluginParameter { name: "proxy"; value: "system" }
-            }
-            MapCircle{
-                id: uncertaintyCircle
-                // the center is set by a PressAndHold
-                radius: src.position.horizontalAccuracy
-                visible: true
-                color: 'blue'
-                border.width: 0
-                opacity: 0.2
-                center: src.position.coordinate
-            }
-            MapQuickItem {
-                id:currentPosition
-                sourceItem: Item{
-                    width: currentPositionIcon.width
-                    height: currentPositionIcon.height
+        ]
+        MapItemView{
+            model: myStopList
+            delegate: MapQuickItem {
+                id: stopIconItem
+                sourceItem: BackgroundItem{
+                    Rectangle{
+                        visible: false
+                        anchors.fill: parent
+                        border.color: "red"
+                        color: "transparent"
+                    }
+                    width: stopIcon.width
+                    height: stopIcon.height
                     Image{
-                        id:currentPositionIcon
-                        source: "image://theme/icon-m-person"
+                        id: stopIcon
+                        source: "image://theme/icon-m-location"
                         visible: false
                     }
                     ColorOverlay{
-                        anchors.fill: currentPositionIcon
-                        source: currentPositionIcon
-                        color: 'red'
+                        anchors.fill: stopIcon
+                        source: stopIcon
+                        color: 'blue'
+                    }
+                    onClicked: {
+                        console.log("You clicked on stop "+ stopName + " with stopNumber: " + stopNumber)
+                        pythonMain.ask(stopNumber);
+                        pageStack.push("StopPage.qml", {current_stop: stopNumber})
                     }
                 }
-                coordinate: uncertaintyCircle.center
-                visible: uncertaintyCircle.visible
-                anchorPoint.x: currentPosition.width/2
-                anchorPoint.y: currentPosition.height/2
+                coordinate: QtPositioning.coordinate(latitude, longitude)
+                anchorPoint.x: stopIconItem.width/2
+                anchorPoint.y: stopIconItem.height
             }
-            Component.onCompleted: {
-//                map.center = QtPositioning.coordinate(39.775, -3.845);
-                map.center = src.position.coordinate
-                console.log("==> "+src.horizontalAccuracy);
-                map.zoomLevel = 15;
-            }
-            MouseArea {
-                id:mapMouseArea
-                anchors.fill: parent
-                preventStealing: true
+        }
+        MapQuickItem {
+            id:currentPosition
+            sourceItem: BackgroundItem{
+                width: currentPositionIcon.width
+                height: currentPositionIcon.height
+                Rectangle{
+                    radius: currentPositionIcon.width
+                    gradient: Gradient {
+                        GradientStop {
+                            position: 0.00;
+                            color: Theme.highlightDimmerColor;
+                        }
+                        GradientStop {
+                            position: 1.10;
+                            color: "transparent";
+                        }
+                    }
+                    visible: true
+                    anchors.fill: parent
+                }
+                Image{
+                    id:currentPositionIcon
+                    source: "image://theme/icon-m-person"
+                    visible: true
+                    ColorOverlay{
+                        anchors.fill: currentPositionIcon
+                        source: currentPositionIcon
+                        color: Theme.primaryColor
+                    }
+                }
                 onClicked: {
-                    console.log("Clic on "+mouseX+", "+mouseY)
+                    console.log("Showing near stops")
+//                    pageStack.push("About.qml")
+                    myMap.state == "map open" ? myMap.state = "" : myMap.state = "map open"
+                }
+            }
+            coordinate: src.position.coordinate
+            anchorPoint.x: currentPositionIcon.width/2
+            anchorPoint.y: currentPositionIcon.height/2
+        }
+        Component.onCompleted: {
+            myMap.center = QtPositioning.coordinate(37.37153059279899, -5.957312423107226);
+            myMap.zoomLevel = 12;
+        }
+        MouseArea{
+            id: myMapMouseArea
+            anchors.fill: parent
+            propagateComposedEvents: true
+            onClicked: {
+                console.log("Clic on map")
+                if (myMap.state == ""){
+                    myMap.state = "map open"
+                }
+                else{
+                    myMap.state = ""
                 }
             }
         }
-
+        transitions: Transition {
+            PropertyAnimation { duration: 400; properties: "height"; easing.type: Easing.InOutQuad }
+        }
+    }
+    ListModel{
+        id: myStopList
+    }
+    LineList{
+        id: myLineList
+        width: parent.width
+        clip: true
+        anchors{
+            top: myMap.bottom
+        }
+        PageHeader{}
+        height: stopsMapPage.height - topSafeZone.height - myMap.height
+        transitions: Transition {
+            PropertyAnimation { duration: 100; properties: "height"; easing.type: Easing.InOutQuad }
+        }
+        model: ListModel{
+            id: listOfLines
+        }
+        workingMode: 2
+        onTappedDataChanged: {
+            if (tappedData.length > 0){
+                console.log("tappedData lenght: "+tappedData.length)
+                MyUtils.getStopsData(tappedData[4], myStopList)
+                lineNumber.text = tappedData[0]
+                lineIcon.border.color = tappedData[2]
+                lineName.text = tappedData[1]
+                myMap.state = "map open"
+                console.log("Number of stops loaded: "+myStopList.count)
+                myMap.center.latitude = 37.3715306
+                myMap.center.longitude = -5.9573124
+                myMap.zoomLevel = 12;
+                console.log("Center: "+myMap.center.latitude+ " - "+ myMap.center.longitude + " zoom level: "+ myMap.zoomLevel)
+            }
+            else{
+                console.log("tappedData still empty")
+            }
+        }
+    }
     Component.onCompleted: {
         rootPage.current_page = ['StopsMap']
+        MyUtils.getLines(listOfLines)
+//        TO BE DONE
+//        listOfLines.insert(0, {"lineNumber": "",
+//                               "lineName": qsTr("Near stops"),
+//                               "lineColor": "",
+//                               "lineType": "",
+//                               "code": -1
+//                           })
     }
 }
 

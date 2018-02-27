@@ -373,6 +373,7 @@ Page {
     }
 
     function populateStopData(mylist, stop_code) {
+        console.log("mylist "+ mylist)
         isUsual(stop_code);
         if (mylist){
             var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
@@ -444,7 +445,6 @@ Page {
         isUsual(code);
     }
     function isUsual(code){
-
         var db = LocalStorage.openDatabaseSync("bustopsevillaDB","1.0","Internal data for hitmemap! app.",1000000)
         db.transaction(
                     function(tx){

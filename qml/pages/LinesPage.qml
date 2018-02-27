@@ -37,6 +37,7 @@ import "../lists/utils.js" as MyUtils
 Page{
     id:pageLines
     LineList{
+        anchors.fill: parent
         model: ListModel{
             id: mymodel
         }
