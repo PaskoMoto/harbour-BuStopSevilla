@@ -204,7 +204,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
 <context>
     <name>LineList</name>
     <message>
-        <location filename="../qml/lists/LineList.qml" line="10"/>
+        <location filename="../qml/pages/LineList.qml" line="10"/>
         <source>Lines</source>
         <translation>Líneas</translation>
     </message>
@@ -280,34 +280,34 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
 <context>
     <name>StopPage</name>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="44"/>
+        <location filename="../qml/pages/StopPage.qml" line="45"/>
         <source>Add to usual stops</source>
         <translation>Añadir a mis paradas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="49"/>
+        <location filename="../qml/pages/StopPage.qml" line="50"/>
         <source>Remove from usual stops</source>
         <translation>Eliminar de mis paradas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="54"/>
+        <location filename="../qml/pages/StopPage.qml" line="55"/>
         <source>Refresh</source>
         <translation>Actualizar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="68"/>
+        <location filename="../qml/pages/StopPage.qml" line="69"/>
         <source>Loading...</source>
         <translation>Cargando...</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="311"/>
-        <location filename="../qml/pages/StopPage.qml" line="348"/>
+        <location filename="../qml/pages/StopPage.qml" line="312"/>
+        <location filename="../qml/pages/StopPage.qml" line="349"/>
         <source> minutes</source>
         <translation> minutos</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StopPage.qml" line="311"/>
-        <location filename="../qml/pages/StopPage.qml" line="348"/>
+        <location filename="../qml/pages/StopPage.qml" line="312"/>
+        <location filename="../qml/pages/StopPage.qml" line="349"/>
         <source> meters</source>
         <translation> metros</translation>
     </message>
@@ -315,7 +315,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
 <context>
     <name>StopsList</name>
     <message>
-        <location filename="../qml/lists/StopsList.qml" line="83"/>
+        <location filename="../qml/pages/StopsList.qml" line="83"/>
         <source>Add to usual stops</source>
         <translation>Añadir a mis paradas</translation>
     </message>
@@ -323,7 +323,7 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
 <context>
     <name>StopsMap</name>
     <message>
-        <location filename="../qml/pages/StopsMap.qml" line="63"/>
+        <location filename="../qml/pages/StopsMap.qml" line="62"/>
         <source>Please, select a line</source>
         <translation>Por favor, seleccione una línea</translation>
     </message>
@@ -339,12 +339,12 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
 <context>
     <name>UsualStopsPage</name>
     <message>
-        <location filename="../qml/pages/UsualStopsPage.qml" line="40"/>
+        <location filename="../qml/pages/UsualStopsPage.qml" line="41"/>
         <source>Your usual stops</source>
         <translation>Tus paradas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/UsualStopsPage.qml" line="120"/>
+        <location filename="../qml/pages/UsualStopsPage.qml" line="121"/>
         <source>Remove</source>
         <translation>Eliminar</translation>
     </message>
@@ -352,39 +352,39 @@ Esta aplicación depende de librerías suds para un uso sencillo de los servicio
 <context>
     <name>utils</name>
     <message>
-        <location filename="../qml/lists/utils.js" line="13"/>
+        <location filename="../qml/pages/utils.js" line="65"/>
         <source>Circular</source>
-        <translation>Circular</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/lists/utils.js" line="16"/>
+        <location filename="../qml/pages/utils.js" line="68"/>
         <source>Long Line</source>
-        <translation>Línea larga</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/lists/utils.js" line="19"/>
+        <location filename="../qml/pages/utils.js" line="71"/>
         <source>Regular</source>
-        <translation>Normal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/lists/utils.js" line="22"/>
+        <location filename="../qml/pages/utils.js" line="74"/>
         <source>Trolley Car</source>
-        <translation>Tranvía</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/lists/utils.js" line="25"/>
+        <location filename="../qml/pages/utils.js" line="77"/>
         <source>Special</source>
-        <translation>Especial</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/lists/utils.js" line="28"/>
+        <location filename="../qml/pages/utils.js" line="80"/>
         <source>Nighttime</source>
-        <translation>Nocturno</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/lists/utils.js" line="31"/>
+        <location filename="../qml/pages/utils.js" line="83"/>
         <source>Other</source>
-        <translation>Otro</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
